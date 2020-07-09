@@ -1,0 +1,40 @@
+{
+    "compilerOptions": {
+      "moduleResolution": "node",
+      "target": "esnext",
+      "module": "esnext",
+      "composite": true,
+      "outDir": "./dist/", // 指定输出目录
+      "baseUrl": ".",
+      "lib": [
+        "ES5",
+        "ES6",
+        "ES7",
+        "ES2015",
+        "ES2016",
+        "ES2017",
+        "ES2018",
+        "ESNext",
+        "dom"
+      ],
+      "strict": true,
+      "sourceMap": true,
+      "declaration": true,
+      "declarationDir": "dist",
+      "typeRoots": ["node_modules/@types"],
+      "allowSyntheticDefaultImports": true,
+      "paths": {
+        "@root/*": ["./*"],
+        "@/*": ["./src/*"],
+        "@test/*": ["./test/*"]
+      }
+    },
+    "include": ["src", "test"],
+    // typedoc
+    "typedocOptions": {
+      "inputFiles": ["src"],
+      "out": "docs",
+      "mode": "file",
+      "theme": "default"
+    }
+  }

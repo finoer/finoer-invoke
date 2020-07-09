@@ -1,0 +1,98 @@
+{
+  "name": "package-startup",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/finoer/package-startup"
+  },
+  "engines": {
+    "node": ">=10.13.0",
+    "npm": ">= 6.0.0"
+  },
+  "license": "MIT",
+  "main": "dist/src/index.js",
+  "module": "dist/package-startup.es.js",
+  "cjsmodule": "dist/package-startup.cjs.js",
+  "typings": "dist/src/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "typedoc": "typedoc",
+    "lint": "eslint --fix 'src/**/*.ts' 'test/**/*.ts'",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "prebuild": "rimraf dist",
+    "build": "rollup -c rollup.config.js && npm run typedoc",
+    "start": "rollup -c rollup.config.js -w",
+    "precommit": "lint-staged",
+    "commit": "git-cz",
+    "push": "git add . && npm run commit && git push",
+    "_publish": "npm run build && npm version patch -f && npm publish && npm run push"
+  },
+  "lint-staged": {
+    "{src,test}/**/*.ts": [
+      "prettier --tab-width 2 --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@commitlint/cli": "^7.1.2",
+    "@commitlint/config-conventional": "^7.1.2",
+    "@microsoft/tsdoc": "^0.12.19",
+    "@rollup/plugin-babel": "^5.0.2",
+    "@rollup/plugin-commonjs": "^12.0.0",
+    "@rollup/plugin-json": "^4.0.3",
+    "@rollup/plugin-node-resolve": "^8.0.0",
+    "@types/axios": "^0.14.0",
+    "@types/jest": "^23.3.2",
+    "@types/node": "^10.17.24",
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "23.6.0",
+    "commitizen": "^3.0.0",
+    "cz-conventional-changelog": "^2.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "handlebars": "^4.7.6",
+    "husky": "^4.2.5",
+    "jest": "^23.6.0",
+    "jest-canvas-mock": "^2.2.0",
+    "jest-config": "^23.6.0",
+    "lint-staged": "^10.2.2",
+    "lodash.camelcase": "^4.3.0",
+    "prettier": "^1.14.3",
+    "rimraf": "^2.6.2",
+    "rollup": "2.3.4",
+    "rollup-plugin-sourcemaps": "^0.6.2",
+    "rollup-plugin-terser": "^6.1.0",
+    "rollup-plugin-typescript2": "^0.27.1",
+    "ts-jest": "^23.10.2",
+    "ts-node": "^7.0.1",
+    "typedoc": "^0.17.3",
+    "typescript": "^3.5.1"
+  }
+}
