@@ -1,8 +1,7 @@
-import HelloWorld from './HelloWorld';
-class Startup {
-    constructor() {
-        console.log('初始化startup 越祈');
-    }
-}
-export { Startup, HelloWorld };
+import { registerApps } from './applycation/register';
+import Invoke from './invoke/index';
+import Router from './router';
+const invoke = new Invoke();
+const router = new Router(invoke);
+export { registerApps, invoke };
 //# sourceMappingURL=index.js.map

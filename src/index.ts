@@ -1,9 +1,18 @@
-import HelloWorld from './HelloWorld'
 
-class Startup {
-  constructor() {
-    console.log('初始化startup 越祈')
-  }
-}
+import { registerApps } from './applycation/register';
+import { GlobalType } from './types/context'
+import { isInFino } from './applycation/isInfino'
+import Invoke from './invoke/index';
+import Router from './router';
 
-export { Startup, HelloWorld }
+
+const invoke = new Invoke()
+const router = new Router(invoke)
+
+
+
+export { registerApps, invoke }
+
+
+
+

@@ -153,13 +153,125 @@
         "version": "1377923021927244ea19433873b997ad8585533b0a56d5de29cda497f7842756",
         "signature": "1377923021927244ea19433873b997ad8585533b0a56d5de29cda497f7842756"
       },
-      "../src/helloworld.ts": {
-        "version": "59211b6969ea964fef197068f30987978a69f807f93f2b3d75ab55ecebee50b1",
-        "signature": "7b84162a5861bf1c8391ba5e8f90bd2b5b2dc8d1f8406670f48ddda7449707b5"
+      "../../../node_modules/_vue@2.6.11@vue/types/vnode.d.ts": {
+        "version": "336721337da7deac683208a3089786c32cd834fd7e992cc2a9de5abd6100d8aa",
+        "signature": "336721337da7deac683208a3089786c32cd834fd7e992cc2a9de5abd6100d8aa"
+      },
+      "../../../node_modules/_vue@2.6.11@vue/types/options.d.ts": {
+        "version": "83e2325a245cc898ca63a68dcc0477efd47e97a3343c96547b26545d86a60cfb",
+        "signature": "83e2325a245cc898ca63a68dcc0477efd47e97a3343c96547b26545d86a60cfb"
+      },
+      "../../../node_modules/_vue@2.6.11@vue/types/plugin.d.ts": {
+        "version": "e8cc0280272ae461f8dc6eef59712323d9eea7abfd455a8d4861601f3c5a9a6f",
+        "signature": "e8cc0280272ae461f8dc6eef59712323d9eea7abfd455a8d4861601f3c5a9a6f"
+      },
+      "../../../node_modules/_vue@2.6.11@vue/types/vue.d.ts": {
+        "version": "c483036e3c3aea2c4b7d435120543bea042a68aa38e56b91344678384357eb27",
+        "signature": "c483036e3c3aea2c4b7d435120543bea042a68aa38e56b91344678384357eb27"
+      },
+      "../../../node_modules/_vue@2.6.11@vue/types/umd.d.ts": {
+        "version": "fe4441713df34868b3883ae9532d1390de8456e65534a26c019051bf170a3a93",
+        "signature": "fe4441713df34868b3883ae9532d1390de8456e65534a26c019051bf170a3a93"
+      },
+      "../../../node_modules/_vue@2.6.11@vue/types/index.d.ts": {
+        "version": "4a75e4b3cb109dcf5e977cb8ab1c8f9804073b37fa7f094785ee8014efdeabf4",
+        "signature": "4a75e4b3cb109dcf5e977cb8ab1c8f9804073b37fa7f094785ee8014efdeabf4"
+      },
+      "../src/global/index.ts": {
+        "version": "33ddb2f7a65ecb7e0747359f490a2a3486693edaa2e0d81bb080084c126bafaf",
+        "signature": "79c0180c95a90e0f3dd342dbe87fb5699c803382cf591c1515540d05c8994d4d"
+      },
+      "../src/loader/index.ts": {
+        "version": "944b0cf044b82fb303a647ab4ff171bad97be44b20ce06a2789cb719927ea55b",
+        "signature": "8c1b559a0c446a56c9a9abbb3f786f95c2ca3b9bb730c253fb9c8e63c5dac23c"
+      },
+      "../src/context/base.ts": {
+        "version": "378efc0d9095c883be558fd67f2da748f907b9690b3fb98449742f4288277cc3",
+        "signature": "12ef6f18bde03c79635fd907eb6a2832c944404ebf256532bc783b37c1bf9acd"
+      },
+      "../../../node_modules/_vue-router@3.3.4@vue-router/types/vue.d.ts": {
+        "version": "b56d9393ffa742581df97083f418938976ee0c8e576abfd06c1da35a5b7e84e4",
+        "signature": "b56d9393ffa742581df97083f418938976ee0c8e576abfd06c1da35a5b7e84e4"
+      },
+      "../../../node_modules/_vue-router@3.3.4@vue-router/types/router.d.ts": {
+        "version": "77f671ddc470533dedb8939c2ca11e4d07440181d561ba19be06ba0cd4340560",
+        "signature": "77f671ddc470533dedb8939c2ca11e4d07440181d561ba19be06ba0cd4340560"
+      },
+      "../../../node_modules/_vue-router@3.3.4@vue-router/types/index.d.ts": {
+        "version": "f68f527e5bb1750849a307e68218d31ea66804bd7c5f30cbf9f2ab2ba174e92b",
+        "signature": "f68f527e5bb1750849a307e68218d31ea66804bd7c5f30cbf9f2ab2ba174e92b"
+      },
+      "../src/context/vue.ts": {
+        "version": "348e69c7e0651852d81d45050973f54b4cbb8b40ae539d4c35325e8943ca7250",
+        "signature": "170201cf81495b23a5b2dca35b4e6a333b6b4502214b6e9f9dbd47362e9cced1"
+      },
+      "../src/events/index.ts": {
+        "version": "53628a96f9c245670e63902547d6f60bc8d9903240e199af430770f57a021dfd",
+        "signature": "2dd439f3705520bb02be24722d9c0c84b9139d1566353a3a6cf1f3810fae4552"
+      },
+      "../src/types/context.ts": {
+        "version": "cf677fe74b8021fc18eaa7f5715f69f4c99d8ced74ea1e76d7f342a6c3af095f",
+        "signature": "fc0949ef7ef566ab81cefab4cb6a93a734f1e022e096a3f314ff93bb67a4824d"
+      },
+      "../src/project/appinfo.ts": {
+        "version": "b7f9c545abb188bb931716d7bd4c990fc631090590a7ca01b6c2bcc468727c38",
+        "signature": "717904e9ac36515d0ff74c9386b852fddcfb3ded0a223ef20a188bdc7d1bc98b"
+      },
+      "../src/project/index.ts": {
+        "version": "ab736aa61fe93dbf99f35979d60d2fde942d155b5f9c2d60db38141464099112",
+        "signature": "f00218408c8a77e97c661c1904cb8a90ce684523518f2891d68468756a3cef9a"
+      },
+      "../src/applycation/store.ts": {
+        "version": "ec6d034db0dc40dd22d87ff89d6900008683d0081ef8c9fd2bff0e60bf173402",
+        "signature": "e80ef7ecb7de0ab0891618262e1739d8466ea1c277da8c4b418ca3f6c2000653"
+      },
+      "../src/applycation/register.ts": {
+        "version": "4afd34cb8c7fd757a842098dd949579c12de3dd658adc72ad23501097293e8ff",
+        "signature": "5d372d2b23186a3d311834cfe7d6d8caa4e2c7ffb717f5668bfe55844a6fc8d9"
+      },
+      "../src/applycation/isinfino.ts": {
+        "version": "48d60f79b61c4bd5896c2c957fb47f87eecaece905589afee77591771e25b0b4",
+        "signature": "49bd7842ba7e77657ac12448dbe30165dc6e7a8a8f1b0a46e73c21a4ba3d83af"
+      },
+      "../src/utils/index.ts": {
+        "version": "ee5a9db42c280bc3610960a68b20be8845484bdfbc3d25d66d7b7800f8951556",
+        "signature": "08a1ec89769c7e29b4401f99f9578762963f78728ea3e8eba12d70bcf933e8a7"
+      },
+      "../src/context/init.ts": {
+        "version": "070dcf03bf3b95b3f1c5c7f0916506ac633f9775230baff2fbca22c23da39b88",
+        "signature": "f6105ffa47fdb6197eb528385e5d7f15eceeb3b3b82fc62034e1c42946aae2ff"
+      },
+      "../src/invoke/index.ts": {
+        "version": "10e56ef3496c14c3160a94d0cc96d24d041b371e88dc0cf6c1316748c3d4a651",
+        "signature": "ab2d4e4336599f8b573320bc39932cd6f2028b0ae2a051da8f5d3d5604705dc5"
+      },
+      "../src/router/capturedlisteners.ts": {
+        "version": "2f271345c86148eb0fa9c528f6d641bab82ec587c0687e3fcfa333d788ca8287",
+        "signature": "d388ed2c2545c90d3d83b26c5b0ae3b31b734bfd1eeb8866c6bb9983a7677030"
+      },
+      "../src/router/index.ts": {
+        "version": "d82bd66706bbdc1355113b653e1569a960dea4d04abe9ba5b833577755395085",
+        "signature": "1468ce64a41c07249eee55990a9cd67bd4246d67d6d86be234e7317a2bf772f7"
       },
       "../src/index.ts": {
-        "version": "f470a782d2b4bb1b4ea85f5171f7ac16b7c69cf37a54b596faa609b41bdcd69e",
-        "signature": "8444f35f9f5b1509219a00418679d8d1db5e1d3ce5ccf667dbcf5849c742d47f"
+        "version": "4f8e98ba89b53bfab70581a2500100235423d749143eb11501e0a823fe700368",
+        "signature": "dea86eb7bbd8d6089b39d9426feca32f0426a448886e47e67d64a73d2abbbd54"
+      },
+      "../src/context/react.ts": {
+        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "../src/model/index.ts": {
+        "version": "3b03612561c76e9d66a7d74cc89757ad353dddd92a63450596c64942b20d0329",
+        "signature": "dfcd4fb2be4e947ad11fd2d76047a25b45418d4b205d36e6dce1e83fb49b225c"
+      },
+      "../src/router/base.ts": {
+        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "../src/utils/contants.ts": {
+        "version": "39a17a2047420381ca1899986707c1c9bf0601d26629f312fa5a87bbf17986c0",
+        "signature": "5f85de2afb1a1002d5544b517a99e7386a85e3a77bc2e3c690c31c8db0263463"
       },
       "../test/helloworld.test.ts": {
         "version": "9dd502573d7e69e2b366fef9939c01047ab421f037ab16cbd86fd1fd27954599",
@@ -207,18 +319,230 @@
       "configFilePath": "../tsconfig.json"
     },
     "referencedMap": {
+      "../../../node_modules/_vue@2.6.11@vue/types/vnode.d.ts": [
+        "../../../node_modules/_vue@2.6.11@vue/types/vue.d.ts"
+      ],
+      "../../../node_modules/_vue@2.6.11@vue/types/options.d.ts": [
+        "../../../node_modules/_vue@2.6.11@vue/types/vue.d.ts",
+        "../../../node_modules/_vue@2.6.11@vue/types/vnode.d.ts"
+      ],
+      "../../../node_modules/_vue@2.6.11@vue/types/plugin.d.ts": [
+        "../../../node_modules/_vue@2.6.11@vue/types/vue.d.ts"
+      ],
+      "../../../node_modules/_vue@2.6.11@vue/types/vue.d.ts": [
+        "../../../node_modules/_vue@2.6.11@vue/types/options.d.ts",
+        "../../../node_modules/_vue@2.6.11@vue/types/vnode.d.ts",
+        "../../../node_modules/_vue@2.6.11@vue/types/plugin.d.ts"
+      ],
+      "../../../node_modules/_vue@2.6.11@vue/types/umd.d.ts": [
+        "../../../node_modules/_vue@2.6.11@vue/types/index.d.ts",
+        "../../../node_modules/_vue@2.6.11@vue/types/options.d.ts"
+      ],
+      "../../../node_modules/_vue@2.6.11@vue/types/index.d.ts": [
+        "../../../node_modules/_vue@2.6.11@vue/types/vue.d.ts",
+        "../../../node_modules/_vue@2.6.11@vue/types/umd.d.ts",
+        "../../../node_modules/_vue@2.6.11@vue/types/options.d.ts",
+        "../../../node_modules/_vue@2.6.11@vue/types/plugin.d.ts",
+        "../../../node_modules/_vue@2.6.11@vue/types/vnode.d.ts"
+      ],
+      "../src/global/index.ts": [
+        "../../../node_modules/_vue@2.6.11@vue/types/index.d.ts",
+        "../src/project/index.ts",
+        "../../../node_modules/_vue@2.6.11@vue/types/umd.d.ts",
+        "../src/applycation/register.ts",
+        "../src/types/context.ts"
+      ],
+      "../src/context/base.ts": [
+        "../src/global/index.ts",
+        "../src/loader/index.ts"
+      ],
+      "../../../node_modules/_vue-router@3.3.4@vue-router/types/vue.d.ts": [
+        "../../../node_modules/_vue@2.6.11@vue/types/index.d.ts",
+        "../../../node_modules/_vue-router@3.3.4@vue-router/types/index.d.ts",
+        "../../../node_modules/_vue@2.6.11@vue/types/vue.d.ts",
+        "../../../node_modules/_vue@2.6.11@vue/types/options.d.ts"
+      ],
+      "../../../node_modules/_vue-router@3.3.4@vue-router/types/router.d.ts": [
+        "../../../node_modules/_vue@2.6.11@vue/types/index.d.ts"
+      ],
+      "../../../node_modules/_vue-router@3.3.4@vue-router/types/index.d.ts": [
+        "../../../node_modules/_vue-router@3.3.4@vue-router/types/vue.d.ts",
+        "../../../node_modules/_vue-router@3.3.4@vue-router/types/router.d.ts"
+      ],
+      "../src/context/vue.ts": [
+        "../src/context/base.ts",
+        "../../../node_modules/_vue-router@3.3.4@vue-router/types/index.d.ts",
+        "../../../node_modules/_vue@2.6.11@vue/types/umd.d.ts"
+      ],
+      "../src/types/context.ts": [
+        "../src/context/vue.ts",
+        "../src/events/index.ts",
+        "../src/global/index.ts"
+      ],
+      "../src/project/index.ts": [
+        "../src/types/context.ts",
+        "../src/project/appinfo.ts"
+      ],
+      "../src/applycation/register.ts": [
+        "../src/project/index.ts",
+        "../src/index.ts",
+        "../src/applycation/store.ts"
+      ],
+      "../src/applycation/isinfino.ts": [
+        "../src/applycation/store.ts"
+      ],
+      "../src/utils/index.ts": [
+        "../src/project/index.ts",
+        "../src/global/index.ts",
+        "../src/types/context.ts"
+      ],
+      "../src/context/init.ts": [
+        "../src/context/vue.ts",
+        "../src/types/context.ts"
+      ],
+      "../src/invoke/index.ts": [
+        "../src/project/index.ts",
+        "../src/applycation/register.ts",
+        "../src/applycation/store.ts",
+        "../src/utils/index.ts",
+        "../src/types/context.ts",
+        "../src/events/index.ts",
+        "../src/loader/index.ts",
+        "../src/global/index.ts",
+        "../src/context/init.ts",
+        "../src/context/vue.ts"
+      ],
+      "../src/router/index.ts": [
+        "../src/router/capturedlisteners.ts",
+        "../src/invoke/index.ts",
+        "../src/applycation/register.ts"
+      ],
       "../src/index.ts": [
-        "../src/helloworld.ts"
+        "../src/applycation/register.ts",
+        "../src/types/context.ts",
+        "../src/applycation/isinfino.ts",
+        "../src/invoke/index.ts",
+        "../src/router/index.ts"
+      ],
+      "../src/model/index.ts": [
+        "../src/project/index.ts"
       ]
     },
     "exportedModulesMap": {
+      "../../../node_modules/_vue@2.6.11@vue/types/vnode.d.ts": [
+        "../../../node_modules/_vue@2.6.11@vue/types/vue.d.ts"
+      ],
+      "../../../node_modules/_vue@2.6.11@vue/types/index.d.ts": [
+        "../../../node_modules/_vue@2.6.11@vue/types/vue.d.ts",
+        "../../../node_modules/_vue@2.6.11@vue/types/umd.d.ts",
+        "../../../node_modules/_vue@2.6.11@vue/types/options.d.ts",
+        "../../../node_modules/_vue@2.6.11@vue/types/plugin.d.ts",
+        "../../../node_modules/_vue@2.6.11@vue/types/vnode.d.ts"
+      ],
+      "../../../node_modules/_vue-router@3.3.4@vue-router/types/router.d.ts": [
+        "../../../node_modules/_vue@2.6.11@vue/types/index.d.ts"
+      ],
+      "../../../node_modules/_vue-router@3.3.4@vue-router/types/index.d.ts": [
+        "../../../node_modules/_vue-router@3.3.4@vue-router/types/vue.d.ts",
+        "../../../node_modules/_vue-router@3.3.4@vue-router/types/router.d.ts"
+      ],
+      "../src/context/vue.ts": [
+        "../../../node_modules/_vue@2.6.11@vue/types/umd.d.ts",
+        "../../../node_modules/_vue-router@3.3.4@vue-router/types/index.d.ts",
+        "../src/context/base.ts"
+      ],
+      "../src/invoke/index.ts": [
+        "../src/project/index.ts",
+        "../src/events/index.ts"
+      ],
       "../src/index.ts": [
-        "../src/helloworld.ts"
+        "../src/applycation/register.ts",
+        "../src/invoke/index.ts"
+      ],
+      "../src/applycation/register.ts": [
+        "../src/project/index.ts"
+      ],
+      "../src/router/index.ts": [
+        "../src/invoke/index.ts"
+      ],
+      "../src/global/index.ts": [
+        "../src/project/index.ts",
+        "../../../node_modules/_vue@2.6.11@vue/types/umd.d.ts",
+        "../../../node_modules/_vue@2.6.11@vue/types/index.d.ts"
+      ],
+      "../src/utils/index.ts": [
+        "../src/project/index.ts",
+        "../src/types/context.ts"
+      ],
+      "../src/types/context.ts": [
+        "../src/context/vue.ts",
+        "../src/events/index.ts",
+        "../src/global/index.ts"
+      ],
+      "../src/context/init.ts": [
+        "../src/types/context.ts"
+      ],
+      "../src/project/index.ts": [
+        "../src/project/appinfo.ts",
+        "../src/types/context.ts"
+      ],
+      "../src/model/index.ts": [
+        "../src/project/index.ts"
+      ],
+      "../../../node_modules/_vue-router@3.3.4@vue-router/types/vue.d.ts": [
+        "../../../node_modules/_vue@2.6.11@vue/types/index.d.ts",
+        "../../../node_modules/_vue-router@3.3.4@vue-router/types/index.d.ts",
+        "../../../node_modules/_vue@2.6.11@vue/types/vue.d.ts",
+        "../../../node_modules/_vue@2.6.11@vue/types/options.d.ts"
+      ],
+      "../../../node_modules/_vue@2.6.11@vue/types/umd.d.ts": [
+        "../../../node_modules/_vue@2.6.11@vue/types/index.d.ts",
+        "../../../node_modules/_vue@2.6.11@vue/types/options.d.ts"
+      ],
+      "../../../node_modules/_vue@2.6.11@vue/types/vue.d.ts": [
+        "../../../node_modules/_vue@2.6.11@vue/types/options.d.ts",
+        "../../../node_modules/_vue@2.6.11@vue/types/vnode.d.ts",
+        "../../../node_modules/_vue@2.6.11@vue/types/plugin.d.ts"
+      ],
+      "../../../node_modules/_vue@2.6.11@vue/types/plugin.d.ts": [
+        "../../../node_modules/_vue@2.6.11@vue/types/vue.d.ts"
+      ],
+      "../../../node_modules/_vue@2.6.11@vue/types/options.d.ts": [
+        "../../../node_modules/_vue@2.6.11@vue/types/vue.d.ts",
+        "../../../node_modules/_vue@2.6.11@vue/types/vnode.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
-      "../src/helloworld.ts",
+      "../../../node_modules/_vue@2.6.11@vue/types/vnode.d.ts",
+      "../../../node_modules/_vue@2.6.11@vue/types/options.d.ts",
+      "../../../node_modules/_vue@2.6.11@vue/types/plugin.d.ts",
+      "../../../node_modules/_vue@2.6.11@vue/types/vue.d.ts",
+      "../../../node_modules/_vue@2.6.11@vue/types/umd.d.ts",
+      "../../../node_modules/_vue@2.6.11@vue/types/index.d.ts",
+      "../src/global/index.ts",
+      "../src/loader/index.ts",
+      "../src/context/base.ts",
+      "../../../node_modules/_vue-router@3.3.4@vue-router/types/vue.d.ts",
+      "../../../node_modules/_vue-router@3.3.4@vue-router/types/router.d.ts",
+      "../../../node_modules/_vue-router@3.3.4@vue-router/types/index.d.ts",
+      "../src/context/vue.ts",
+      "../src/events/index.ts",
+      "../src/types/context.ts",
+      "../src/project/appinfo.ts",
+      "../src/project/index.ts",
+      "../src/applycation/store.ts",
+      "../src/applycation/register.ts",
+      "../src/applycation/isinfino.ts",
+      "../src/utils/index.ts",
+      "../src/context/init.ts",
+      "../src/invoke/index.ts",
+      "../src/router/capturedlisteners.ts",
+      "../src/router/index.ts",
       "../src/index.ts",
+      "../src/context/react.ts",
+      "../src/model/index.ts",
+      "../src/router/base.ts",
+      "../src/utils/contants.ts",
       "../test/helloworld.test.ts",
       "../../../node_modules/typescript/lib/lib.es2015.d.ts",
       "../../../node_modules/typescript/lib/lib.es2016.d.ts",
