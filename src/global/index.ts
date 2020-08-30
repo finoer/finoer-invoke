@@ -4,7 +4,11 @@ import { Project } from "../project"
 import { VueConstructor } from "vue/types/umd"
 import { Apps } from '../applycation/register'
 import { GlobalType } from '../types/context'
+import { AppInfoType } from '../project/appInfo'
 
+interface CacheType {
+  [propsName:string]: boolean;
+}
 /**
  * @class 全局单例
  */
@@ -13,7 +17,14 @@ export class GlobalContext {
   public activedApplication: Project
 
   // 当前需要加载的子模块
-  public activeAppInfo: any
+  public activeAppInfo: AppInfoType = {
+    app: '',
+    context: '',
+    version: ''
+  }
+
+  // 资源缓存
+  public contextSourceCache: CacheType = {};
 
   // 当前运行环境
   public activeContext: VueConstructor<Vue> | Window | any
@@ -22,7 +33,7 @@ export class GlobalContext {
   constructor() {
     this.activedApplication = Apps[0]
 
-    this.activeContext = window
+    this.activeContext = Window
   }
 
   // 设置运行环境

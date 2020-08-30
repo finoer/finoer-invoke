@@ -1,7 +1,11 @@
+
+import { VueConstructor } from "vue/types/umd"
+
+
+
 export interface AppInfoType {
-  main: string;
+  app: string;
   context: string;
   version: string;
-  module: string;
-  routes: Array<any>
+  instance?: VueConstructor<Vue> | Window | any,
 }

@@ -1,17 +1,25 @@
-import { Project } from "../project";
+import { Project, BaseProject } from "../project";
 import { Apps } from "../applycation/register";
 import { getStore, setStore } from "../applycation/store";
 import { getAppShouldBeActive, registerEvents } from "../utils";
-import { GlobalType } from '../types/context'
+import { GlobalType, ContextType } from '../types/context'
 import Events from "../events";
 import { tagLoadJs } from "../loader";
 import { globalContext } from "../global";
 import initRuntimeContext from "../context/init";
 import VueRuntimeContext from "../context/vue";
+import { BOOTSTRAP, MOUNTED, MOUNT } from "../utils/contants";
 
+
+enum LifeCircle {
+  BOOTSTRAP = 'bootstrap',
+  MOUNTED = 'mount'
+}
 class Invoke {
   // 运行环境：基座还是子模块独立运行
   public runtimeInfino: boolean = true;
+  // 子模块列表
+  public appList: Array<Project> = [];
   // 运行子模块：默认第一个
   public app: Project = Apps[0];
   // 事件中心
@@ -26,69 +34,140 @@ class Invoke {
   }
 
   /**
+   * @methods { 初始化项目列表 }
+   * @param apps
+   */
+  public init(apps: Array<BaseProject>) {
+    apps.map((item, index) => {
+      item.status = BOOTSTRAP
+    })
+
+    this.appList = (apps as Project[])
+
+    this.performAppChnage(this.appList)
+
+    return this.appList
+  }
+
+  /**
    * @methods { 调度app模块 }
    * @desc
    * @params { - apps: 子模块列表 }
    */
   async performAppChnage(apps: Array<Project>) {
-    debugger
     // 获取需要被挂载的应用
-    this.app = getAppShouldBeActive(apps)[0] || Apps[0];
+    const activeApp = getAppShouldBeActive(apps);
 
-    // 获取应用项目基本信息， 包括js地址什么的
+    this.app = activeApp.app
+
+    // 触发app进入的loading
+    this.$event.notify('appLeave')
+
+    // 获取当前应用的生命周期函数 bootstrap, mount
+    const lifecircle = this.app.status.toLocaleLowerCase();
+
+    await this[(lifecircle as LifeCircle)]()
+
+    // 此时app的各种信息已经就绪， 合并缓存的信息到当前的app上，
+    this.app = Object.assign(this.app, globalContext.activeAppInfo,  globalContext.activedApplication)
+
+
+    Apps[activeApp.index] = this.app
+
+    this.$event.notify('appEnter')
+
+  }
+
+  /**
+   * @methods { bootstrap生命周期函数 }
+   */
+  async bootstrap() {
+
+    let activeProject: Project['appInfo'];
+
     const entryStatePath = this.app.domain + this.app.entry;
 
-    const activeProject: Project['appInfo'] = await this.getEntryJs(entryStatePath)
+    activeProject = await this.getEntryJs(entryStatePath)
+
+    // 获取基础js
 
     if(!activeProject) {
       return
     }
 
-    // 加载入口文件
-    globalContext.activedApplication = await this.getModuleJs(activeProject)
-    debugger
+    // 加载入口文件 { init: () => {}, name: string, destory: () => {} }
+    globalContext.activedApplication = await this.getModuleJs(this.app.domain, globalContext.activeAppInfo);
 
+    // 执行mount生命周期
+    await this.mount()
+  }
+
+  /**
+   * @methods { mount生命周期函数 }
+   * @des 创建运行环境， 注入路由
+   */
+  async mount() {
+    // 当前应用信息
+    const activeProject = this.app
     // 创建运行环境
-    let runtime: VueRuntimeContext | undefined;
+    let runtime: ContextType['context'] = globalContext.activeContext;
 
-    if(activeProject.context !== globalContext.activeContext.context) {
-      runtime = globalContext.activeContext = await initRuntimeContext(activeProject.context, activeProject.version);
-      Object.assign(globalContext.activeContext, activeProject)
+    if(activeProject.context !== globalContext.activeAppInfo.context) {
+      // 如果
+      activeProject.context &&
+      Object.assign(globalContext.activeAppInfo, {
+        context: activeProject.context, version: activeProject.version
+      })
+
+      // 卸载之前的运行环境
+      runtime && runtime.destroy && runtime.destroy()
+      runtime = globalContext.activeContext = await initRuntimeContext(globalContext.activeAppInfo.context, globalContext.activeAppInfo.version);
+      // 将创建出来的运行环境存储到全局
     }else {
       runtime = globalContext.activeContext
     }
 
     // 环境初始化成功， 开始注入路由
-    if(this.app.name === globalContext.activedApplication.name)  {
+    if(this.app.status === MOUNT || this.app.name === globalContext.activedApplication.name)  {
+      if(this.app.status === MOUNT) {
+        globalContext.activedApplication = this.app
+      }
       // 注入路由
-      globalContext.activedApplication.init && globalContext.activedApplication.init((runtime as VueRuntimeContext))
+      globalContext.activedApplication.init && globalContext.activedApplication.init((runtime as VueRuntimeContext), globalContext.activeContext)
     }
 
-    this.app = Object.assign(this.app, activeProject,  globalContext.activedApplication)
+    this.app.status = MOUNT
 
-    this.app.status = "MOUNTED";
+  }
 
-    console.log('activeProject', this.app)
+  public mounted() {
+
   }
 
   /**
    * @function getModuleJs
    */
-  async getModuleJs(assetsData: any): Promise<Project> {
-    debugger
+  async getModuleJs(baseDomain: string, assetsData: any): Promise<Project> {
     if(typeof(assetsData.app) === 'string') {
-      await this.getEntryJs(this.app.domain + '/' + assetsData.app)
-
-      return globalContext.activedApplication
-    }
-
-    for(let i = 0; i < assetsData.app.length; i++) {
-      await this.getEntryJs(this.app.domain + '/' + assetsData.app[i])
-
-      return globalContext.activedApplication
+      await this.getEntryJs(baseDomain + '/' + assetsData.app)
+    }else {
+      await this.getEntryJs(baseDomain + '/' + assetsData.app[0])
     }
 
     return globalContext.activedApplication
+
+    /**
+     * @remark 多入口js，
+
+    for(let i = 0; i < assetsData.app.length; i++) {
+      await this.getEntryJs(baseDomain + '/' + assetsData.app[i])
+
+      return globalContext.activedApplication
+    }
+
+
+    return globalContext.activedApplication
+    */
   }
 
 

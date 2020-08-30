@@ -6,9 +6,11 @@
  */
 import { tagLoadJs } from "../loader";
 class BaseModuleContext {
-    constructor() {
+    constructor(type) {
         // 资源的base url
         this.baseUrl = `https://cdn.bootcdn.net/ajax/libs`;
+        this.context = "";
+        this.context = type;
     }
     // 获取运行环境沙箱
     getSandBoxJs(type, version) {

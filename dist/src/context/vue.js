@@ -1,22 +1,36 @@
 import BaseModuleContext from "./base";
-import Router from 'vue-router';
+import { globalContext } from "../global";
 class VueRuntimeContext extends BaseModuleContext {
     constructor() {
-        super();
+        super("vue");
+    }
+    /**
+     * @func 获取资源
+     * @param version
+     */
+    async getContextResource(version) {
+        if (globalContext.contextSourceCache.vue) {
+            return;
+        }
+        // 获取当前运行环境所需的资源
+        const context = await this.getSandBoxJs('vue', version);
+        const routerLib = await this.getSandBoxJs('vue-router', '3.4.3');
+        globalContext.contextSourceCache.vue = true;
+        globalContext.contextSourceCache.vueRouter = true;
+        return context;
     }
     /**
      * @func {*} 初始化vue运行环境
      */
-    async createContext(version) {
-        // 获取当前运行环境所需的资源
-        const context = await this.getSandBoxJs('vue', version);
+    createContext(version) {
         // 创建插入节点
         let rootDom = document.createElement('div');
         rootDom.setAttribute('id', 'root');
         document.body.appendChild(rootDom);
         const Vue = window.Vue;
-        Vue.use(Router);
-        const router = new Router({
+        const VueRouter = window.VueRouter;
+        Vue.use(VueRouter);
+        const router = new VueRouter({
             mode: 'history',
             routes: []
         });
@@ -24,7 +38,6 @@ class VueRuntimeContext extends BaseModuleContext {
             el: rootDom,
             router,
             render: (h) => h('div', { attrs: { id: 'root' } }, [
-                'vue实例',
                 h('RouterView')
             ])
         });
@@ -40,6 +53,14 @@ class VueRuntimeContext extends BaseModuleContext {
         this.instance.$router.addRoutes(routes);
         this.instance.$router.options.routes = routes;
         // this.instance.$router.push('/about')
+    }
+    /**
+     * @func 卸载运行环境
+     */
+    destroy() {
+        this.instance && this.instance.$destroy();
+        const element = document.getElementById('root');
+        element && document.body.removeChild(element);
     }
 }
 export default VueRuntimeContext;

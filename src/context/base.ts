@@ -13,18 +13,22 @@ abstract class BaseModuleContext {
   // 资源的base url
   public baseUrl: string = `https://cdn.bootcdn.net/ajax/libs`;
 
-  constructor() {
+  public context: string = ""
 
+  constructor(type: string) {
+    this.context = type
   }
 
   // 获取运行环境沙箱
   public getSandBoxJs(type: string, version: string) {
     const url = `${this.baseUrl}/${type}/${version}/${type}.min.js`;
-
     return tagLoadJs(url)
   }
 
   abstract createContext(version: string): any
+
+  abstract destroy(): void
+
 }
 
 export default BaseModuleContext

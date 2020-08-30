@@ -1,4 +1,5 @@
 import VueRuntimeContext from "./vue";
+import PhaserRuntimeContext from "./phaser";
 /**
  * @func 初始化运行环境
  * @param { context - 运行环境类型: like vue }
@@ -6,9 +7,11 @@ import VueRuntimeContext from "./vue";
 async function initRuntimeContext(context, version) {
     const runtimePool = {
         vue: VueRuntimeContext,
+        phaser: PhaserRuntimeContext
     };
     const runtime = new runtimePool[context]();
-    runtime.instance = await runtime.createContext(version);
+    const source = await runtime.getContextResource(version);
+    runtime.instance = runtime.createContext(version);
     return runtime;
 }
 export default initRuntimeContext;

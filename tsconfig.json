@@ -15,7 +15,8 @@
             "ES2017",
             "ES2018",
             "ESNext",
-            "dom"
+            "dom",
+            "scripthost",
         ],
         "strict": true,
         "sourceMap": true,

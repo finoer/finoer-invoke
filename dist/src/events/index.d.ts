@@ -6,7 +6,7 @@ declare class Events {
      * @param listener 订阅事件的回调
      * @param flay 插入顺序
      */
-    subscribe(type: string, listener: (data: any) => any, flag?: boolean): void;
+    subscribe(type: string, listener: (data: any) => any | any, flag?: boolean): void;
     /**
      * 通知消息
      * @param type 需要分发的事件的名字

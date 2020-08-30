@@ -12,7 +12,7 @@ class Events {
      * @param listener 订阅事件的回调
      * @param flay 插入顺序
      */
-    subscribe(type: string, listener: (data: any) => any, flag?: boolean) {
+    subscribe(type: string, listener: (data: any) => any | any, flag?: boolean) {
 		// 如果订阅的事件在事件池里面存在
 
 		if(this._events[type]) {

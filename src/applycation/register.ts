@@ -1,15 +1,13 @@
-import { Project } from "../project"
+import { Project, BaseProject } from "../project"
 import { invoke } from ".."
 import { setStore } from "./store";
 
 export let Apps: Array<Project> = []
 
-export function registerApps(app: Array<Project>): Array<Project> {
-  Apps = app;
+export function registerApps(app: Array<BaseProject>): Array<Project> {
 
   setStore('root', 'root')
-  invoke.performAppChnage(Apps)
-
+  Apps = invoke.init(app)
 
   return Apps
 }
