@@ -8,7 +8,7 @@ import babel from '@rollup/plugin-babel'
 import pkg from './package.json'
 import {terser} from 'rollup-plugin-terser'
 
-const libraryName = pkg.name
+const libraryName = pkg.libName
 const filePath = 'dist/'+pkg.name+'.';
 
 console.log(pkg.name)

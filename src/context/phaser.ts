@@ -54,7 +54,6 @@ class PhaserRuntimeContext extends BaseModuleContext {
       resolution: 2,
       autoFocus: true,
       transparent: true,
-      // canvas: canvas,
       parent: root,
       scene: scenes,
       plugins: {
@@ -97,27 +96,18 @@ class PhaserRuntimeContext extends BaseModuleContext {
 
 
   /**
-   * @func {*} 销毁当前实例
+   * @func {*} 销毁当前运行实例
+   * @remark {}
    */
   destroy() {
-    debugger
     if(!this.instance) {
       return
     }
-    // const scenes = this.instance.scene.scenes;
-    // Object.keys(scenes).map(key => {
-    //   this.instance && this.instance.scene.remove((scenes as any)[key].name)
-    // })
-
-
 
     let canvas = document.querySelector('#root')
-    // canvas && canvas.setAttribute('style', `display: none`)
     canvas && document.body.removeChild(canvas)
     this.instance.destroy(true);
     this.instance.plugins.removeScenePlugin('SpinePlugin')
-    // this.instance.runDestroy()
-    // this.instance = null
   }
 }
 

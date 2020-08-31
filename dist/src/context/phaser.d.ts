@@ -19,7 +19,8 @@ declare class PhaserRuntimeContext extends BaseModuleContext {
      */
     injectionRouter(scenes: Array<Phaser.Scene>): void;
     /**
-     * @func {*} 销毁当前实例
+     * @func {*} 销毁当前运行实例
+     * @remark {}
      */
     destroy(): void;
 }

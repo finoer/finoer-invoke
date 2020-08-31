@@ -3,9 +3,6 @@ import Invoke from "../invoke";
 import { Apps } from "../applycation/register";
 import { globalContext } from "../global";
 
-
-
-let flag = true
 // 缓存原生事件， 后面需要重写
 const originalAddEventListener = window.addEventListener;
 const originalRemoveEventLister = window.removeEventListener;
@@ -39,7 +36,7 @@ class Router {
 
     window.history.replaceState = function(state: any, title: string, url: string | null | undefined, ...rest) {
       let result = originalReplaceState.apply(this, [state, title, url])
-      // me.reroute();
+      me.reroute();
       return result;
     }
   }

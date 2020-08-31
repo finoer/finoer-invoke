@@ -9,7 +9,7 @@ interface Global extends Window {
 }
 
 class VueRuntimeContext extends BaseModuleContext {
-  // 当前runtime
+  // the instance of runtime context
   public instance?: Vue
 
   constructor() {
@@ -17,7 +17,7 @@ class VueRuntimeContext extends BaseModuleContext {
   }
 
   /**
-   * @func 获取资源
+   * @func { Get running environment resources }
    * @param version
    */
   async getContextResource(version: string) {
@@ -35,12 +35,12 @@ class VueRuntimeContext extends BaseModuleContext {
   }
 
   /**
-   * @func {*} 初始化vue运行环境
+   * @func {*} create vue runtime context
    */
   createContext(version: string) {
-    // 创建插入节点
+    // create root node
     let rootDom = document.createElement('div');
-    rootDom.setAttribute('id', 'root');
+    rootDom.setAttribute('id', 'fino-vue-root');
     document.body.appendChild(rootDom)
 
     const Vue = window.Vue;
@@ -55,7 +55,7 @@ class VueRuntimeContext extends BaseModuleContext {
     const vue = (window as any).vm = new (Vue as any)({
       el: rootDom,
       router,
-      render: (h: CreateElement) => h('div', { attrs: { id: 'root' } },
+      render: (h: CreateElement) => h('div', { attrs: { id: 'fino-vue-root' } },
         [
           h('RouterView')
         ]
@@ -66,7 +66,7 @@ class VueRuntimeContext extends BaseModuleContext {
   }
 
   /**
-   * @func 注入路由
+   * @func { Injection router }
    */
   injectionRouter(routes: Array<any>) {
     if(!this.instance) {
@@ -76,12 +76,10 @@ class VueRuntimeContext extends BaseModuleContext {
     (this as any).instance.$router.addRoutes(routes);
 
     (this as any).instance.$router.options.routes = routes
-
-    // this.instance.$router.push('/about')
   }
 
   /**
-   * @func 卸载运行环境
+   * @func { Uninstall the runtime environment }
    */
   destroy() {
     this.instance && this.instance.$destroy()

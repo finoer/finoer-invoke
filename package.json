@@ -1,12 +1,13 @@
 {
-  "name": "package-startup",
-  "version": "1.0.0",
+  "name": "@finoer/finoer-invoke",
+  "libName": "finoer-invoke",
+  "version": "0.0.1",
   "description": "",
   "author": "",
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/finoer/package-startup"
+    "url": "https://github.com/finoer/finoer-invoke"
   },
   "engines": {
     "node": ">=10.13.0",
@@ -14,8 +15,8 @@
   },
   "license": "MIT",
   "main": "dist/src/index.js",
-  "module": "dist/package-startup.es.js",
-  "cjsmodule": "dist/package-startup.cjs.js",
+  "module": "dist/finoer-invoke.es.js",
+  "cjsmodule": "dist/finoer-invoke.cjs.js",
   "typings": "dist/src/index.d.ts",
   "files": [
     "dist",

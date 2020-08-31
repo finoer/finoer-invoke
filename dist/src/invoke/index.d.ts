@@ -7,33 +7,36 @@ declare class Invoke {
     $event: Events;
     constructor();
     /**
-     * @methods { 初始化项目列表 }
-     * @param apps
+     * @methods { Initialize the project list }
+     * @param apps { project list as array }
      */
     init(apps: Array<BaseProject>): Project[];
     /**
-     * @methods { 调度app模块 }
+     * @methods { Scheduling applications, uninstalling the runtime, and mounting new applications }
      * @desc
-     * @params { - apps: 子模块列表 }
+     * @params { - apps: Project child project list }
      */
     performAppChnage(apps: Array<Project>): Promise<void>;
     /**
-     * @methods { bootstrap生命周期函数 }
+     * @methods { life cycle-bootstrap }
      */
     bootstrap(): Promise<void>;
     /**
-     * @methods { mount生命周期函数 }
-     * @des 创建运行环境， 注入路由
+     * @methods { life cycle-mount }
+     * @des Create a running environment and inject routing
      */
     mount(): Promise<void>;
+    /**
+     * @methods The application is successfully mounted, and the sub-application is notified
+     */
     mounted(): void;
     /**
-     * @function getModuleJs
+     * @methods Get application js
      */
     getModuleJs(baseDomain: string, assetsData: any): Promise<Project>;
     /**
-    * @function 获取js加载地址
-    * @param { url - 应用地址 }
+    * @methods jsonp loads js files
+    * @param { url - url }
     */
     getEntryJs(url: string): Promise<any>;
     /**

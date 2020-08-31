@@ -3,20 +3,20 @@ declare class VueRuntimeContext extends BaseModuleContext {
     instance?: Vue;
     constructor();
     /**
-     * @func 获取资源
+     * @func { Get running environment resources }
      * @param version
      */
     getContextResource(version: string): Promise<any>;
     /**
-     * @func {*} 初始化vue运行环境
+     * @func {*} create vue runtime context
      */
     createContext(version: string): any;
     /**
-     * @func 注入路由
+     * @func { Injection router }
      */
     injectionRouter(routes: Array<any>): void;
     /**
-     * @func 卸载运行环境
+     * @func { Uninstall the runtime environment }
      */
     destroy(): void;
 }

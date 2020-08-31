@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>package-startup</title>
-	<meta name="description" content="Documentation for package-startup">
+	<title>@finoer/finoer-invoke</title>
+	<meta name="description" content="Documentation for @finoer/finoer-invoke">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">package-startup</a>
+					<a href="index.html" class="title">@finoer/finoer-invoke</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -56,7 +56,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1>package-startup</h1>
+			<h1>@finoer/finoer-invoke</h1>
 		</div>
 	</div>
 </header>
@@ -68,13 +68,850 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Enumerations</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-enum"><a href="enums/lifecircle.html" class="tsd-kind-icon">Life<wbr>Circle</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Classes</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-class"><a href="classes/helloworld.html" class="tsd-kind-icon">Hello<wbr>World</a></li>
-								<li class="tsd-kind-class"><a href="classes/main.html" class="tsd-kind-icon">Main</a></li>
+								<li class="tsd-kind-class"><a href="classes/basemodulecontext.html" class="tsd-kind-icon">Base<wbr>Module<wbr>Context</a></li>
+								<li class="tsd-kind-class"><a href="classes/events.html" class="tsd-kind-icon">Events</a></li>
+								<li class="tsd-kind-class"><a href="classes/globalcontext.html" class="tsd-kind-icon">Global<wbr>Context</a></li>
+								<li class="tsd-kind-class"><a href="classes/invoke.html" class="tsd-kind-icon">Invoke</a></li>
+								<li class="tsd-kind-class"><a href="classes/phaserruntimecontext.html" class="tsd-kind-icon">Phaser<wbr>Runtime<wbr>Context</a></li>
+								<li class="tsd-kind-class"><a href="classes/reactruntimecontext.html" class="tsd-kind-icon">React<wbr>Runtime<wbr>Context</a></li>
+								<li class="tsd-kind-class"><a href="classes/router.html" class="tsd-kind-icon">Router</a></li>
+								<li class="tsd-kind-class"><a href="classes/vueruntimecontext.html" class="tsd-kind-icon">Vue<wbr>Runtime<wbr>Context</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Interfaces</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface"><a href="interfaces/appinfotype.html" class="tsd-kind-icon">App<wbr>Info<wbr>Type</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/baseproject.html" class="tsd-kind-icon">Base<wbr>Project</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/cachetype.html" class="tsd-kind-icon">Cache<wbr>Type</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/contexttype.html" class="tsd-kind-icon">Context<wbr>Type</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/eventsarray.html" class="tsd-kind-icon">Events<wbr>Array</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/global.html" class="tsd-kind-icon">Global</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/globaltype.html" class="tsd-kind-icon">Global<wbr>Type</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/matchapptype.html" class="tsd-kind-icon">Match<wbr>App<wbr>Type</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/project.html" class="tsd-kind-icon">Project</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/assetstype.html" class="tsd-kind-icon">assets<wbr>Type</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable"><a href="globals.html#apps" class="tsd-kind-icon">Apps</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#bootstrap" class="tsd-kind-icon">BOOTSTRAP</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#mount" class="tsd-kind-icon">MOUNT</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#mounted" class="tsd-kind-icon">MOUNTED</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#pedest_not_started" class="tsd-kind-icon">PEDEST_<wbr>NOT_<wbr>STARTED</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#pedest_started" class="tsd-kind-icon">PEDEST_<wbr>STARTED</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#apps" class="tsd-kind-icon">apps</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#baseurl" class="tsd-kind-icon">base<wbr>Url</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#globalcontext" class="tsd-kind-icon">global<wbr>Context</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#historystate" class="tsd-kind-icon">history<wbr>State</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#invoke" class="tsd-kind-icon">invoke</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#namespace" class="tsd-kind-icon">namespace</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#originaladdeventlistener" class="tsd-kind-icon">original<wbr>Add<wbr>Event<wbr>Listener</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#originalpushstate" class="tsd-kind-icon">original<wbr>Push<wbr>State</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#originalremoveeventlister" class="tsd-kind-icon">original<wbr>Remove<wbr>Event<wbr>Lister</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#originalreplacestate" class="tsd-kind-icon">original<wbr>Replace<wbr>State</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#router" class="tsd-kind-icon">router</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#routingeventslisteningto" class="tsd-kind-icon">routing<wbr>Events<wbr>Listening<wbr>To</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function"><a href="globals.html#addcapturedeventlisteners" class="tsd-kind-icon">add<wbr>Captured<wbr>Event<wbr>Listeners</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#ajaxloadjs" class="tsd-kind-icon">ajax<wbr>Load<wbr>Js</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#appenter" class="tsd-kind-icon">app<wbr>Enter</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#baseinfoloaded" class="tsd-kind-icon">base<wbr>Info<wbr>Loaded</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#callcaptureedeventlisteners" class="tsd-kind-icon">call<wbr>Captureed<wbr>Event<wbr>Listeners</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#childapploaded" class="tsd-kind-icon">child<wbr>App<wbr>Loaded</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#createjs" class="tsd-kind-icon">create<wbr>Js</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#createpopstateevent" class="tsd-kind-icon">create<wbr>Pop<wbr>State<wbr>Event</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#find" class="tsd-kind-icon">find</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#firstuppercase" class="tsd-kind-icon">first<wbr>Upper<wbr>Case</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#getappmounttime" class="tsd-kind-icon">get<wbr>App<wbr>Mount<wbr>Time</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#getappshouldbeactive" class="tsd-kind-icon">get<wbr>App<wbr>Should<wbr>BeActive</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#getglobalcontext" class="tsd-kind-icon">get<wbr>Global<wbr>Context</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#getstore" class="tsd-kind-icon">get<wbr>Store</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#initruntimecontext" class="tsd-kind-icon">init<wbr>Runtime<wbr>Context</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#isincapturedeventlisteners" class="tsd-kind-icon">is<wbr>InCaptured<wbr>Event<wbr>Listeners</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#isinfino" class="tsd-kind-icon">is<wbr>InFino</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#registerapps" class="tsd-kind-icon">register<wbr>Apps</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#registerevents" class="tsd-kind-icon">register<wbr>Events</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#removecapturedeventlisteners" class="tsd-kind-icon">remove<wbr>Captured<wbr>Event<wbr>Listeners</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#setstore" class="tsd-kind-icon">set<wbr>Store</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#tagloadjs" class="tsd-kind-icon">tag<wbr>Load<wbr>Js</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Object literals</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-object-literal"><a href="globals.html#captureeventlisteners" class="tsd-kind-icon">capture<wbr>Event<wbr>Listeners</a></li>
 							</ul>
 						</section>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="apps" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagLet">Let</span> Apps</h3>
+					<div class="tsd-signature tsd-kind-icon">Apps<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/project.html" class="tsd-signature-type">Project</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = []</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/applycation/register.ts#L5">src/applycation/register.ts:5</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="bootstrap" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> BOOTSTRAP</h3>
+					<div class="tsd-signature tsd-kind-icon">BOOTSTRAP<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"BOOTSTRAP"</span><span class="tsd-signature-symbol"> = &quot;BOOTSTRAP&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/utils/contants.ts#L6">src/utils/contants.ts:6</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="mount" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> MOUNT</h3>
+					<div class="tsd-signature tsd-kind-icon">MOUNT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"MOUNT"</span><span class="tsd-signature-symbol"> = &quot;MOUNT&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/utils/contants.ts#L8">src/utils/contants.ts:8</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="mounted" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> MOUNTED</h3>
+					<div class="tsd-signature tsd-kind-icon">MOUNTED<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"MOUNTED"</span><span class="tsd-signature-symbol"> = &quot;MOUNTED&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/utils/contants.ts#L10">src/utils/contants.ts:10</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="pedest_not_started" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> PEDEST_<wbr>NOT_<wbr>STARTED</h3>
+					<div class="tsd-signature tsd-kind-icon">PEDEST_<wbr>NOT_<wbr>STARTED<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"PEDEST_NOT_STARTED"</span><span class="tsd-signature-symbol"> = &quot;PEDEST_NOT_STARTED&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/utils/contants.ts#L4">src/utils/contants.ts:4</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="pedest_started" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> PEDEST_<wbr>STARTED</h3>
+					<div class="tsd-signature tsd-kind-icon">PEDEST_<wbr>STARTED<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"PEDEST_STARTED"</span><span class="tsd-signature-symbol"> = &quot;PEDEST_STARTED&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/utils/contants.ts#L1">src/utils/contants.ts:1</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="apps" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> apps</h3>
+					<div class="tsd-signature tsd-kind-icon">apps<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/project.html" class="tsd-signature-type">Project</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = []</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/model/index.ts#L3">src/model/index.ts:3</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="baseurl" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> base<wbr>Url</h3>
+					<div class="tsd-signature tsd-kind-icon">base<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/loader/index.ts#L1">src/loader/index.ts:1</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="globalcontext" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> global<wbr>Context</h3>
+					<div class="tsd-signature tsd-kind-icon">global<wbr>Context<span class="tsd-signature-symbol">:</span> <a href="classes/globalcontext.html" class="tsd-signature-type">GlobalContext</a><span class="tsd-signature-symbol"> = getGlobalContext()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/global/index.ts#L59">src/global/index.ts:59</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="historystate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagLet">Let</span> history<wbr>State</h3>
+					<div class="tsd-signature tsd-kind-icon">history<wbr>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/router/capturedListeners.ts#L11">src/router/capturedListeners.ts:11</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="invoke" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> invoke</h3>
+					<div class="tsd-signature tsd-kind-icon">invoke<span class="tsd-signature-symbol">:</span> <a href="classes/invoke.html" class="tsd-signature-type">Invoke</a><span class="tsd-signature-symbol"> = new Invoke()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/index.ts#L8">src/index.ts:8</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="namespace" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> namespace</h3>
+					<div class="tsd-signature tsd-kind-icon">namespace<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"FINO"</span><span class="tsd-signature-symbol"> = &quot;FINO&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/applycation/store.ts#L1">src/applycation/store.ts:1</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="originaladdeventlistener" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> original<wbr>Add<wbr>Event<wbr>Listener</h3>
+					<div class="tsd-signature tsd-kind-icon">original<wbr>Add<wbr>Event<wbr>Listener<span class="tsd-signature-symbol">:</span> <a href="interfaces/global.html#addeventlistener" class="tsd-signature-type">addEventListener</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">addEventListener</span><span class="tsd-signature-symbol"> = window.addEventListener</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/router/index.ts#L7">src/router/index.ts:7</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="originalpushstate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> original<wbr>Push<wbr>State</h3>
+					<div class="tsd-signature tsd-kind-icon">original<wbr>Push<wbr>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">pushState</span><span class="tsd-signature-symbol"> = window.history.pushState</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/router/index.ts#L9">src/router/index.ts:9</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="originalremoveeventlister" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> original<wbr>Remove<wbr>Event<wbr>Lister</h3>
+					<div class="tsd-signature tsd-kind-icon">original<wbr>Remove<wbr>Event<wbr>Lister<span class="tsd-signature-symbol">:</span> <a href="interfaces/global.html#removeeventlistener" class="tsd-signature-type">removeEventListener</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">removeEventListener</span><span class="tsd-signature-symbol"> = window.removeEventListener</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/router/index.ts#L8">src/router/index.ts:8</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="originalreplacestate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> original<wbr>Replace<wbr>State</h3>
+					<div class="tsd-signature tsd-kind-icon">original<wbr>Replace<wbr>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">replaceState</span><span class="tsd-signature-symbol"> = window.history.replaceState</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/router/index.ts#L10">src/router/index.ts:10</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="router" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> router</h3>
+					<div class="tsd-signature tsd-kind-icon">router<span class="tsd-signature-symbol">:</span> <a href="classes/router.html" class="tsd-signature-type">Router</a><span class="tsd-signature-symbol"> = new Router(invoke)</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/index.ts#L9">src/index.ts:9</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="routingeventslisteningto" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> routing<wbr>Events<wbr>Listening<wbr>To</h3>
+					<div class="tsd-signature tsd-kind-icon">routing<wbr>Events<wbr>Listening<wbr>To<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [&#x27;popstate&#x27;, &#x27;hashChange&#x27;]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/router/capturedListeners.ts#L2">src/router/capturedListeners.ts:2</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="addcapturedeventlisteners" class="tsd-anchor"></a>
+					<h3>add<wbr>Captured<wbr>Event<wbr>Listeners</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Captured<wbr>Event<wbr>Listeners<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/router/capturedListeners.ts#L45">src/router/capturedListeners.ts:45</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>fn: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="ajaxloadjs" class="tsd-anchor"></a>
+					<h3>ajax<wbr>Load<wbr>Js</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">ajax<wbr>Load<wbr>Js<span class="tsd-signature-symbol">(</span>src<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/loader/index.ts#L3">src/loader/index.ts:3</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>src: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="appenter" class="tsd-anchor"></a>
+					<h3>app<wbr>Enter</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">app<wbr>Enter<span class="tsd-signature-symbol">(</span>app<span class="tsd-signature-symbol">: </span><a href="interfaces/project.html" class="tsd-signature-type">Project</a>, callBack<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/utils/index.ts#L76">src/utils/index.ts:76</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>app: <a href="interfaces/project.html" class="tsd-signature-type">Project</a></h5>
+								</li>
+								<li>
+									<h5>callBack: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="baseinfoloaded" class="tsd-anchor"></a>
+					<h3>base<wbr>Info<wbr>Loaded</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">base<wbr>Info<wbr>Loaded<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/utils/index.ts#L65">src/utils/index.ts:65</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>data: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="callcaptureedeventlisteners" class="tsd-anchor"></a>
+					<h3>call<wbr>Captureed<wbr>Event<wbr>Listeners</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">call<wbr>Captureed<wbr>Event<wbr>Listeners<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/router/capturedListeners.ts#L13">src/router/capturedListeners.ts:13</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="childapploaded" class="tsd-anchor"></a>
+					<h3>child<wbr>App<wbr>Loaded</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">child<wbr>App<wbr>Loaded<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/utils/index.ts#L70">src/utils/index.ts:70</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>data: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="createjs" class="tsd-anchor"></a>
+					<h3>create<wbr>Js</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Js<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>scriptTag<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLScriptElement</span><span class="tsd-signature-symbol">; </span>timestamp<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/loader/index.ts#L45">src/loader/index.ts:45</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{ </span>scriptTag<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLScriptElement</span><span class="tsd-signature-symbol">; </span>timestamp<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter">
+									<h5>script<wbr>Tag<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLScriptElement</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>timestamp<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="createpopstateevent" class="tsd-anchor"></a>
+					<h3>create<wbr>Pop<wbr>State<wbr>Event</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Pop<wbr>State<wbr>Event<span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/router/capturedListeners.ts#L27">src/router/capturedListeners.ts:27</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>state: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="find" class="tsd-anchor"></a>
+					<h3>find</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">find<span class="tsd-signature-symbol">(</span>list<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, element<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/router/capturedListeners.ts#L55">src/router/capturedListeners.ts:55</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>list: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+								<li>
+									<h5>element: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="firstuppercase" class="tsd-anchor"></a>
+					<h3>first<wbr>Upper<wbr>Case</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">first<wbr>Upper<wbr>Case<span class="tsd-signature-symbol">(</span>str<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/utils/index.ts#L61">src/utils/index.ts:61</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>str: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="getappmounttime" class="tsd-anchor"></a>
+					<h3>get<wbr>App<wbr>Mount<wbr>Time</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>App<wbr>Mount<wbr>Time<span class="tsd-signature-symbol">(</span>app<span class="tsd-signature-symbol">: </span><a href="interfaces/project.html" class="tsd-signature-type">Project</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/utils/index.ts#L53">src/utils/index.ts:53</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>app: <a href="interfaces/project.html" class="tsd-signature-type">Project</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="getappshouldbeactive" class="tsd-anchor"></a>
+					<h3>get<wbr>App<wbr>Should<wbr>BeActive</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>App<wbr>Should<wbr>BeActive<span class="tsd-signature-symbol">(</span>apps<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/project.html" class="tsd-signature-type">Project</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="interfaces/matchapptype.html" class="tsd-signature-type">MatchAppType</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/utils/index.ts#L15">src/utils/index.ts:15</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>function</dt>
+									<dd><p>获取当前应该被加载的应用</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>apps: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/project.html" class="tsd-signature-type">Project</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="interfaces/matchapptype.html" class="tsd-signature-type">MatchAppType</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="getglobalcontext" class="tsd-anchor"></a>
+					<h3>get<wbr>Global<wbr>Context</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Global<wbr>Context<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/globalcontext.html" class="tsd-signature-type">GlobalContext</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/global/index.ts#L47">src/global/index.ts:47</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="classes/globalcontext.html" class="tsd-signature-type">GlobalContext</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="getstore" class="tsd-anchor"></a>
+					<h3>get<wbr>Store</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Store<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/applycation/store.ts#L10">src/applycation/store.ts:10</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>key: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="initruntimecontext" class="tsd-anchor"></a>
+					<h3>init<wbr>Runtime<wbr>Context</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">init<wbr>Runtime<wbr>Context<span class="tsd-signature-symbol">(</span>context<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, version<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ContextType</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"context"</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/context/init.ts#L12">src/context/init.ts:12</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>function</dt>
+									<dd><p>{ Initialize the runtime context }</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>context: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>version: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ContextType</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"context"</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="isincapturedeventlisteners" class="tsd-anchor"></a>
+					<h3>is<wbr>InCaptured<wbr>Event<wbr>Listeners</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>InCaptured<wbr>Event<wbr>Listeners<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/router/capturedListeners.ts#L41">src/router/capturedListeners.ts:41</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>fn: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="isinfino" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> is<wbr>InFino</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>InFino<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/applycation/isInfino.ts#L3">src/applycation/isInfino.ts:3</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="registerapps" class="tsd-anchor"></a>
+					<h3>register<wbr>Apps</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">register<wbr>Apps<span class="tsd-signature-symbol">(</span>app<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/baseproject.html" class="tsd-signature-type">BaseProject</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/project.html" class="tsd-signature-type">Project</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/applycation/register.ts#L7">src/applycation/register.ts:7</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>app: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/baseproject.html" class="tsd-signature-type">BaseProject</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/project.html" class="tsd-signature-type">Project</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="registerevents" class="tsd-anchor"></a>
+					<h3>register<wbr>Events</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">register<wbr>Events<span class="tsd-signature-symbol">(</span>global<span class="tsd-signature-symbol">: </span><a href="interfaces/globaltype.html" class="tsd-signature-type">GlobalType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/utils/index.ts#L46">src/utils/index.ts:46</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>func</dt>
+									<dd><p>进入loading模式</p>
+									</dd>
+									<dt>parans</dt>
+									<dd><p>{ show - 是否展示loading }</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>global: <a href="interfaces/globaltype.html" class="tsd-signature-type">GlobalType</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="removecapturedeventlisteners" class="tsd-anchor"></a>
+					<h3>remove<wbr>Captured<wbr>Event<wbr>Listeners</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Captured<wbr>Event<wbr>Listeners<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, listenerFn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/router/capturedListeners.ts#L49">src/router/capturedListeners.ts:49</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>listenerFn: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="setstore" class="tsd-anchor"></a>
+					<h3>set<wbr>Store</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Store<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/applycation/store.ts#L3">src/applycation/store.ts:3</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>key: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>value: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="tagloadjs" class="tsd-anchor"></a>
+					<h3>tag<wbr>Load<wbr>Js</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">tag<wbr>Load<wbr>Js<span class="tsd-signature-symbol">(</span>src<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/loader/index.ts#L21">src/loader/index.ts:21</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>src: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Object literals</h2>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal">
+					<a name="captureeventlisteners" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> capture<wbr>Event<wbr>Listeners</h3>
+					<div class="tsd-signature tsd-kind-icon">capture<wbr>Event<wbr>Listeners<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/router/capturedListeners.ts#L6">src/router/capturedListeners.ts:6</a></li>
+						</ul>
+					</aside>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="captureeventlisteners.hashchange" class="tsd-anchor"></a>
+						<h3>hash<wbr>Change</h3>
+						<div class="tsd-signature tsd-kind-icon">hash<wbr>Change<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/router/capturedListeners.ts#L8">src/router/capturedListeners.ts:8</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="captureeventlisteners.popstate" class="tsd-anchor"></a>
+						<h3>popstate</h3>
+						<div class="tsd-signature tsd-kind-icon">popstate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/bc70d5e/src/router/capturedListeners.ts#L7">src/router/capturedListeners.ts:7</a></li>
+							</ul>
+						</aside>
+					</section>
 				</section>
 			</section>
 		</div>
@@ -88,11 +925,185 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class">
-						<a href="classes/helloworld.html" class="tsd-kind-icon">Hello<wbr>World</a>
+					<li class=" tsd-kind-enum">
+						<a href="enums/lifecircle.html" class="tsd-kind-icon">Life<wbr>Circle</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="classes/main.html" class="tsd-kind-icon">Main</a>
+						<a href="classes/basemodulecontext.html" class="tsd-kind-icon">Base<wbr>Module<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/events.html" class="tsd-kind-icon">Events</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/globalcontext.html" class="tsd-kind-icon">Global<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/invoke.html" class="tsd-kind-icon">Invoke</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/phaserruntimecontext.html" class="tsd-kind-icon">Phaser<wbr>Runtime<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/reactruntimecontext.html" class="tsd-kind-icon">React<wbr>Runtime<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/router.html" class="tsd-kind-icon">Router</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/vueruntimecontext.html" class="tsd-kind-icon">Vue<wbr>Runtime<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/appinfotype.html" class="tsd-kind-icon">App<wbr>Info<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/baseproject.html" class="tsd-kind-icon">Base<wbr>Project</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/cachetype.html" class="tsd-kind-icon">Cache<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/contexttype.html" class="tsd-kind-icon">Context<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/eventsarray.html" class="tsd-kind-icon">Events<wbr>Array</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/global.html" class="tsd-kind-icon">Global</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/globaltype.html" class="tsd-kind-icon">Global<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/matchapptype.html" class="tsd-kind-icon">Match<wbr>App<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/project.html" class="tsd-kind-icon">Project</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/assetstype.html" class="tsd-kind-icon">assets<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#apps" class="tsd-kind-icon">Apps</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#bootstrap" class="tsd-kind-icon">BOOTSTRAP</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#mount" class="tsd-kind-icon">MOUNT</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#mounted" class="tsd-kind-icon">MOUNTED</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#pedest_not_started" class="tsd-kind-icon">PEDEST_<wbr>NOT_<wbr>STARTED</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#pedest_started" class="tsd-kind-icon">PEDEST_<wbr>STARTED</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#apps" class="tsd-kind-icon">apps</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#baseurl" class="tsd-kind-icon">base<wbr>Url</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#globalcontext" class="tsd-kind-icon">global<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#historystate" class="tsd-kind-icon">history<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#invoke" class="tsd-kind-icon">invoke</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#namespace" class="tsd-kind-icon">namespace</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#originaladdeventlistener" class="tsd-kind-icon">original<wbr>Add<wbr>Event<wbr>Listener</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#originalpushstate" class="tsd-kind-icon">original<wbr>Push<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#originalremoveeventlister" class="tsd-kind-icon">original<wbr>Remove<wbr>Event<wbr>Lister</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#originalreplacestate" class="tsd-kind-icon">original<wbr>Replace<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#router" class="tsd-kind-icon">router</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#routingeventslisteningto" class="tsd-kind-icon">routing<wbr>Events<wbr>Listening<wbr>To</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#addcapturedeventlisteners" class="tsd-kind-icon">add<wbr>Captured<wbr>Event<wbr>Listeners</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#ajaxloadjs" class="tsd-kind-icon">ajax<wbr>Load<wbr>Js</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#appenter" class="tsd-kind-icon">app<wbr>Enter</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#baseinfoloaded" class="tsd-kind-icon">base<wbr>Info<wbr>Loaded</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#callcaptureedeventlisteners" class="tsd-kind-icon">call<wbr>Captureed<wbr>Event<wbr>Listeners</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#childapploaded" class="tsd-kind-icon">child<wbr>App<wbr>Loaded</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createjs" class="tsd-kind-icon">create<wbr>Js</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createpopstateevent" class="tsd-kind-icon">create<wbr>Pop<wbr>State<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#find" class="tsd-kind-icon">find</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#firstuppercase" class="tsd-kind-icon">first<wbr>Upper<wbr>Case</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getappmounttime" class="tsd-kind-icon">get<wbr>App<wbr>Mount<wbr>Time</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getappshouldbeactive" class="tsd-kind-icon">get<wbr>App<wbr>Should<wbr>BeActive</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getglobalcontext" class="tsd-kind-icon">get<wbr>Global<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getstore" class="tsd-kind-icon">get<wbr>Store</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#initruntimecontext" class="tsd-kind-icon">init<wbr>Runtime<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#isincapturedeventlisteners" class="tsd-kind-icon">is<wbr>InCaptured<wbr>Event<wbr>Listeners</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#isinfino" class="tsd-kind-icon">is<wbr>InFino</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#registerapps" class="tsd-kind-icon">register<wbr>Apps</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#registerevents" class="tsd-kind-icon">register<wbr>Events</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#removecapturedeventlisteners" class="tsd-kind-icon">remove<wbr>Captured<wbr>Event<wbr>Listeners</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#setstore" class="tsd-kind-icon">set<wbr>Store</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#tagloadjs" class="tsd-kind-icon">tag<wbr>Load<wbr>Js</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#captureeventlisteners" class="tsd-kind-icon">capture<wbr>Event<wbr>Listeners</a>
 					</li>
 				</ul>
 			</nav>
@@ -105,9 +1116,18 @@
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
 			</ul>
 		</div>
 	</div>
@@ -117,6 +1137,5 @@
 </div>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

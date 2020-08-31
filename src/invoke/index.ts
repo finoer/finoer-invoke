@@ -15,14 +15,15 @@ enum LifeCircle {
   BOOTSTRAP = 'bootstrap',
   MOUNTED = 'mount'
 }
+
 class Invoke {
-  // 运行环境：基座还是子模块独立运行
+  // Operating environment: whether to run on the base or the sub-module to run independently
   public runtimeInfino: boolean = true;
-  // 子模块列表
+  // Application List
   public appList: Array<Project> = [];
-  // 运行子模块：默认第一个
+  // Run submodule: the first one by default
   public app: Project = Apps[0];
-  // 事件中心
+  // Event
   public $event: Events;
 
   constructor() {
@@ -34,8 +35,8 @@ class Invoke {
   }
 
   /**
-   * @methods { 初始化项目列表 }
-   * @param apps
+   * @methods { Initialize the project list }
+   * @param apps { project list as array }
    */
   public init(apps: Array<BaseProject>) {
     apps.map((item, index) => {
@@ -50,25 +51,25 @@ class Invoke {
   }
 
   /**
-   * @methods { 调度app模块 }
+   * @methods { Scheduling applications, uninstalling the runtime, and mounting new applications }
    * @desc
-   * @params { - apps: 子模块列表 }
+   * @params { - apps: Project child project list }
    */
   async performAppChnage(apps: Array<Project>) {
-    // 获取需要被挂载的应用
+    // Get the application that needs to be mounted
     const activeApp = getAppShouldBeActive(apps);
 
     this.app = activeApp.app
 
-    // 触发app进入的loading
+    // Trigger loading animation
     this.$event.notify('appLeave')
 
-    // 获取当前应用的生命周期函数 bootstrap, mount
+    // Get the life cycle function of the current application(bootstrap, mount)
     const lifecircle = this.app.status.toLocaleLowerCase();
 
     await this[(lifecircle as LifeCircle)]()
 
-    // 此时app的各种信息已经就绪， 合并缓存的信息到当前的app上，
+    // At this time, the various information of the app is ready, merge the cached information to the current app
     this.app = Object.assign(this.app, globalContext.activeAppInfo,  globalContext.activedApplication)
 
 
@@ -79,7 +80,7 @@ class Invoke {
   }
 
   /**
-   * @methods { bootstrap生命周期函数 }
+   * @methods { life cycle-bootstrap }
    */
   async bootstrap() {
 
@@ -87,52 +88,55 @@ class Invoke {
 
     const entryStatePath = this.app.domain + this.app.entry;
 
+    // Get application js packaging information
     activeProject = await this.getEntryJs(entryStatePath)
-
-    // 获取基础js
 
     if(!activeProject) {
       return
     }
 
-    // 加载入口文件 { init: () => {}, name: string, destory: () => {} }
+    // load application entry file { init: () => {}, name: string, destory: () => {} }
     globalContext.activedApplication = await this.getModuleJs(this.app.domain, globalContext.activeAppInfo);
 
-    // 执行mount生命周期
+    // Execute mount life cycle
     await this.mount()
   }
 
   /**
-   * @methods { mount生命周期函数 }
-   * @des 创建运行环境， 注入路由
+   * @methods { life cycle-mount }
+   * @des Create a running environment and inject routing
    */
   async mount() {
-    // 当前应用信息
+    // Get current application information
     const activeProject = this.app
-    // 创建运行环境
+    // Create the runtime context
     let runtime: ContextType['context'] = globalContext.activeContext;
 
+    // If the runtime context of the new application is different from the previous one, uninstall it
     if(activeProject.context !== globalContext.activeAppInfo.context) {
-      // 如果
+
       activeProject.context &&
       Object.assign(globalContext.activeAppInfo, {
         context: activeProject.context, version: activeProject.version
       })
 
-      // 卸载之前的运行环境
+      // uninstall before app runtime context,
       runtime && runtime.destroy && runtime.destroy()
+
+      // store the created runtime environment in the global
       runtime = globalContext.activeContext = await initRuntimeContext(globalContext.activeAppInfo.context, globalContext.activeAppInfo.version);
-      // 将创建出来的运行环境存储到全局
     }else {
+
+      // If the runtime context is the same, reuse directly
       runtime = globalContext.activeContext
     }
 
-    // 环境初始化成功， 开始注入路由
+    // The runtime context is initialized successfully, and the route is injected
     if(this.app.status === MOUNT || this.app.name === globalContext.activedApplication.name)  {
       if(this.app.status === MOUNT) {
         globalContext.activedApplication = this.app
       }
-      // 注入路由
+      // injection router
       globalContext.activedApplication.init && globalContext.activedApplication.init((runtime as VueRuntimeContext), globalContext.activeContext)
     }
 
@@ -140,12 +144,15 @@ class Invoke {
 
   }
 
+  /**
+   * @methods The application is successfully mounted, and the sub-application is notified
+   */
   public mounted() {
 
   }
 
   /**
-   * @function getModuleJs
+   * @methods Get application js
    */
   async getModuleJs(baseDomain: string, assetsData: any): Promise<Project> {
     if(typeof(assetsData.app) === 'string') {
@@ -157,7 +164,7 @@ class Invoke {
     return globalContext.activedApplication
 
     /**
-     * @remark 多入口js，
+     * @remark for mutile entry
 
     for(let i = 0; i < assetsData.app.length; i++) {
       await this.getEntryJs(baseDomain + '/' + assetsData.app[i])
@@ -172,8 +179,8 @@ class Invoke {
 
 
    /**
-   * @function 获取js加载地址
-   * @param { url - 应用地址 }
+   * @methods jsonp loads js files
+   * @param { url - url }
    */
   public getEntryJs(url: string): Promise<any> {
     return new Promise((resolve, reject) => {
