@@ -28,27 +28,39 @@ class Router {
 
   hijackHistory() {
     const me = this
-    window.history.pushState = function(state: any, title: string, url: string | null | undefined, ...rest){
+    window.history.pushState = function (state: any, title: string, url: string | null | undefined, ...rest) {
       let result = originalPushState.apply(this, [state, title, url]);
       me.reroute()
       return result
     }
 
-    window.history.replaceState = function(state: any, title: string, url: string | null | undefined, ...rest) {
+    window.history.replaceState = function (state: any, title: string, url: string | null | undefined, ...rest) {
       let result = originalReplaceState.apply(this, [state, title, url])
       me.reroute();
       return result;
     }
+
+    window.onpopstate = (event: PopStateEvent) => {
+
+      me.reroute();
+    }
+
+    window.addEventListener('popstate', () => {
+
+      me.reroute();
+    }, false);
+
+
   }
   // EventListenerOrEventListenerObject
   hijackEventListener() {
     window.addEventListener = (eventName: string, fn: EventListenerOrEventListenerObject, purpol?: boolean | AddEventListenerOptions) => {
-      console.log('addEventListener')
-      if(
+      if (
         typeof fn === 'function' &&
         routingEventsListeningTo.indexOf(eventName) > -1 &&
         !isInCapturedEventListeners(eventName, fn)
       ) {
+
         addCapturedEventListeners(eventName, fn);
         return;
       }
@@ -65,6 +77,10 @@ class Router {
 
       return originalRemoveEventLister.apply(window, [eventName, fn, purpol]);
     };
+  }
+
+  handlePopState(event: PopStateEvent): void {
+
   }
 }
 

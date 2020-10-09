@@ -1,10 +1,14 @@
 import { Project, BaseProject } from "../project";
+import { ContextType } from '../types/context';
 import Events from "../events";
+import SnapshotSandbox from "../sandbox/snapshot";
 declare class Invoke {
     runtimeInfino: boolean;
     appList: Array<Project>;
     app: Project;
     $event: Events;
+    sandbox: SnapshotSandbox;
+    free: any;
     constructor();
     /**
      * @methods { Initialize the project list }
@@ -21,6 +25,10 @@ declare class Invoke {
      * @methods { life cycle-bootstrap }
      */
     bootstrap(): Promise<void>;
+    /**
+     * @methods The application is successfully mounted, and the sub-application is notified
+     */
+    setRuntimeContext(activeProject: Project['appInfo']): Promise<ContextType['context']>;
     /**
      * @methods { life cycle-mount }
      * @des Create a running environment and inject routing

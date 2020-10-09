@@ -6,5 +6,6 @@ declare class Router {
     push(url: string): void;
     hijackHistory(): void;
     hijackEventListener(): void;
+    handlePopState(event: PopStateEvent): void;
 }
 export default Router;

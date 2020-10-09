@@ -9,3 +9,8 @@ export interface GlobalType extends Window {
     $event?: Events;
     globalContext?: GlobalContext;
 }
+export interface FinoType {
+    vue?: Vue;
+    Vue?: Vue;
+    vueRouter?: any;
+}

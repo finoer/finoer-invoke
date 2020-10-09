@@ -1,5 +1,4 @@
 import BaseModuleContext from "./base";
-import Phaser from 'phaser';
 declare class PhaserRuntimeContext extends BaseModuleContext {
     instance?: Phaser.Game | null;
     element?: HTMLElement | null;
@@ -8,7 +7,7 @@ declare class PhaserRuntimeContext extends BaseModuleContext {
      * @func 获取资源
      * @param version
      */
-    getContextResource(version: string): Promise<typeof Phaser | undefined>;
+    getContextResource(version: string): Promise<any>;
     /**
      * @func {*} 初始化phaser运行环境
      */
