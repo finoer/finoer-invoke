@@ -1,7 +1,7 @@
 {
   "name": "@finoer/finoer-invoke",
   "libName": "finoer-invoke",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "",
   "author": "",
   "keywords": [],
@@ -91,6 +91,7 @@
     "rollup-plugin-sourcemaps": "^0.6.2",
     "rollup-plugin-terser": "^6.1.0",
     "rollup-plugin-typescript2": "^0.27.1",
+    "rollup-plugin-uglify": "^6.0.4",
     "ts-jest": "^23.10.2",
     "ts-node": "^7.0.1",
     "typedoc": "^0.17.3",

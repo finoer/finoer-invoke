@@ -21,7 +21,7 @@ class VueRuntimeContext extends BaseModuleContext {
    * @param version
    */
   async getContextResource(version: string) {
-    if(globalContext.contextSourceCache.vue) {
+    if (globalContext.contextSourceCache.vue) {
       return
     }
     // 获取当前运行环境所需的资源
@@ -43,7 +43,7 @@ class VueRuntimeContext extends BaseModuleContext {
     rootDom.setAttribute('id', 'fino-vue-root');
     document.body.appendChild(rootDom)
 
-    const Vue = window.Vue;
+    const Vue = (window as any)['Vue'];
     const VueRouter = (window as any).VueRouter
 
     Vue.use(VueRouter)
@@ -69,7 +69,7 @@ class VueRuntimeContext extends BaseModuleContext {
    * @func { Injection router }
    */
   injectionRouter(routes: Array<any>) {
-    if(!this.instance) {
+    if (!this.instance) {
       return
     }
 
@@ -83,7 +83,7 @@ class VueRuntimeContext extends BaseModuleContext {
    */
   destroy() {
     this.instance && this.instance.$destroy()
-    const element = document.getElementById('root')
+    const element = document.getElementById('fino-vue-root')
     element && document.body.removeChild(element)
   }
 }

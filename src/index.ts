@@ -1,7 +1,5 @@
 
 import { registerApps } from './applycation/register';
-import { GlobalType } from './types/context'
-import { isInFino } from './applycation/isInfino'
 import Invoke from './invoke/index';
 import Router from './router';
 

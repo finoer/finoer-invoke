@@ -15,7 +15,7 @@ interface MatchAppType {
 export function getAppShouldBeActive(apps: Array<Project>): MatchAppType {
   let result: MatchAppType = { app: apps[0], index: 0 };
   apps.forEach((item, index) => {
-    if(item.activeWhen(window.location)) {
+    if (item.activeWhen(window.location)) {
       result = {
         app: item,
         index: index
@@ -68,12 +68,11 @@ function baseInfoLoaded(data: any) {
 }
 
 function childAppLoaded(data: any) {
-  debugger
   globalContext.activedApplication = data
   return data
 }
 
-function appEnter(app: Project, callBack: any) {
-  console.log(`app1----enter: ${app}`)
-  callBack && callBack();
-}
+// function appEnter(app: Project, callBack: any) {
+//   console.log(`app1----enter: ${app}`)
+//   callBack && callBack();
+// }

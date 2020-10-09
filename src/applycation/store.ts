@@ -1,3 +1,4 @@
+
 const namespace = 'FINO'
 
 export function setStore(key: string, value: any) {

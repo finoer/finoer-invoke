@@ -17,9 +17,10 @@ async function initRuntimeContext(context: string, version: string): Promise<Con
 
   const runtime: ContextType['context'] = new runtimePool[context]();
 
-  const source = await runtime.getContextResource(version);
+  await runtime.getContextResource(version);
 
   runtime.instance = runtime.createContext(version)
+
 
   return runtime
 }

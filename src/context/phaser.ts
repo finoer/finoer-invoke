@@ -1,8 +1,6 @@
 import BaseModuleContext from "./base";
 import { tagLoadJs } from "../loader";
-import Phaser from 'phaser'
 import { globalContext } from "../global";
-import { ConstraintFactory } from "matter";
 
 
 class PhaserRuntimeContext extends BaseModuleContext {
@@ -21,13 +19,14 @@ class PhaserRuntimeContext extends BaseModuleContext {
    * @param version
    */
   async getContextResource(version: string) {
-    if(globalContext.contextSourceCache.phaser) {
+    if (globalContext.contextSourceCache.phaser) {
       return
     }
     // 获取当前运行环境所需的资源
-    // const context = await this.getSandBoxJs('phaser', version)
+    const context = await this.getSandBoxJs('phaser', version)
     const plugin = await tagLoadJs('https://s.vipkidstatic.com/phaser/SpinePlugin.min.js')
-//
+    //
+    const Phaser = (window as any)['Vue'];
     globalContext.contextSourceCache.phaser = true
     globalContext.contextSourceCache.SpinePlugin = true
 
@@ -80,8 +79,8 @@ class PhaserRuntimeContext extends BaseModuleContext {
   /**
    * @func 注入路由
    */
-  injectionRouter(scenes: Array<Phaser.Scene>, ) {
-    if(!this.instance) {
+  injectionRouter(scenes: Array<Phaser.Scene>,) {
+    if (!this.instance) {
       this.instance = this.initGame([scenes[scenes.length - 1]])
       scenes.pop()
     }
@@ -100,7 +99,7 @@ class PhaserRuntimeContext extends BaseModuleContext {
    * @remark {}
    */
   destroy() {
-    if(!this.instance) {
+    if (!this.instance) {
       return
     }
 
