@@ -46,11 +46,8 @@ class Router {
     }
 
     window.addEventListener('popstate', () => {
-
       me.reroute();
     }, false);
-
-
   }
   // EventListenerOrEventListenerObject
   hijackEventListener() {
@@ -60,7 +57,6 @@ class Router {
         routingEventsListeningTo.indexOf(eventName) > -1 &&
         !isInCapturedEventListeners(eventName, fn)
       ) {
-
         addCapturedEventListeners(eventName, fn);
         return;
       }
@@ -83,6 +79,5 @@ class Router {
 
   }
 }
-
 
 export default Router

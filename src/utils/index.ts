@@ -1,12 +1,10 @@
 import { Project } from "../project";
 // import apps from '../model/index'
 import { globalContext } from "../global";
-import { GlobalType } from "../types/context";
+import { GlobalType, MatchAppType } from "../types/context";
+import { BOOTSTRAP, MOUNT, UNMOUNT } from "./contants";
 
-interface MatchAppType {
-  app: Project,
-  index: number
-}
+
 /**
  * @function 获取当前应该被加载的应用
  * @param { apps - 应用列表 }
@@ -15,7 +13,8 @@ interface MatchAppType {
 export function getAppShouldBeActive(apps: Array<Project>): MatchAppType {
   let result: MatchAppType = { app: apps[0], index: 0 };
   apps.forEach((item, index) => {
-    if (item.activeWhen(window.location)) {
+    if (item.activeWhen(window.location) && item.status ) {
+      item.status === UNMOUNT && (item.status = BOOTSTRAP);
       result = {
         app: item,
         index: index
@@ -24,6 +23,28 @@ export function getAppShouldBeActive(apps: Array<Project>): MatchAppType {
   })
   return result
 }
+
+/**
+ * @function 获取当前应该被卸载的应用
+ * @param global
+ * @param { apps - 应用列表 }
+ * @return { app - 需要被加载的应用 }
+ */
+export function getAppShouldBeUnmount(apps: Array<Project>): Array<MatchAppType> {
+  let result: MatchAppType[] = [];
+
+  apps.forEach((item, index) => {
+    if (!item.activeWhen(window.location) && item.status === MOUNT) {
+      result.push({
+        app: item,
+        index: index
+      })
+    }
+  })
+  return result
+}
+
+
 
 /**
  * @func 进入loading模式
@@ -41,6 +62,11 @@ export function getAppShouldBeActive(apps: Array<Project>): MatchAppType {
 //   document.body.appendChild(wrapper)
 // }
 
+// 卸载标签
+export function removeChild(id: string) {
+  let element = document.getElementById(id);
+  element && document.body.removeChild(element);
+}
 
 
 export function registerEvents(global: GlobalType) {

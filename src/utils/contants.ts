@@ -9,3 +9,5 @@ export const MOUNT = 'MOUNT'
 
 export const MOUNTED = 'MOUNTED'
 
+export const UNMOUNT = 'UNMOUNT'
+

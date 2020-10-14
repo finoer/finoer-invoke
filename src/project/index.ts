@@ -33,7 +33,10 @@ interface Project {
 
   data?: {
     assetsByChunkName: assetsType
-  }
+  },
+
+  dynamicElements: Array<string>
+
 }
 
 interface BaseProject {
@@ -50,6 +53,8 @@ interface BaseProject {
 
   // 该应用激活的时机
   activeWhen: (location: Location) => boolean | string;
+
+
 }
 
 interface assetsType {

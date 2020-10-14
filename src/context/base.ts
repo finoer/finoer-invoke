@@ -28,7 +28,6 @@ abstract class BaseModuleContext {
   abstract createContext(version: string): any
 
   abstract destroy(): void
-
 }
 
 export default BaseModuleContext
