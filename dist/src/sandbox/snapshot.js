@@ -17,29 +17,31 @@ export default class SnapshotSandbox {
         this.proxy = window;
     }
     active() {
+        const _window = window;
         // 记录当前快照
         this.windowSnapshot = {};
         this.modifyPropsMap[this.name] = this.modifyPropsMap[this.name] || {};
         !this.appCache.includes(this.name) && this.appCache.push(this.name);
-        iter(window, prop => {
-            this.windowSnapshot[prop] = window[prop];
+        iter(_window, prop => {
+            this.windowSnapshot[prop] = _window[prop];
         });
         // 恢复之前的变更
         Object.keys(this.modifyPropsMap[this.name]).forEach((p) => {
-            window[p] = this.modifyPropsMap[this.name][p];
+            _window[p] = this.modifyPropsMap[this.name][p];
         });
         this.sandboxRunning = true;
     }
     inactive() {
+        const _window = window;
         if (!this.windowSnapshot || !this.name) {
             return;
         }
         this.modifyPropsMap[this.name] = {};
         iter(window, prop => {
-            if (window[prop] !== this.windowSnapshot[prop]) {
+            if (_window[prop] !== this.windowSnapshot[prop]) {
                 // 记录变更，恢复环境
-                this.modifyPropsMap[this.name][prop] = window[prop];
-                window[prop] = this.windowSnapshot[prop];
+                this.modifyPropsMap[this.name][prop] = _window[prop];
+                _window[prop] = this.windowSnapshot[prop];
             }
         });
         if (process.env.NODE_ENV === 'development') {

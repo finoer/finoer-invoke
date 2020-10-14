@@ -5,9 +5,8 @@ export var AssetTypeEnum;
     AssetTypeEnum["EXTERNAL"] = "external";
 })(AssetTypeEnum || (AssetTypeEnum = {}));
 export function ajaxLoadJs(src) {
-    return new Promise((resolve) => {
+    return new Promise(() => {
         window.fetch(src).then(res => {
-            debugger;
             res.text();
         });
     });

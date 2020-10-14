@@ -10,15 +10,12 @@ export interface Asset {
   content: string;
 }
 
-interface Assets {
-  jsList: Asset[];
-  cssList: Asset[];
-}
+
 
 export function ajaxLoadJs(src: string): Promise<any> {
-  return new Promise((resolve) => {
+  return new Promise(() => {
     window.fetch(src).then(res => {
-      debugger
+
       res.text()
     });
   })

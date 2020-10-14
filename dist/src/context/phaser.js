@@ -1,6 +1,7 @@
 import BaseModuleContext from "./base";
 import { tagLoadJs } from "../loader";
 import { globalContext } from "../global";
+/// <reference path="../types/phaser.d.ts" />
 class PhaserRuntimeContext extends BaseModuleContext {
     constructor() {
         super("phaser");
@@ -17,13 +18,13 @@ class PhaserRuntimeContext extends BaseModuleContext {
         const context = await this.getSandBoxJs('phaser', version);
         const plugin = await tagLoadJs('https://s.vipkidstatic.com/phaser/SpinePlugin.min.js');
         //
-        const Phaser = window['Vue'];
+        const Phaser = window['Phaser'];
         globalContext.contextSourceCache.phaser = true;
         globalContext.contextSourceCache.SpinePlugin = true;
         return Phaser;
     }
     /**
-     * @func {*} 初始化phaser运行环境
+     * @func {*} Initialize the phaser operating environment
      */
     createContext() {
         // phaser3.23不可以异步注入场景， 因此需要在注入路由的时候创建实例
@@ -32,7 +33,7 @@ class PhaserRuntimeContext extends BaseModuleContext {
         const root = document.createElement('div');
         root.id = 'root';
         document.body.appendChild(root);
-        // 创建游戏实例
+        // Create game instance
         const gameConfig = {
             type: Phaser.AUTO,
             width: window.innerWidth,
@@ -61,7 +62,7 @@ class PhaserRuntimeContext extends BaseModuleContext {
         return game;
     }
     /**
-     * @func 注入路由
+     * @func {*} injection routing
      */
     injectionRouter(scenes) {
         if (!this.instance) {
@@ -75,7 +76,7 @@ class PhaserRuntimeContext extends BaseModuleContext {
         });
     }
     /**
-     * @func {*} 销毁当前运行实例
+     * @func {*} destroy the current running instance
      * @remark {}
      */
     destroy() {

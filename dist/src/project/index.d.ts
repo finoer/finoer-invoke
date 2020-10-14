@@ -15,6 +15,7 @@ interface Project {
     data?: {
         assetsByChunkName: assetsType;
     };
+    dynamicElements: Array<string>;
 }
 interface BaseProject {
     name: string;

@@ -1,11 +1,11 @@
 import { Apps } from "../applycation/register";
 import { getStore, setStore } from "../applycation/store";
-import { getAppShouldBeActive, registerEvents } from "../utils";
+import { getAppShouldBeActive, getAppShouldBeUnmount, registerEvents, removeChild } from "../utils";
 import Events from "../events";
 import { tagLoadJs, tagLoadCss } from "../loader";
 import { globalContext } from "../global";
 import initRuntimeContext from "../context/init";
-import { BOOTSTRAP, MOUNT } from "../utils/contants";
+import { BOOTSTRAP, MOUNT, UNMOUNT } from "../utils/contants";
 import SnapshotSandbox from "../sandbox/snapshot";
 import { patchInterval } from "../sandbox/patchAtMounting";
 var LifeCircle;
@@ -27,7 +27,6 @@ class Invoke {
         this.sandbox = new SnapshotSandbox('');
         registerEvents(global);
         this.free = patchInterval(window);
-        console.log(this.free);
     }
     /**
      * @methods { Initialize the project list }
@@ -49,18 +48,20 @@ class Invoke {
     async performAppChnage(apps) {
         // Get the application that needs to be mounted
         const activeApp = getAppShouldBeActive(apps);
+        // uninstall apps that do not require activation
+        const unmountApps = getAppShouldBeUnmount(apps);
+        // restore the sandbox environment
+        if (!isFrist) {
+            this.free();
+        }
+        isFrist = false;
+        await this.unmount(unmountApps);
         this.app = activeApp.app;
         if (this.app.status === MOUNT) {
             globalContext.activedApplication = this.app;
         }
-        // this.sandbox.name = this.app.name
         // Trigger loading animation
         this.$event.notify('appLeave');
-        if (!isFrist) {
-            this.free();
-        }
-        this.sandbox.inactive();
-        isFrist = false;
         // Get the life cycle function of the current application(bootstrap, mount)
         const lifecircle = this.app.status.toLocaleLowerCase();
         await this[lifecircle]();
@@ -86,6 +87,7 @@ class Invoke {
         }
         // load application entry file { init: () => {}, name: string, destory: () => {} }
         globalContext.activedApplication = await this.getModuleJs(this.app.domain, globalContext.activeAppInfo);
+        removeChild(this.app.domain + this.app.entry);
         // Execute mount life cycle
         await this.mount();
     }
@@ -99,7 +101,7 @@ class Invoke {
         // Create the runtime context
         let runtime = globalContext.activeContext;
         // If the runtime context of the new application is different from the previous one, uninstall it
-        if (this.app.context !== globalContext.activeAppInfo.context) {
+        if (!this.app.context || this.app.context !== globalContext.activeContext.context) {
             activeProject.context &&
                 Object.assign(globalContext.activeAppInfo, {
                     context: activeProject.context, version: activeProject.version
@@ -136,6 +138,25 @@ class Invoke {
         this.app.status = MOUNT;
     }
     /**
+     * @methods { life cycle-unmount }
+     * @des
+     */
+    async unmount(apps) {
+        return new Promise((resolve) => {
+            for (let i = 0; i < apps.length; i++) {
+                // 卸载应用标签
+                for (let j = 0; j < apps[i].app.dynamicElements.length; j++) {
+                    removeChild(apps[i].app.dynamicElements[j]);
+                }
+                apps[i].app.dynamicElements = [];
+                // 将状态设置位UNMOUNT
+                apps[i].app.status = UNMOUNT;
+            }
+            this.sandbox.inactive();
+            resolve();
+        });
+    }
+    /**
      * @methods The application is successfully mounted, and the sub-application is notified
      */
     mounted() {
@@ -164,6 +185,9 @@ class Invoke {
                 else {
                     await this.getEntryJs(baseDomain + '/' + assetsResource);
                 }
+                this.app.dynamicElements ? this.app.dynamicElements.push(baseDomain + '/' + assetsResource)
+                    : this.app.dynamicElements = [baseDomain + '/' + assetsResource];
+                console.log('apps', this.app);
             }
         }
         return globalContext.activedApplication;

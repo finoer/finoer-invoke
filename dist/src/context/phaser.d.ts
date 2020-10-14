@@ -9,16 +9,16 @@ declare class PhaserRuntimeContext extends BaseModuleContext {
      */
     getContextResource(version: string): Promise<any>;
     /**
-     * @func {*} 初始化phaser运行环境
+     * @func {*} Initialize the phaser operating environment
      */
     createContext(): void;
     initGame(scenes: Array<Phaser.Scene>): Phaser.Game;
     /**
-     * @func 注入路由
+     * @func {*} injection routing
      */
     injectionRouter(scenes: Array<Phaser.Scene>): void;
     /**
-     * @func {*} 销毁当前运行实例
+     * @func {*} destroy the current running instance
      * @remark {}
      */
     destroy(): void;

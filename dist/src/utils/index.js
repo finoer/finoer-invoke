@@ -1,5 +1,6 @@
 // import apps from '../model/index'
 import { globalContext } from "../global";
+import { BOOTSTRAP, MOUNT, UNMOUNT } from "./contants";
 /**
  * @function 获取当前应该被加载的应用
  * @param { apps - 应用列表 }
@@ -8,11 +9,30 @@ import { globalContext } from "../global";
 export function getAppShouldBeActive(apps) {
     let result = { app: apps[0], index: 0 };
     apps.forEach((item, index) => {
-        if (item.activeWhen(window.location)) {
+        if (item.activeWhen(window.location) && item.status) {
+            item.status === UNMOUNT && (item.status = BOOTSTRAP);
             result = {
                 app: item,
                 index: index
             };
+        }
+    });
+    return result;
+}
+/**
+ * @function 获取当前应该被卸载的应用
+ * @param global
+ * @param { apps - 应用列表 }
+ * @return { app - 需要被加载的应用 }
+ */
+export function getAppShouldBeUnmount(apps) {
+    let result = [];
+    apps.forEach((item, index) => {
+        if (!item.activeWhen(window.location) && item.status === MOUNT) {
+            result.push({
+                app: item,
+                index: index
+            });
         }
     });
     return result;
@@ -30,6 +50,11 @@ export function getAppShouldBeActive(apps) {
 //   wrapper.innerHTML = loading;
 //   document.body.appendChild(wrapper)
 // }
+// 卸载标签
+export function removeChild(id) {
+    let element = document.getElementById(id);
+    element && document.body.removeChild(element);
+}
 export function registerEvents(global) {
     if (!global.$event) {
         return;

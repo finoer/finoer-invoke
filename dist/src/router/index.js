@@ -31,11 +31,9 @@ class Router {
             return result;
         };
         window.onpopstate = (event) => {
-            console.error('popState触发了');
             me.reroute();
         };
         window.addEventListener('popstate', () => {
-            console.error('popState触发了');
             me.reroute();
         }, false);
     }

@@ -23,7 +23,7 @@ class Sandbox {
 
 
   constructor() {
-    if (!window.Proxy) {
+    if (!(window as any).Proxy) {
       console.warn('proxy sandbox is not support by current browser');
       this.sandboxDisabled = true;
     }

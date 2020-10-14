@@ -247,12 +247,12 @@
         "affectsGlobalScope": false
       },
       "../src/loader/index.ts": {
-        "version": "5fd2593d11a35a86fe217b9a6dede6e9ed14edb366f267c5f3eda87a80fa11aa",
+        "version": "0e6ff06c7e620993778a0349b921a7eccd540cc7fa4261f92305fe272e0e9f30",
         "signature": "61032a4693bd8fc6515b74a39cd5c02b265261df2a0d72a85ce37887e1ad349a",
         "affectsGlobalScope": false
       },
       "../src/context/base.ts": {
-        "version": "52281cf2f0b8ff251fc8b45edf8bef6a4a804e885a3f4d84ba6cf4d044daf38c",
+        "version": "1a4c1d2f3d8e24d8c74d1188d0c3e61f00f66be582a2aaf7acbfd59b63401122",
         "signature": "868a269d0ce8b145794e885d7327521e25e7a6aa8f9c90db1cae97d792b6fc4e",
         "affectsGlobalScope": false
       },
@@ -267,18 +267,18 @@
         "affectsGlobalScope": false
       },
       "../src/context/phaser.ts": {
-        "version": "75e1f282cd42e312a8d3e7903ee1520706ad2867b529abbd52b89dc5d1cd4316",
-        "signature": "2ac3915049c757b85ba8674410072f03193bd2539f6be6197e594b43b5c9883f",
+        "version": "9487f06ca8428c8073402ca1b9945923f01c5f5e6d1c0787bbae691667a43baf",
+        "signature": "ce3e1bd0efb6567a3ba092d35e35f2248e6e04395dde1d26093551b1ab3d73b5",
         "affectsGlobalScope": false
       },
       "../src/types/context.ts": {
-        "version": "01075350b3d5f848a11015527f1205c823ff0798978f4bb7580ed0b3feb1831d",
-        "signature": "562866f302adfa03e5114ee97c10eeab94a3b04568159cccd00c43d5c9776194",
+        "version": "9ba972aaeb271a6d7d3f40fab07b8753fe2c974f65c99a4c5e89a16593cb119d",
+        "signature": "b4a5626b46524f5899476fb4bc6acdf0c2ecab8109dbb6b75b99f0caeed53872",
         "affectsGlobalScope": false
       },
       "../src/project/index.ts": {
-        "version": "23b84dd582b752fc206d6adca7b99a769d6910e5b5f7eb808bb932615b7bd97a",
-        "signature": "31d73c1698bba4fc49aa1a4edf9e64933a9c775a0079a62ef0ee04e6f7b9326e",
+        "version": "8bdb76ec5f84d813367c0e5f7571926613bef482ef0c974ad80beafa9ca3e9e9",
+        "signature": "1becaec82e88e97d91d10ac5c818b4513e319796bb660482ae0440858a833cad",
         "affectsGlobalScope": false
       },
       "../src/applycation/store.ts": {
@@ -291,9 +291,14 @@
         "signature": "aa3d40d4702624b0ff8bacdd79c3c612b394aec406345c374895495b9eb5a91c",
         "affectsGlobalScope": false
       },
+      "../src/utils/contants.ts": {
+        "version": "3c1acb27725fe07d537da58f1ca6a6c8d959d310f6cc9c5270f964642376af91",
+        "signature": "2de708beb2c45f4cb1046fe9e7483c81eb432a10f08aabdc6fa4ff4230b25dfd",
+        "affectsGlobalScope": false
+      },
       "../src/utils/index.ts": {
-        "version": "4110af4618fe7e6000eaece6c41b784ce03b3eae7af551aa926fa5e680c158e6",
-        "signature": "d662208986a30ce7159734f48653a23cf970c3fbca62a4d599eed44d8776f551",
+        "version": "811a45af0bd77ccb04264d68b5ebd04c342cb34fbab5dcf396f66d3c7a836222",
+        "signature": "7f074c658917dd3191b81a0f6cff69c20958b2791478c27e808d0eecc188a24b",
         "affectsGlobalScope": false
       },
       "../src/context/init.ts": {
@@ -301,13 +306,8 @@
         "signature": "9a849f6e38ae22ade1568806b5720045ff7dc6c7cef9267d7d274f3de8f4ae54",
         "affectsGlobalScope": false
       },
-      "../src/utils/contants.ts": {
-        "version": "6d9bd471e0c6815910365384ac0023ed17d04dbe68469db5e842c39a3bac4b88",
-        "signature": "c75aa75858f146e4a5b957eece9b7dba6a0e25fad6308a2a0e3ef9f60a3c64e5",
-        "affectsGlobalScope": false
-      },
       "../src/sandbox/snapshot.ts": {
-        "version": "02c819c1e7fbd29a40d66515b9b6adb3ab30ffb55f8c89abc84b068af8c16953",
+        "version": "9f37303f8f3fda6e962fa0e98aa94fd12370e894dcba1818f9e03f7214789dc3",
         "signature": "3422b23854f1e2952758aa3e3e7df909b1706c098e026de1f725fbd5b3fd9f80",
         "affectsGlobalScope": false
       },
@@ -317,8 +317,8 @@
         "affectsGlobalScope": false
       },
       "../src/invoke/index.ts": {
-        "version": "5a5b40d3648e589df1a42dff1cc9a4b4c0b592a89c474d2c44701d80c50ff55f",
-        "signature": "be0f5dd562e37bba36e3ca652f11dcf0dca4afe3ce4e59674d5072455d97e510",
+        "version": "ec1f01c61a2076683d23dbcdc9dcbb7e0906b9061bb2bfdebac5cc3169fde4aa",
+        "signature": "6ad79f506d43b3e09a05e79c9fcdaae23858faac6148fca9abaea86d5b286620",
         "affectsGlobalScope": false
       },
       "../src/router/capturedlisteners.ts": {
@@ -327,7 +327,7 @@
         "affectsGlobalScope": false
       },
       "../src/router/index.ts": {
-        "version": "0689e60a0e256acb15118773e6cc005073098e2a117cefa75b2633d7bff1445e",
+        "version": "6630891863b34748d5c159b4423f485979180aba6d3e0e48f3a52865eb88abd7",
         "signature": "d03154ed55d81af8cf1eed17ae77fc49d3e058204974e740fa4bf46afff194e4",
         "affectsGlobalScope": false
       },
@@ -357,7 +357,7 @@
         "affectsGlobalScope": false
       },
       "../src/sandbox/index.ts": {
-        "version": "885320d929045a30c8ec6591a68a3b0498d744051ff14833c6defaa3e4f22728",
+        "version": "41dcd0e04d55408346925779de4efc173659fbe214b11962bfc57f962e74e439",
         "signature": "904bb9e4c9ab8bc9e2180535b5c0f7498f87c2a332a3c1d258da50bfe512d652",
         "affectsGlobalScope": false
       },
@@ -372,8 +372,8 @@
         "affectsGlobalScope": true
       },
       "../src/types/phaser/phaser.d.ts": {
-        "version": "aab5fd0fd1a43e6cf27095adf444fa75fd67c0b9dd48d6eda9818ab1253c7d7c",
-        "signature": "aab5fd0fd1a43e6cf27095adf444fa75fd67c0b9dd48d6eda9818ab1253c7d7c",
+        "version": "cb189b7d7308a73e8e1d571298eba50e3d37f179bd2797579160dc3f9fb45851",
+        "signature": "cb189b7d7308a73e8e1d571298eba50e3d37f179bd2797579160dc3f9fb45851",
         "affectsGlobalScope": true
       },
       "../test/helloworld.test.ts": {
@@ -1344,7 +1344,8 @@
         "../src/context/phaser.ts",
         "../src/context/vue.ts",
         "../src/events/index.ts",
-        "../src/global/index.ts"
+        "../src/global/index.ts",
+        "../src/project/index.ts"
       ],
       "../src/types/phaser/matter.d.ts": [
         "../node_modules/_@types_node@10.17.28@@types/node/ts3.2/util.d.ts",
@@ -1368,7 +1369,8 @@
         "../node_modules/_@types_node@10.17.28@@types/node/util.d.ts",
         "../src/global/index.ts",
         "../src/project/index.ts",
-        "../src/types/context.ts"
+        "../src/types/context.ts",
+        "../src/utils/contants.ts"
       ],
       "../test/helloworld.test.ts": [
         "../node_modules/_@types_node@10.17.28@@types/node/ts3.2/util.d.ts",
@@ -1932,7 +1934,8 @@
         "../src/context/phaser.ts",
         "../src/context/vue.ts",
         "../src/events/index.ts",
-        "../src/global/index.ts"
+        "../src/global/index.ts",
+        "../src/project/index.ts"
       ],
       "../src/types/phaser/matter.d.ts": [
         "../node_modules/_@types_node@10.17.28@@types/node/ts3.2/util.d.ts",

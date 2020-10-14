@@ -21,7 +21,7 @@ export default class SnapshotSandbox {
 
   sandboxRunning = true;
 
-  private windowSnapshot!: Window;
+  private windowSnapshot!: Window | any;
 
   private modifyPropsMap: ObjectProps = {};
 
@@ -34,25 +34,28 @@ export default class SnapshotSandbox {
   }
 
   active() {
+    const _window: any = window
+
     // 记录当前快照
     this.windowSnapshot = {} as Window;
     this.modifyPropsMap[this.name] = this.modifyPropsMap[this.name] || {};
 
     !this.appCache.includes(this.name) && this.appCache.push(this.name)
 
-    iter(window, prop => {
-      this.windowSnapshot[prop] = window[prop];
+    iter(_window, prop => {
+      this.windowSnapshot[prop] = _window[prop];
     });
 
     // 恢复之前的变更
     Object.keys(this.modifyPropsMap[this.name]).forEach((p: any) => {
-      window[p] = this.modifyPropsMap[this.name][p];
+      _window[p] = this.modifyPropsMap[this.name][p];
     });
 
     this.sandboxRunning = true;
   }
 
   inactive() {
+    const _window: any = window
     if(!this.windowSnapshot || !this.name) {
       return
     }
@@ -60,10 +63,10 @@ export default class SnapshotSandbox {
     this.modifyPropsMap[this.name] = {};
 
     iter(window, prop => {
-      if (window[prop] !== this.windowSnapshot[prop]) {
+      if (_window[prop] !== this.windowSnapshot[prop]) {
         // 记录变更，恢复环境
-        this.modifyPropsMap[this.name][prop] = window[prop];
-        window[prop] = this.windowSnapshot[prop];
+        this.modifyPropsMap[this.name][prop] = _window[prop];
+        _window[prop] = this.windowSnapshot[prop];
       }
     });
 

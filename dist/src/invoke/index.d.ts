@@ -1,5 +1,5 @@
 import { Project, BaseProject } from "../project";
-import { ContextType } from '../types/context';
+import { ContextType, MatchAppType } from '../types/context';
 import Events from "../events";
 import SnapshotSandbox from "../sandbox/snapshot";
 declare class Invoke {
@@ -34,6 +34,11 @@ declare class Invoke {
      * @des Create a running environment and inject routing
      */
     mount(): Promise<void>;
+    /**
+     * @methods { life cycle-unmount }
+     * @des
+     */
+    unmount(apps: MatchAppType[]): Promise<unknown>;
     /**
      * @methods The application is successfully mounted, and the sub-application is notified
      */
