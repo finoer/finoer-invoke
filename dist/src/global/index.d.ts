@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import { Project } from "../project";
+import { Project } from "../types/project";
 import { VueConstructor } from "vue/types/umd";
-import { AppInfoType } from '../project/appInfo';
+import { AppInfoType } from '../types/project/appInfo';
 interface CacheType {
     [propsName: string]: boolean;
 }

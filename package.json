@@ -1,7 +1,7 @@
 {
   "name": "@finoer/finoer-invoke",
   "libName": "finoer-invoke",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "author": "",
   "keywords": [],
@@ -15,9 +15,9 @@
   },
   "license": "MIT",
   "main": "dist/src/index.js",
-  "module": "dist/finoer-invoke.es.js",
+  "module": "dist/src/index.js",
   "cjsmodule": "dist/finoer-invoke.cjs.js",
-  "typings": "dist/src/index.d.ts",
+  "types": "dist/src/index.d.ts",
   "files": [
     "dist",
     "src"
@@ -26,6 +26,7 @@
     "typedoc": "typedoc",
     "lint": "eslint --fix 'src/**/*.ts' 'test/**/*.ts'",
     "test": "jest",
+    "dev": "tsc -b -w --force --verbose",
     "test:watch": "jest --watch",
     "prebuild": "rimraf dist",
     "build": "rollup -c rollup.config.js && npm run typedoc",
@@ -51,6 +52,10 @@
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
+  },
+  "dependencies": {
+    "@finoer/finoer-core": "0.0.1",
+    "@finoer/finoer-store": "0.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
@@ -95,6 +100,7 @@
     "ts-jest": "^23.10.2",
     "ts-node": "^7.0.1",
     "typedoc": "^0.17.3",
-    "typescript": "^3.5.1"
+    "typescript": "^3.5.1",
+    "vue": "^2.6.12"
   }
 }

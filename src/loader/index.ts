@@ -45,18 +45,6 @@ export function tagLoadJs(src: string): Promise<any> {
   })
 }
 
-// export function fetchScripts(jsList: Asset[], fetch: Fetch = winFetch) {
-//   return Promise.all(jsList.map((asset) => {
-//     const { type, content } = asset;
-//     if (type === 'inline') {
-//       return content;
-//     } else {
-//       // content will script url when type is AssetTypeEnum.EXTERNAL
-//       return cachedScriptsContent[content] || (cachedScriptsContent[content] = fetch(content).then(res => res.text()));
-//     }
-//   }));
-// }
-
 export function tagLoadCss(link: string): Promise<any> {
   let { styleTag, timestamp } = createCss();
   return new Promise((resolve) => {

@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
         "moduleResolution": "node",
-        "target": "esnext",
-        "module": "esnext",
+        "target": "ESNext",
+        "module": "ESNext",
         "composite": true,
         "outDir": "./dist", // 指定输出目录
         "baseUrl": ".",
@@ -35,7 +35,10 @@
             ],
             "@test/*": [
                 "./test/*"
-            ]
+            ],
+            "Packs/*": [
+                "../*"
+            ],
         }
     },
     "include": [

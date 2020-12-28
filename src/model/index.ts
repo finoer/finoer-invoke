@@ -1,4 +1,4 @@
-import { Project } from "../project";
+import { Project } from "../types/project";
 
 const apps: Array<Project> = [
 

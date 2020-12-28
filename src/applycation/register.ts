@@ -1,4 +1,4 @@
-import { Project, BaseProject } from "../project"
+import { Project, BaseProject } from "../types/project"
 import { invoke } from ".."
 import { setStore } from "./store";
 

@@ -1,7 +1,7 @@
-import { ContextType } from "../types/context";
+import { ContextType } from "../context";
 import { AppInfoType } from './appInfo'
-import VueRuntimeContext from "../context/vue";
-import { GlobalContext } from "../global";
+import VueRuntimeContext from "../../context/vue";
+import { GlobalContext } from "../../global";
 
 interface Project {
   // 应用名称

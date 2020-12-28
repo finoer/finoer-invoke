@@ -55,13 +55,18 @@ class Invoke {
             this.free();
         }
         isFrist = false;
-        await this.unmount(unmountApps);
+        if (unmountApps) {
+            // await this.unmount(unmountApps)
+        }
         this.app = activeApp.app;
         if (this.app.status === MOUNT) {
             globalContext.activedApplication = this.app;
         }
         // Trigger loading animation
-        this.$event.notify('appLeave');
+        if (!this.app.init) {
+            this.$event.notify('appLeave');
+        }
+        globalContext.activeContext = await this.setRuntimeContext(this.app);
         // Get the life cycle function of the current application(bootstrap, mount)
         const lifecircle = this.app.status.toLocaleLowerCase();
         await this[lifecircle]();
@@ -80,7 +85,6 @@ class Invoke {
         const entryStatePath = this.app.domain + this.app.entry;
         // Get application js packaging information
         activeProject = await this.getEntryJs(entryStatePath);
-        globalContext.activeContext = await this.setRuntimeContext(activeProject);
         if (!this.sandbox.appCache.includes(this.app.name)) {
             this.sandbox.name = this.app.name;
             this.sandbox.active();
@@ -172,7 +176,11 @@ class Invoke {
                 continue;
             }
             if (typeof (assetsData[key]) === 'string') {
-                await this.getEntryJs(baseDomain + '/' + assetsData.app);
+                let entry = assetsData[key] || assetsData.app;
+                await this.getEntryJs(baseDomain + '/' + entry);
+                this.app.dynamicElements ? this.app.dynamicElements.push(baseDomain + '/' + assetsData.app)
+                    : this.app.dynamicElements = [baseDomain + '/' + assetsData.app];
+                continue;
             }
             /**
              * @remark for mutile entry

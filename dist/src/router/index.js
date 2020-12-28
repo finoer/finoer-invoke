@@ -1,6 +1,5 @@
 import { routingEventsListeningTo, isInCapturedEventListeners, addCapturedEventListeners, removeCapturedEventListeners } from "./capturedListeners";
 import { Apps } from "../applycation/register";
-import { globalContext } from "../global";
 // 缓存原生事件， 后面需要重写
 const originalAddEventListener = window.addEventListener;
 const originalRemoveEventLister = window.removeEventListener;
@@ -16,7 +15,10 @@ class Router {
         this.invoke.app && this.invoke.performAppChnage(Apps);
     }
     push(url) {
-        globalContext.activeContext.instance.$router.push(url);
+        // if(globalContext.activeContext.instance) {
+        // }
+        // globalContext.activeContext.instance.$router.push(url)
+        window.history.pushState(null, '', url);
     }
     hijackHistory() {
         const me = this;

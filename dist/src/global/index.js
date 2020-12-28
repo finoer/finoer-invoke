@@ -26,6 +26,9 @@ function getGlobalContext() {
         return global.globalContext;
     }
     global.globalContext = new GlobalContext();
+    // debugger
+    // console.log('database', Database)
+    // global.$data = new Database()
     return global.globalContext;
 }
 export const globalContext = getGlobalContext();

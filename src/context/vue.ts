@@ -41,9 +41,10 @@ class VueRuntimeContext extends BaseModuleContext {
     // create root node
     let rootDom = document.createElement('div');
     rootDom.setAttribute('id', 'fino-vue-root');
-    document.body.appendChild(rootDom)
-
-    const Vue = (window as any)['Vue'];
+    document.body.appendChild(rootDom);
+    (window as any)['Vue2'] = (window as any)['Vue'];
+    (window as any)['Vue'] = undefined;
+    const Vue = (window as any)['Vue2'];
     const VueRouter = (window as any).VueRouter
 
     Vue.use(VueRouter)

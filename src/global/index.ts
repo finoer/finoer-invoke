@@ -1,10 +1,11 @@
 // import apps from "../model"
 import Vue from 'vue'
-import { Project } from "../project"
+import { Project } from "../types/project"
 import { VueConstructor } from "vue/types/umd"
 import { Apps } from '../applycation/register'
 import { GlobalType } from '../types/context'
-import { AppInfoType } from '../project/appInfo'
+import { AppInfoType } from '../types/project/appInfo'
+// import Database from '../../../fino-database'
 
 interface CacheType {
   [propsName:string]: boolean;
@@ -29,7 +30,6 @@ export class GlobalContext {
   // 当前运行环境
   public activeContext: VueConstructor<Vue> | Window | any
 
-
   constructor() {
     this.activedApplication = Apps[0]
 
@@ -52,6 +52,9 @@ function getGlobalContext() {
   }
 
   global.globalContext = new GlobalContext()
+  // debugger
+  // console.log('database', Database)
+  // global.$data = new Database()
 
   return global.globalContext
 }

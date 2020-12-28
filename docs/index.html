@@ -64,45 +64,170 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<a href="#设计文档" id="设计文档" style="color: inherit; text-decoration: none;">
-					<h2>设计文档</h2>
+				<a href="#fino-invoke使用文档" id="fino-invoke使用文档" style="color: inherit; text-decoration: none;">
+					<h2>fino-invoke使用文档</h2>
 				</a>
-				<a href="#注册应用" id="注册应用" style="color: inherit; text-decoration: none;">
-					<h3>注册应用</h3>
+				<blockquote>
+					<p>顾名思义， <code>fino-invoke</code>即fino框架的调度模块， 负责在合适的时机挂载和下载对应的微前端项目应用</p>
+				</blockquote>
+				<a href="#如何使用" id="如何使用" style="color: inherit; text-decoration: none;">
+					<h3>如何使用</h3>
 				</a>
-				<p>从应用列表中注册应用</p>
-				<p>project： 应用信息</p>
-				<pre><code class="language-js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Projects</span> </span>{
-    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;&quot;</span>;
-    activeWhen: <span class="hljs-function">() =&gt;</span> <span class="hljs-string">&#x27;/home&#x27;</span>;
-    routes: [
+				<p>第一步： 首先加载全局应用列表文件， 如下：</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> projectList = [
+  {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;yueqi1&#x27;</span>,
+    <span class="hljs-attr">activeWhen</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">location: Location</span>) </span>{
+      <span class="hljs-keyword">const</span> route= <span class="hljs-built_in">window</span>.location.href.split(<span class="hljs-built_in">window</span>.location.origin)[<span class="hljs-number">1</span>]
+      <span class="hljs-keyword">return</span> route.startsWith(<span class="hljs-string">&#x27;/yueqi&#x27;</span>)
+    },
+    <span class="hljs-attr">domain</span>: <span class="hljs-string">&quot;http://localhost:8080&quot;</span>,
+    <span class="hljs-attr">entry</span>: <span class="hljs-string">&#x27;/rcms/stats.js&#x27;</span>,
+  },
+  {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;jinzhao&#x27;</span>,
+    <span class="hljs-attr">activeWhen</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">location: Location</span>) </span>{
+      <span class="hljs-keyword">const</span> route= <span class="hljs-built_in">window</span>.location.href.split(<span class="hljs-built_in">window</span>.location.origin)[<span class="hljs-number">1</span>]
+      <span class="hljs-keyword">return</span> route.startsWith(<span class="hljs-string">&#x27;/jinzhao&#x27;</span>)
+    },
+    <span class="hljs-attr">domain</span>: <span class="hljs-string">&quot;http://localhost:8081&quot;</span>,
+    <span class="hljs-attr">entry</span>: <span class="hljs-string">&#x27;/rcms/stats.js&#x27;</span>,
+  },
+  {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;blue&#x27;</span>,
+    <span class="hljs-attr">activeWhen</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">location: Location</span>) </span>{
+      <span class="hljs-keyword">const</span> route= <span class="hljs-built_in">window</span>.location.href.split(<span class="hljs-built_in">window</span>.location.origin)[<span class="hljs-number">1</span>]
+      <span class="hljs-keyword">return</span> route.startsWith(<span class="hljs-string">&#x27;/blue&#x27;</span>)
+    },
+    <span class="hljs-attr">domain</span>: <span class="hljs-string">&quot;http://localhost:8007&quot;</span>,
+    <span class="hljs-attr">entry</span>: <span class="hljs-string">&#x27;/rcms/stats.js&#x27;</span>,
+  },
+]
 
-  ],
-    <span class="hljs-attr">entry</span>: <span class="hljs-string">&quot;./app1&quot;</span>,
-  <span class="hljs-attr">status</span>: <span class="hljs-string">&#x27;&#x27;</span>,
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> projectList</code></pre>
+				<p>第二步： 引入fino-invoke调度模块，</p>
+				<p>那么基座应用就完了</p>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { invoke, registerApps } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;Packs/finoer-invoke&#x27;</span>
+<span class="hljs-comment">// 主应用的loading动画</span>
+<span class="hljs-keyword">import</span> Loading <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./utils/loading&#x27;</span>
+<span class="hljs-comment">// 注册应用</span>
+registerApps(projectList)
+
+<span class="hljs-keyword">const</span> loading = <span class="hljs-keyword">new</span> Loading()
+<span class="hljs-comment">// 应用进入钩子</span>
+invoke.$event.subscribe(<span class="hljs-string">&#x27;appEnter&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  loading.hide()
+})
+<span class="hljs-comment">// 应用离开的钩子</span>
+invoke.$event.subscribe(<span class="hljs-string">&#x27;appLeave&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  loading.show()
+})</code></pre>
+				<p>第三步： 子模块</p>
+				<p>如何将项目作为子模块接入fino项目</p>
+				<p>webpack打包配置： </p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> { StatsWriterPlugin } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;webpack-stats-plugin&quot;</span>)
+<span class="hljs-attr">plugins</span>: [
+  ...,
+  <span class="hljs-keyword">new</span> StatsWriterPlugin({
+
+        <span class="hljs-attr">filename</span>: <span class="hljs-string">&quot;rcms/stats.js&quot;</span>, <span class="hljs-comment">// Default,</span>
+        transform(data, opts) {
+          <span class="hljs-keyword">const</span> content =
+<span class="hljs-string">`
+  (function(){
+      const methods = <span class="hljs-subst">${<span class="hljs-built_in">JSON</span>.stringify({
+        ...data.assetsByChunkName,
+        context: <span class="hljs-string">&#x27;vue&#x27;</span>,
+        version: <span class="hljs-string">&#x27;2.6.10&#x27;</span>
+      }</span>)};
+      $event.notify(&#x27;baseInfoLoaded&#x27;, methods)
+  })()
+`</span>
+          <span class="hljs-keyword">return</span> content;
+        }
+    })
+]
+</code></pre>
+				<p>main.js: </p>
+				<pre><code class="language-js"><span class="hljs-comment">// 是否在fino的基座用运行</span>
+<span class="hljs-keyword">const</span> isInFinoRuntime = invoke.isInFinoRuntime()
+
+<span class="hljs-comment">// 如果不在fino基座中运行，即项目独立运行的时候， 使用自己的加载机制</span>
+<span class="hljs-keyword">if</span>(!isInFinoRuntime) {
+  Vue.use(Router)
+
+  <span class="hljs-keyword">const</span> router = <span class="hljs-keyword">new</span> Router({
+    <span class="hljs-attr">mode</span>: <span class="hljs-string">&#x27;history&#x27;</span>,
+    <span class="hljs-attr">routes</span>: routerArray
+  })
+  <span class="hljs-keyword">new</span> (Vue <span class="hljs-keyword">as</span> any)({
+    <span class="hljs-attr">el</span>: <span class="hljs-string">&quot;#app&quot;</span>,
+    router,
+    <span class="hljs-attr">render</span>: <span class="hljs-function">(<span class="hljs-params">h: any</span>) =&gt;</span> h(App)
+  })
+}<span class="hljs-keyword">else</span> {
+  <span class="hljs-comment">// 使用fino的加载机制</span>
+  <span class="hljs-keyword">const</span> finoApp = {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;yueqi1&quot;</span>,
+    <span class="hljs-attr">init</span>: <span class="hljs-function">(<span class="hljs-params">instance: VueRuntimeContext</span>) =&gt;</span> {
+      instance.injectionRouter(routerArray)
+    }
+  };
+
+  invoke.$event.notify(<span class="hljs-string">&#x27;childAppLoaded&#x27;</span>, finoApp)
 }</code></pre>
-				<p>projects: 应用列表</p>
-				<pre><code class="language-js">[
-  project1, 
-  project2, 
-  project3,
-]</code></pre>
-				<a href="#invoke-调度" id="invoke-调度" style="color: inherit; text-decoration: none;">
-					<h3>invoke 调度</h3>
-				</a>
-				<p>routerchange-hashChange</p>
-				<pre><code>onHashChange(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-    invoke.performesApp()
-})</code></pre><p>invoke</p>
-				<p>根据路由匹配到的项目信息， </p>
-				<pre><code>performaceChange(app, router) {
-    <span class="hljs-regexp">//</span> 卸载之前的app
-    <span class="hljs-regexp">//</span> 加载新的app
-    <span class="hljs-regexp">//</span> 先加载运行环境， 
-    <span class="hljs-regexp">//</span> 然后加载依赖
-    <span class="hljs-regexp">//</span> 渲染页面
-}</code></pre><p>app的状态管理</p>
-				<pre><code></code></pre>
+				<p>我所认为的现存的问题：</p>
+				<ol>
+					<li><p>创建context运行环境: 新增一种运行环境需要按照规定的类去继承实现它的方法， rcmsContext? </p>
+						<pre><code class="language-js">
+<span class="hljs-keyword">import</span> { GlobalContext, globalContext } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../global/index&#x27;</span>
+<span class="hljs-comment">/**
+ * <span class="hljs-doctag">@class </span>管理子模块的运行环境
+ * <span class="hljs-doctag">@mehtods <span class="hljs-type">{*}</span> <span class="hljs-variable">createContext</span></span>
+ * <span class="hljs-doctag">@mehtods <span class="hljs-type">{*}</span> <span class="hljs-variable">loadContext</span></span>
+ * <span class="hljs-doctag">@mehtods <span class="hljs-type">{*}</span> <span class="hljs-variable">unmountContext</span></span>
+ */</span>
+
+<span class="hljs-keyword">import</span> { tagLoadJs } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;../loader&quot;</span>;
+
+abstract <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BaseModuleContext</span> </span>{
+  <span class="hljs-comment">// 资源的base url</span>
+  public baseUrl: string = <span class="hljs-string">`https://cdn.bootcdn.net/ajax/libs`</span>;
+
+  public context: string = <span class="hljs-string">&quot;&quot;</span>
+
+  <span class="hljs-keyword">constructor</span>(type: string) {
+    <span class="hljs-built_in">this</span>.context = type
+  }
+
+  <span class="hljs-comment">// 获取运行环境沙箱</span>
+  public getSandBoxJs(type: string, <span class="hljs-attr">version</span>: string) {
+    <span class="hljs-keyword">const</span> url = <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-built_in">this</span>.baseUrl}</span>/<span class="hljs-subst">${type}</span>/<span class="hljs-subst">${version}</span>/<span class="hljs-subst">${type}</span>.min.js`</span>;
+    <span class="hljs-keyword">return</span> tagLoadJs(url)
+  }
+
+  abstract createContext(version: string): vueContext | reactContext | phaserContext
+
+  abstract destroy(): <span class="hljs-keyword">void</span>
+
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> BaseModuleContext
+</code></pre>
+					</li>
+					<li><p>暂时没有考虑css， js全局污染的问题</p>
+					</li>
+					<li><p>加载的超时时间问题。 降级处理， 提示</p>
+					</li>
+				</ol>
+				<ol start="4">
+					<li><p>运行环境插件化</p>
+					</li>
+					<li><p>css， js隔离</p>
+					</li>
+					<li><p>加载机制。</p>
+					</li>
+				</ol>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -115,6 +240,9 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="enums/assettypeenum.html" class="tsd-kind-icon">Asset<wbr>Type<wbr>Enum</a>
+					</li>
 					<li class=" tsd-kind-enum">
 						<a href="enums/lifecircle.html" class="tsd-kind-icon">Life<wbr>Circle</a>
 					</li>
@@ -140,10 +268,19 @@
 						<a href="classes/router.html" class="tsd-kind-icon">Router</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/sandbox.html" class="tsd-kind-icon">Sandbox</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/snapshotsandbox.html" class="tsd-kind-icon">Snapshot<wbr>Sandbox</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/vueruntimecontext.html" class="tsd-kind-icon">Vue<wbr>Runtime<wbr>Context</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/appinfotype.html" class="tsd-kind-icon">App<wbr>Info<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/asset.html" class="tsd-kind-icon">Asset</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/baseproject.html" class="tsd-kind-icon">Base<wbr>Project</a>
@@ -158,6 +295,9 @@
 						<a href="interfaces/eventsarray.html" class="tsd-kind-icon">Events<wbr>Array</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/finotype.html" class="tsd-kind-icon">Fino<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/global.html" class="tsd-kind-icon">Global</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -165,6 +305,12 @@
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/matchapptype.html" class="tsd-kind-icon">Match<wbr>App<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/objectpropertype.html" class="tsd-kind-icon">Object<wbr>Proper<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/objectprops.html" class="tsd-kind-icon">Object<wbr>Props</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/project.html" class="tsd-kind-icon">Project</a>
@@ -191,6 +337,9 @@
 						<a href="globals.html#pedest_started" class="tsd-kind-icon">PEDEST_<wbr>STARTED</a>
 					</li>
 					<li class=" tsd-kind-variable">
+						<a href="globals.html#unmount" class="tsd-kind-icon">UNMOUNT</a>
+					</li>
+					<li class=" tsd-kind-variable">
 						<a href="globals.html#apps" class="tsd-kind-icon">apps</a>
 					</li>
 					<li class=" tsd-kind-variable">
@@ -204,6 +353,9 @@
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#invoke" class="tsd-kind-icon">invoke</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#isfrist" class="tsd-kind-icon">is<wbr>Frist</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#namespace" class="tsd-kind-icon">namespace</a>
@@ -221,6 +373,12 @@
 						<a href="globals.html#originalreplacestate" class="tsd-kind-icon">original<wbr>Replace<wbr>State</a>
 					</li>
 					<li class=" tsd-kind-variable">
+						<a href="globals.html#rawwindowclearinterval" class="tsd-kind-icon">raw<wbr>Window<wbr>Clear<wbr>Interval</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#rawwindowinterval" class="tsd-kind-icon">raw<wbr>Window<wbr>Interval</a>
+					</li>
+					<li class=" tsd-kind-variable">
 						<a href="globals.html#router" class="tsd-kind-icon">router</a>
 					</li>
 					<li class=" tsd-kind-variable">
@@ -231,9 +389,6 @@
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#ajaxloadjs" class="tsd-kind-icon">ajax<wbr>Load<wbr>Js</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#appenter" class="tsd-kind-icon">app<wbr>Enter</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#baseinfoloaded" class="tsd-kind-icon">base<wbr>Info<wbr>Loaded</a>
@@ -266,6 +421,9 @@
 						<a href="globals.html#getappshouldbeactive" class="tsd-kind-icon">get<wbr>App<wbr>Should<wbr>BeActive</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="globals.html#getappshouldbeunmount" class="tsd-kind-icon">get<wbr>App<wbr>Should<wbr>BeUnmount</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="globals.html#getglobalcontext" class="tsd-kind-icon">get<wbr>Global<wbr>Context</a>
 					</li>
 					<li class=" tsd-kind-function">
@@ -275,10 +433,22 @@
 						<a href="globals.html#initruntimecontext" class="tsd-kind-icon">init<wbr>Runtime<wbr>Context</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="globals.html#isconstructor" class="tsd-kind-icon">is<wbr>Constructor</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="globals.html#isincapturedeventlisteners" class="tsd-kind-icon">is<wbr>InCaptured<wbr>Event<wbr>Listeners</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#isinfino" class="tsd-kind-icon">is<wbr>InFino</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#iswindowfunction" class="tsd-kind-icon">is<wbr>Window<wbr>Function</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#iter" class="tsd-kind-icon">iter</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#patchinterval" class="tsd-kind-icon">patch<wbr>Interval</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#registerapps" class="tsd-kind-icon">register<wbr>Apps</a>
@@ -288,6 +458,9 @@
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#removecapturedeventlisteners" class="tsd-kind-icon">remove<wbr>Captured<wbr>Event<wbr>Listeners</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#removechild" class="tsd-kind-icon">remove<wbr>Child</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#setstore" class="tsd-kind-icon">set<wbr>Store</a>

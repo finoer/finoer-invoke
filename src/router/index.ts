@@ -23,7 +23,11 @@ class Router {
   }
 
   push(url: string) {
-    globalContext.activeContext.instance.$router.push(url)
+    // if(globalContext.activeContext.instance) {
+
+    // }
+    // globalContext.activeContext.instance.$router.push(url)
+    window.history.pushState(null, '', url)
   }
 
   hijackHistory() {

@@ -1,6 +1,6 @@
-import { ContextType } from "../types/context";
+import { ContextType } from "../context";
 import { AppInfoType } from './appInfo';
-import { GlobalContext } from "../global";
+import { GlobalContext } from "../../global";
 interface Project {
     name: string;
     entry: string;

@@ -1,5 +1,4 @@
 
-import { GlobalContext, globalContext } from '../global/index'
 /**
  * @class 管理子模块的运行环境
  * @mehtods {*} createContext

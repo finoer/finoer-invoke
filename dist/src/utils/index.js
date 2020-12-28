@@ -37,19 +37,12 @@ export function getAppShouldBeUnmount(apps) {
     });
     return result;
 }
+// 判断是否是一个对象
+export const isObject = (obj) => typeof (obj) === 'object' && obj !== null;
 /**
  * @func 进入loading模式
  * @parans { show - 是否展示loading }
  */
-// export function triggerLoading() {
-//   const wrapper = document.createElement('div');
-//   const style = `background: #000;width:100%; height:100%; position: fixed;`
-//   wrapper.setAttribute('style', style)
-//   // 创建loading
-//   const loading = `<img src="../static/loading.svg"/>`
-//   wrapper.innerHTML = loading;
-//   document.body.appendChild(wrapper)
-// }
 // 卸载标签
 export function removeChild(id) {
     let element = document.getElementById(id);
@@ -81,8 +74,4 @@ function childAppLoaded(data) {
     globalContext.activedApplication = data;
     return data;
 }
-// function appEnter(app: Project, callBack: any) {
-//   console.log(`app1----enter: ${app}`)
-//   callBack && callBack();
-// }
 //# sourceMappingURL=index.js.map

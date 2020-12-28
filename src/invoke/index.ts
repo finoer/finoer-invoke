@@ -1,4 +1,4 @@
-import { Project, BaseProject } from "../project";
+import { Project, BaseProject } from "../types/project";
 import { Apps } from "../applycation/register";
 import { getStore, setStore } from "../applycation/store";
 import { getAppShouldBeActive, getAppShouldBeUnmount, registerEvents, removeChild } from "../utils";
@@ -80,8 +80,9 @@ class Invoke {
     }
 
     isFrist = false
-
-    await this.unmount(unmountApps)
+    if(unmountApps) {
+      // await this.unmount(unmountApps)
+    }
 
     this.app = activeApp.app
 
@@ -90,7 +91,11 @@ class Invoke {
     }
 
     // Trigger loading animation
-    this.$event.notify('appLeave')
+    if(!this.app.init) {
+      this.$event.notify('appLeave')
+    }
+
+    globalContext.activeContext = await this.setRuntimeContext(this.app);
 
     // Get the life cycle function of the current application(bootstrap, mount)
     const lifecircle = this.app.status.toLocaleLowerCase();
@@ -118,8 +123,6 @@ class Invoke {
 
     // Get application js packaging information
     activeProject = await this.getEntryJs(entryStatePath)
-
-    globalContext.activeContext = await this.setRuntimeContext(activeProject);
 
     if(!this.sandbox.appCache.includes(this.app.name)) {
       this.sandbox.name = this.app.name
@@ -198,7 +201,7 @@ class Invoke {
    * @des
    */
   async unmount(apps: MatchAppType[]) {
-    return new Promise((resolve) => {
+    return new Promise<void>((resolve) => {
       for(let i = 0; i < apps.length; i++) {
         // 卸载应用标签
         for(let j = 0; j < apps[i].app.dynamicElements.length; j++) {
@@ -237,7 +240,11 @@ class Invoke {
 
 
       if(typeof(assetsData[key]) === 'string') {
-        await this.getEntryJs(baseDomain + '/' + assetsData.app)
+        let entry = assetsData[key] || assetsData.app
+        await this.getEntryJs(baseDomain + '/' + entry)
+        this.app.dynamicElements ? (this.app.dynamicElements as Array<string>).push(baseDomain + '/' + assetsData.app)
+        : this.app.dynamicElements = [baseDomain + '/' + assetsData.app]
+        continue
       }
 
       /**

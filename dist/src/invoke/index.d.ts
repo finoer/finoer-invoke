@@ -1,4 +1,4 @@
-import { Project, BaseProject } from "../project";
+import { Project, BaseProject } from "../types/project";
 import { ContextType, MatchAppType } from '../types/context';
 import Events from "../events";
 import SnapshotSandbox from "../sandbox/snapshot";
@@ -38,7 +38,7 @@ declare class Invoke {
      * @methods { life cycle-unmount }
      * @des
      */
-    unmount(apps: MatchAppType[]): Promise<unknown>;
+    unmount(apps: MatchAppType[]): Promise<void>;
     /**
      * @methods The application is successfully mounted, and the sub-application is notified
      */

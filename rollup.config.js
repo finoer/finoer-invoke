@@ -23,13 +23,6 @@ export default {
       sourcemap: true
     },
     {
-      file: filePath+'umd.min.js',
-      format: 'umd',
-      sourcemap: true,
-      name: 'version',
-      plugins: [terser()]
-    },
-    {
       file: pkg.module,
       format: 'es',
       sourcemap: true
@@ -44,7 +37,10 @@ export default {
     include: 'src/**',
   },
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
-  external: [],
+  external: {
+    "Vue": "vue"
+  },
+
   plugins: [
     // Allow json resolution
     json(),

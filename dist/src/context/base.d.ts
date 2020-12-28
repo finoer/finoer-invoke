@@ -1,3 +1,9 @@
+/**
+ * @class 管理子模块的运行环境
+ * @mehtods {*} createContext
+ * @mehtods {*} loadContext
+ * @mehtods {*} unmountContext
+ */
 declare abstract class BaseModuleContext {
     baseUrl: string;
     context: string;
