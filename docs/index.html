@@ -131,7 +131,7 @@ invoke.$event.subscribe(<span class="hljs-string">&#x27;appLeave&#x27;</span>, <
   <span class="hljs-keyword">new</span> StatsWriterPlugin({
 
         <span class="hljs-attr">filename</span>: <span class="hljs-string">&quot;rcms/stats.js&quot;</span>, <span class="hljs-comment">// Default,</span>
-        transform(data, opts) {
+        <span class="hljs-function"><span class="hljs-title">transform</span>(<span class="hljs-params">data, opts</span>)</span> {
           <span class="hljs-keyword">const</span> content =
 <span class="hljs-string">`
   (function(){
@@ -139,7 +139,7 @@ invoke.$event.subscribe(<span class="hljs-string">&#x27;appLeave&#x27;</span>, <
         ...data.assetsByChunkName,
         context: <span class="hljs-string">&#x27;vue&#x27;</span>,
         version: <span class="hljs-string">&#x27;2.6.10&#x27;</span>
-      }</span>)};
+      })}</span>;
       $event.notify(&#x27;baseInfoLoaded&#x27;, methods)
   })()
 `</span>
@@ -196,12 +196,12 @@ abstract <span class="hljs-class"><span class="hljs-keyword">class</span> <span 
 
   public context: string = <span class="hljs-string">&quot;&quot;</span>
 
-  <span class="hljs-keyword">constructor</span>(type: string) {
+  <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params">type: string</span>)</span> {
     <span class="hljs-built_in">this</span>.context = type
   }
 
   <span class="hljs-comment">// 获取运行环境沙箱</span>
-  public getSandBoxJs(type: string, <span class="hljs-attr">version</span>: string) {
+  public <span class="hljs-function"><span class="hljs-title">getSandBoxJs</span>(<span class="hljs-params">type: string, version: string</span>)</span> {
     <span class="hljs-keyword">const</span> url = <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-built_in">this</span>.baseUrl}</span>/<span class="hljs-subst">${type}</span>/<span class="hljs-subst">${version}</span>/<span class="hljs-subst">${type}</span>.min.js`</span>;
     <span class="hljs-keyword">return</span> tagLoadJs(url)
   }
@@ -295,6 +295,9 @@ abstract <span class="hljs-class"><span class="hljs-keyword">class</span> <span 
 						<a href="interfaces/eventsarray.html" class="tsd-kind-icon">Events<wbr>Array</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/extendsdatabasetype.html" class="tsd-kind-icon">Extends<wbr>Database<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/finotype.html" class="tsd-kind-icon">Fino<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -317,6 +320,9 @@ abstract <span class="hljs-class"><span class="hljs-keyword">class</span> <span 
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/assetstype.html" class="tsd-kind-icon">assets<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#_data" class="tsd-kind-icon">$data</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#apps" class="tsd-kind-icon">Apps</a>
@@ -344,6 +350,9 @@ abstract <span class="hljs-class"><span class="hljs-keyword">class</span> <span 
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#baseurl" class="tsd-kind-icon">base<wbr>Url</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#global" class="tsd-kind-icon">global</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#globalcontext" class="tsd-kind-icon">global<wbr>Context</a>
@@ -440,6 +449,9 @@ abstract <span class="hljs-class"><span class="hljs-keyword">class</span> <span 
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#isinfino" class="tsd-kind-icon">is<wbr>InFino</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#isobject" class="tsd-kind-icon">is<wbr>Object</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#iswindowfunction" class="tsd-kind-icon">is<wbr>Window<wbr>Function</a>

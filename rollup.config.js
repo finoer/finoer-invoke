@@ -22,16 +22,6 @@ export default {
       format: 'umd',
       sourcemap: true
     },
-    {
-      file: pkg.module,
-      format: 'es',
-      sourcemap: true
-    },
-    {
-      file: pkg.cjsmodule,
-      format: `cjs`
-    }
-
   ],
   watch: {
     include: 'src/**',

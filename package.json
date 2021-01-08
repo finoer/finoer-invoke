@@ -1,7 +1,7 @@
 {
   "name": "@finoer/finoer-invoke",
   "libName": "finoer-invoke",
-  "version": "0.0.4",
+  "version": "0.0.7",
   "description": "",
   "author": "",
   "keywords": [],
@@ -55,7 +55,7 @@
   },
   "dependencies": {
     "@finoer/finoer-core": "0.0.1",
-    "@finoer/finoer-store": "0.0.1"
+    "@finoer/finoer-store": "0.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",

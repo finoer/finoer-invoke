@@ -17,6 +17,8 @@ enum LifeCircle {
   MOUNTED = 'mount'
 }
 
+const global: GlobalType = window
+
 let isFrist = true
 
 class Invoke {
@@ -85,6 +87,8 @@ class Invoke {
     }
 
     this.app = activeApp.app
+
+    global.$data && global.$data.init(this.app.name)
 
     if(this.app.status === MOUNT) {
       globalContext.activedApplication = this.app
