@@ -6,7 +6,7 @@ import { globalContext } from "../global";
 
 class PhaserRuntimeContext extends BaseModuleContext {
   // 当前runtime
-  public instance?: Phaser.Game | null
+  public instance?: any | null
 
   // 实例
   public element?: HTMLElement | null
@@ -25,7 +25,6 @@ class PhaserRuntimeContext extends BaseModuleContext {
     }
     // 获取当前运行环境所需的资源
     const context = await this.getSandBoxJs('phaser', version)
-    const plugin = await tagLoadJs('https://s.vipkidstatic.com/phaser/SpinePlugin.min.js')
     //
     const Phaser = (window as any)['Phaser'];
     globalContext.contextSourceCache.phaser = true
@@ -42,7 +41,7 @@ class PhaserRuntimeContext extends BaseModuleContext {
 
   }
 
-  initGame(scenes: Array<Phaser.Scene>) {
+  initGame(scenes: Array<any>) {
     const root = document.createElement('div')
     root.id = 'root'
     document.body.appendChild(root)
@@ -56,15 +55,6 @@ class PhaserRuntimeContext extends BaseModuleContext {
       transparent: true,
       parent: root,
       scene: scenes,
-      plugins: {
-        scene: [
-          {
-            key: 'SpinePlugin',
-            plugin: (window as any)['SpinePlugin'],
-            mapping: 'spine'
-          }
-        ]
-      },
       scale: {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH
@@ -74,13 +64,13 @@ class PhaserRuntimeContext extends BaseModuleContext {
     // debugger
     const game = new Phaser.Game(gameConfig)
 
-    return game
+    return (game as any)
   }
 
   /**
    * @func {*} injection routing
    */
-  injectionRouter(scenes: Array<Phaser.Scene>,) {
+  injectionRouter(scenes: Array<any>,) {
     if (!this.instance) {
       this.instance = this.initGame([scenes[scenes.length - 1]])
       scenes.pop()

@@ -71,7 +71,7 @@ export default class SnapshotSandbox {
     });
 
     if (process.env.NODE_ENV === 'development') {
-      console.info(`[qiankun:sandbox] ${this.name} origin window restore...`, Object.keys(this.modifyPropsMap[this.name]));
+      console.info(`[andbox] ${this.name} origin window restore...`, Object.keys(this.modifyPropsMap[this.name]));
     }
 
     this.sandboxRunning = false;

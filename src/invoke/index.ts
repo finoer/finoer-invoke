@@ -83,7 +83,7 @@ class Invoke {
 
     isFrist = false
     if(unmountApps) {
-      // await this.unmount(unmountApps)
+      await this.unmount(unmountApps)
     }
 
     this.app = activeApp.app
@@ -206,15 +206,18 @@ class Invoke {
    */
   async unmount(apps: MatchAppType[]) {
     return new Promise<void>((resolve) => {
+      if(!apps) { resolve() }
+      // resolve()
+
       for(let i = 0; i < apps.length; i++) {
         // 卸载应用标签
         for(let j = 0; j < apps[i].app.dynamicElements.length; j++) {
-          removeChild(apps[i].app.dynamicElements[j])
+          // removeChild(apps[i].app.dynamicElements[j])
         }
 
-        apps[i].app.dynamicElements = []
+        // apps[i].app.dynamicElements = []
         // 将状态设置位UNMOUNT
-        apps[i].app.status = UNMOUNT;
+        // apps[i].app.status = UNMOUNT;
       }
 
       this.sandbox.inactive()
@@ -234,38 +237,23 @@ class Invoke {
    * @methods Get application js
    */
   async getModuleJs(baseDomain: string, assetsData: any): Promise<Project> {
-    const assets = Object.keys(assetsData);
-    for(let i = 0; i < assets.length; i++) {
-      const key = assets[i];
+    // const assets = Object.keys(assetsData);
+    for(let i = 0; i < assetsData.length; i++) {
 
-      if(key === 'context' || key === 'version')  {
-        continue
-      }
+      if(typeof(assetsData[i]) === 'string') {
+        let entry = assetsData[i]
+        if(entry.indexOf('.css') > -1) {
+          tagLoadCss(baseDomain + '/' + entry)
+        }else if(entry.indexOf('.js') > -1){
+          await this.getEntryJs(baseDomain + '/' + entry)
+        }else {
+          let source = new Image()
+          source.src = baseDomain + '/' + entry
+        }
 
-
-      if(typeof(assetsData[key]) === 'string') {
-        let entry = assetsData[key] || assetsData.app
-        await this.getEntryJs(baseDomain + '/' + entry)
         this.app.dynamicElements ? (this.app.dynamicElements as Array<string>).push(baseDomain + '/' + assetsData.app)
         : this.app.dynamicElements = [baseDomain + '/' + assetsData.app]
         continue
-      }
-
-      /**
-       * @remark for mutile entry
-      */
-      for(let j = 0; j < assetsData[key].length; j++) {
-        const assetsResource = assetsData[key][j]
-        if(assetsResource.indexOf('css/') > -1) {
-          tagLoadCss(baseDomain + '/' + assetsResource)
-        }else {
-          await this.getEntryJs(baseDomain + '/' + assetsResource)
-        }
-
-        this.app.dynamicElements ? (this.app.dynamicElements as Array<string>).push(baseDomain + '/' + assetsResource)
-              : this.app.dynamicElements = [baseDomain + '/' + assetsResource]
-
-        console.log('apps', this.app)
       }
     }
 
