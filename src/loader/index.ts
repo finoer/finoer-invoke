@@ -1,3 +1,5 @@
+import { globalContext } from "../global";
+
 const baseUrl: string = "";
 
 export enum AssetTypeEnum {
@@ -9,8 +11,6 @@ export interface Asset {
   type: AssetTypeEnum;
   content: string;
 }
-
-
 
 export function ajaxLoadJs(src: string): Promise<any> {
   return new Promise(() => {
@@ -25,7 +25,7 @@ export function ajaxLoadJs(src: string): Promise<any> {
 export function tagLoadJs(src: string): Promise<any> {
   let { scriptTag, timestamp } = createJs();
   return new Promise((resolve, reject) => {
-    scriptTag.onload = () => resolve();
+    scriptTag.onload = () => resolve(null);
 
     scriptTag.onerror = (err) => {
       setTimeout(() => {
@@ -48,12 +48,25 @@ export function tagLoadJs(src: string): Promise<any> {
 export function tagLoadCss(link: string): Promise<any> {
   let { styleTag, timestamp } = createCss();
   return new Promise((resolve) => {
-    styleTag.onload = () => resolve();
+    styleTag.onload = () => resolve(null);
 
     styleTag.href = baseUrl + link + "?" + timestamp
     styleTag.rel = "stylesheet"
     styleTag.id = baseUrl + link
     document.body.appendChild(styleTag)
+
+    resolve(null)
+  })
+}
+
+export function getEntryJs(url: string): Promise<any> {
+  return new Promise((resolve, reject) => {
+    tagLoadJs(url).then(() => {
+      // 加载完成的内容会挂载到这个globalContext上
+      resolve(globalContext.activeAppInfo)
+    }).catch(e => {
+      reject(e)
+    })
   })
 }
 
@@ -80,5 +93,11 @@ function createJs() {
   return {
     scriptTag,
     timestamp
+  }
+}
+
+export async function loadCss(cssList: string[]) {
+  for(let i = 0; i < cssList.length; i++) {
+    await tagLoadCss(cssList[i])
   }
 }

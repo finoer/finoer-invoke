@@ -8,8 +8,13 @@ const global: GlobalType = window
 const $data: ExtendsDatabaseType = global.$data = global.$data ? global.$data : new Database()
 const invoke = new Invoke()
 const router = new Router(invoke)
-/// <reference types="./types/phaser/phaser" />
 
-console.log('代码更新了最终版99999', $data)
+// initialize the data store of the current module
+invoke.$event.subscribe('appEnter', () => {
+  global.$data && global.$data.init(invoke.app.name)
+})
+
+console.log('这里是代码最终版')
+
 export { registerApps, invoke, router, $data}
 

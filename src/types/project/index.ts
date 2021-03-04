@@ -35,7 +35,10 @@ interface Project {
     assetsByChunkName: assetsType
   },
 
-  dynamicElements: Array<string>
+  dynamicElements: {
+    css: Array<string>,
+    js: Array<string>
+  }
 
 }
 

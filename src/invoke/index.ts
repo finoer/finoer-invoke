@@ -4,13 +4,14 @@ import { getStore, setStore } from "../applycation/store";
 import { getAppShouldBeActive, getAppShouldBeUnmount, registerEvents, removeChild } from "../utils";
 import { GlobalType, ContextType, MatchAppType } from '../types/context'
 import Events from "../events";
-import { tagLoadJs, tagLoadCss } from "../loader";
+import { tagLoadJs, tagLoadCss, getEntryJs } from "../loader";
 import { globalContext } from "../global";
 import initRuntimeContext from "../context/init";
 import VueRuntimeContext from "../context/vue";
 import { BOOTSTRAP, MOUNTED, MOUNT, UNMOUNT } from "../utils/contants";
 import SnapshotSandbox from "../sandbox/snapshot";
 import { patchInterval } from "../sandbox/patchAtMounting";
+import { bootstrap, mount, unmount } from './lifecircle'
 
 enum LifeCircle {
   BOOTSTRAP = 'bootstrap',
@@ -18,6 +19,8 @@ enum LifeCircle {
 }
 
 const global: GlobalType = window
+
+const lifecircleFn = { bootstrap, mount }
 
 let isFrist = true
 
@@ -30,6 +33,8 @@ class Invoke {
   public app: Project = Apps[0];
   // Event
   public $event: Events;
+  // mode: safe or speed
+  public mode: string = 'speed'
 
   // sandbox
   public sandbox: SnapshotSandbox
@@ -73,6 +78,10 @@ class Invoke {
     // Get the application that needs to be mounted
     const activeApp = getAppShouldBeActive(apps);
 
+    this.app = activeApp.app
+
+    this.app.dynamicElements = this.app.dynamicElements || { js: [], css: [] }
+
     // uninstall apps that do not require activation
     const unmountApps = getAppShouldBeUnmount(apps);
 
@@ -83,12 +92,9 @@ class Invoke {
 
     isFrist = false
     if(unmountApps) {
-      await this.unmount(unmountApps)
+      await unmount(unmountApps, this.sandbox, this.mode)
     }
 
-    this.app = activeApp.app
-
-    global.$data && global.$data.init(this.app.name)
 
     if(this.app.status === MOUNT) {
       globalContext.activedApplication = this.app
@@ -104,7 +110,7 @@ class Invoke {
     // Get the life cycle function of the current application(bootstrap, mount)
     const lifecircle = this.app.status.toLocaleLowerCase();
 
-    await this[(lifecircle as LifeCircle)]()
+    this.app = await lifecircleFn[(lifecircle as LifeCircle)](this.app, this.sandbox, this.getModuleJs.bind(this))
 
     // At this time, the various information of the app is ready, merge the cached information to the current app
     this.app = Object.assign(this.app, globalContext.activeAppInfo,  globalContext.activedApplication)
@@ -114,32 +120,6 @@ class Invoke {
     this.$event.notify('appEnter')
   }
 
-  /**
-   * @methods { life cycle-bootstrap }
-   */
-  async bootstrap() {
-
-    // globalContext.activeAppInfo.context && this.sandbox.inactive()
-    // Get current application information
-    let activeProject: Project['appInfo'];
-
-    const entryStatePath = this.app.domain + this.app.entry;
-
-    // Get application js packaging information
-    activeProject = await this.getEntryJs(entryStatePath)
-
-    if(!this.sandbox.appCache.includes(this.app.name)) {
-      this.sandbox.name = this.app.name
-      this.sandbox.active()
-    }
-
-    // load application entry file { init: () => {}, name: string, destory: () => {} }
-    globalContext.activedApplication = await this.getModuleJs(this.app.domain, globalContext.activeAppInfo);
-
-    removeChild(this.app.domain + this.app.entry)
-    // Execute mount life cycle
-    await this.mount()
-  }
 
   /**
    * @methods The application is successfully mounted, and the sub-application is notified
@@ -178,62 +158,6 @@ class Invoke {
   }
 
   /**
-   * @methods { life cycle-mount }
-   * @des Create a running environment and inject routing
-   */
-  async mount() {
-    const runtime = globalContext.activeContext
-    // The runtime context is initialized successfully, and the route is injected
-
-    if(this.app.status === MOUNT) {
-      globalContext.activedApplication = this.app
-      this.sandbox.name = this.app.name
-      this.sandbox.active()
-    }
-
-    if(this.app.name === globalContext.activedApplication.name)  {
-      // injection router
-      globalContext.activedApplication.init && globalContext.activedApplication.init((runtime as VueRuntimeContext), globalContext.activeContext)
-    }
-
-    this.app.status = MOUNT
-
-  }
-
-  /**
-   * @methods { life cycle-unmount }
-   * @des
-   */
-  async unmount(apps: MatchAppType[]) {
-    return new Promise<void>((resolve) => {
-      if(!apps) { resolve() }
-      // resolve()
-
-      for(let i = 0; i < apps.length; i++) {
-        // 卸载应用标签
-        for(let j = 0; j < apps[i].app.dynamicElements.length; j++) {
-          // removeChild(apps[i].app.dynamicElements[j])
-        }
-
-        // apps[i].app.dynamicElements = []
-        // 将状态设置位UNMOUNT
-        // apps[i].app.status = UNMOUNT;
-      }
-
-      this.sandbox.inactive()
-
-      resolve()
-    })
-  }
-
-  /**
-   * @methods The application is successfully mounted, and the sub-application is notified
-   */
-  public mounted() {
-
-  }
-
-  /**
    * @methods Get application js
    */
   async getModuleJs(baseDomain: string, assetsData: any): Promise<Project> {
@@ -241,39 +165,31 @@ class Invoke {
     for(let i = 0; i < assetsData.length; i++) {
 
       if(typeof(assetsData[i]) === 'string') {
-        let entry = assetsData[i]
+        const entry = assetsData[i]
+        const url = baseDomain + '/' + entry
+
+
         if(entry.indexOf('.css') > -1) {
-          tagLoadCss(baseDomain + '/' + entry)
+
+          this.app.dynamicElements.css.indexOf(url) === -1  &&
+            this.app.dynamicElements.css.push(url)
+          continue
         }else if(entry.indexOf('.js') > -1){
-          await this.getEntryJs(baseDomain + '/' + entry)
+          await getEntryJs(url)
         }else {
           let source = new Image()
-          source.src = baseDomain + '/' + entry
+          source.src = url
         }
 
-        this.app.dynamicElements ? (this.app.dynamicElements as Array<string>).push(baseDomain + '/' + assetsData.app)
-        : this.app.dynamicElements = [baseDomain + '/' + assetsData.app]
+        if(this.mode === 'safe') {
+          this.app.dynamicElements.js.push(url)
+        }
+
         continue
       }
     }
 
     return globalContext.activedApplication
-  }
-
-
-   /**
-   * @methods jsonp loads js files
-   * @param { url - url }
-   */
-  public getEntryJs(url: string): Promise<any> {
-    return new Promise((resolve, reject) => {
-      tagLoadJs(url).then(() => {
-        // 加载完成的内容会挂载到这个globalContext上
-        resolve(globalContext.activeAppInfo)
-      }).catch(e => {
-        reject(e)
-      })
-    })
   }
 
   /**

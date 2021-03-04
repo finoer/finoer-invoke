@@ -144,6 +144,7 @@
 								<li class="tsd-kind-function"><a href="globals.html#addcapturedeventlisteners" class="tsd-kind-icon">add<wbr>Captured<wbr>Event<wbr>Listeners</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#ajaxloadjs" class="tsd-kind-icon">ajax<wbr>Load<wbr>Js</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#baseinfoloaded" class="tsd-kind-icon">base<wbr>Info<wbr>Loaded</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#bootstrap" class="tsd-kind-icon">bootstrap</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#callcaptureedeventlisteners" class="tsd-kind-icon">call<wbr>Captureed<wbr>Event<wbr>Listeners</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#childapploaded" class="tsd-kind-icon">child<wbr>App<wbr>Loaded</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#createcss" class="tsd-kind-icon">create<wbr>Css</a></li>
@@ -154,6 +155,7 @@
 								<li class="tsd-kind-function"><a href="globals.html#getappmounttime" class="tsd-kind-icon">get<wbr>App<wbr>Mount<wbr>Time</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#getappshouldbeactive" class="tsd-kind-icon">get<wbr>App<wbr>Should<wbr>BeActive</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#getappshouldbeunmount" class="tsd-kind-icon">get<wbr>App<wbr>Should<wbr>BeUnmount</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#getentryjs" class="tsd-kind-icon">get<wbr>Entry<wbr>Js</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#getglobalcontext" class="tsd-kind-icon">get<wbr>Global<wbr>Context</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#getstore" class="tsd-kind-icon">get<wbr>Store</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#initruntimecontext" class="tsd-kind-icon">init<wbr>Runtime<wbr>Context</a></li>
@@ -163,6 +165,9 @@
 								<li class="tsd-kind-function"><a href="globals.html#isobject" class="tsd-kind-icon">is<wbr>Object</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#iswindowfunction" class="tsd-kind-icon">is<wbr>Window<wbr>Function</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#iter" class="tsd-kind-icon">iter</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#loadcss" class="tsd-kind-icon">load<wbr>Css</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#mount" class="tsd-kind-icon">mount</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#mounted" class="tsd-kind-icon">mounted</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#patchinterval" class="tsd-kind-icon">patch<wbr>Interval</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#registerapps" class="tsd-kind-icon">register<wbr>Apps</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#registerevents" class="tsd-kind-icon">register<wbr>Events</a></li>
@@ -171,12 +176,14 @@
 								<li class="tsd-kind-function"><a href="globals.html#setstore" class="tsd-kind-icon">set<wbr>Store</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#tagloadcss" class="tsd-kind-icon">tag<wbr>Load<wbr>Css</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#tagloadjs" class="tsd-kind-icon">tag<wbr>Load<wbr>Js</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#unmount" class="tsd-kind-icon">unmount</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Object literals</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-object-literal"><a href="globals.html#captureeventlisteners" class="tsd-kind-icon">capture<wbr>Event<wbr>Listeners</a></li>
+								<li class="tsd-kind-object-literal"><a href="globals.html#lifecirclefn" class="tsd-kind-icon">lifecircle<wbr>Fn</a></li>
 							</ul>
 						</section>
 					</div>
@@ -190,7 +197,7 @@
 					<div class="tsd-signature tsd-kind-icon">$data<span class="tsd-signature-symbol">:</span> <a href="interfaces/extendsdatabasetype.html" class="tsd-signature-type">ExtendsDatabaseType</a><span class="tsd-signature-symbol"> = global.$data &#x3D; global.$data ? global.$data : new Database()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/index.ts#L8">finoer-invoke/src/index.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/index.ts#L8">src/index.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -200,7 +207,7 @@
 					<div class="tsd-signature tsd-kind-icon">Apps<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/project.html" class="tsd-signature-type">Project</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/applycation/register.ts#L5">finoer-invoke/src/applycation/register.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/applycation/register.ts#L5">src/applycation/register.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -210,7 +217,7 @@
 					<div class="tsd-signature tsd-kind-icon">BOOTSTRAP<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"BOOTSTRAP"</span><span class="tsd-signature-symbol"> = &quot;BOOTSTRAP&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/utils/contants.ts#L6">finoer-invoke/src/utils/contants.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/utils/contants.ts#L6">src/utils/contants.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -220,7 +227,7 @@
 					<div class="tsd-signature tsd-kind-icon">MOUNT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"MOUNT"</span><span class="tsd-signature-symbol"> = &quot;MOUNT&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/utils/contants.ts#L8">finoer-invoke/src/utils/contants.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/utils/contants.ts#L8">src/utils/contants.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -230,7 +237,7 @@
 					<div class="tsd-signature tsd-kind-icon">MOUNTED<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"MOUNTED"</span><span class="tsd-signature-symbol"> = &quot;MOUNTED&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/utils/contants.ts#L10">finoer-invoke/src/utils/contants.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/utils/contants.ts#L10">src/utils/contants.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -240,7 +247,7 @@
 					<div class="tsd-signature tsd-kind-icon">PEDEST_<wbr>NOT_<wbr>STARTED<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"PEDEST_NOT_STARTED"</span><span class="tsd-signature-symbol"> = &quot;PEDEST_NOT_STARTED&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/utils/contants.ts#L4">finoer-invoke/src/utils/contants.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/utils/contants.ts#L4">src/utils/contants.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -250,7 +257,7 @@
 					<div class="tsd-signature tsd-kind-icon">PEDEST_<wbr>STARTED<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"PEDEST_STARTED"</span><span class="tsd-signature-symbol"> = &quot;PEDEST_STARTED&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/utils/contants.ts#L1">finoer-invoke/src/utils/contants.ts:1</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/utils/contants.ts#L1">src/utils/contants.ts:1</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -260,7 +267,7 @@
 					<div class="tsd-signature tsd-kind-icon">UNMOUNT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"UNMOUNT"</span><span class="tsd-signature-symbol"> = &quot;UNMOUNT&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/utils/contants.ts#L12">finoer-invoke/src/utils/contants.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/utils/contants.ts#L12">src/utils/contants.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -270,7 +277,7 @@
 					<div class="tsd-signature tsd-kind-icon">apps<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/project.html" class="tsd-signature-type">Project</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/model/index.ts#L3">finoer-invoke/src/model/index.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/model/index.ts#L3">src/model/index.ts:3</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -280,7 +287,7 @@
 					<div class="tsd-signature tsd-kind-icon">base<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/loader/index.ts#L1">finoer-invoke/src/loader/index.ts:1</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/loader/index.ts#L3">src/loader/index.ts:3</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -290,8 +297,8 @@
 					<div class="tsd-signature tsd-kind-icon">global<span class="tsd-signature-symbol">:</span> <a href="interfaces/globaltype.html" class="tsd-signature-type">GlobalType</a><span class="tsd-signature-symbol"> = window</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/invoke/index.ts#L20">finoer-invoke/src/invoke/index.ts:20</a></li>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/index.ts#L7">finoer-invoke/src/index.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/invoke/index.ts#L21">src/invoke/index.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/index.ts#L7">src/index.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -301,7 +308,7 @@
 					<div class="tsd-signature tsd-kind-icon">global<wbr>Context<span class="tsd-signature-symbol">:</span> <a href="classes/globalcontext.html" class="tsd-signature-type">GlobalContext</a><span class="tsd-signature-symbol"> = getGlobalContext()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/global/index.ts#L62">finoer-invoke/src/global/index.ts:62</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/global/index.ts#L62">src/global/index.ts:62</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -311,7 +318,7 @@
 					<div class="tsd-signature tsd-kind-icon">history<wbr>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/router/capturedListeners.ts#L11">finoer-invoke/src/router/capturedListeners.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/router/capturedListeners.ts#L11">src/router/capturedListeners.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -321,7 +328,7 @@
 					<div class="tsd-signature tsd-kind-icon">invoke<span class="tsd-signature-symbol">:</span> <a href="classes/invoke.html" class="tsd-signature-type">Invoke</a><span class="tsd-signature-symbol"> = new Invoke()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/index.ts#L9">finoer-invoke/src/index.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/index.ts#L9">src/index.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -331,7 +338,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Frist<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/invoke/index.ts#L22">finoer-invoke/src/invoke/index.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/invoke/index.ts#L25">src/invoke/index.ts:25</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -341,7 +348,7 @@
 					<div class="tsd-signature tsd-kind-icon">namespace<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"FINO"</span><span class="tsd-signature-symbol"> = &quot;FINO&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/applycation/store.ts#L2">finoer-invoke/src/applycation/store.ts:2</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/applycation/store.ts#L2">src/applycation/store.ts:2</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -351,7 +358,7 @@
 					<div class="tsd-signature tsd-kind-icon">original<wbr>Add<wbr>Event<wbr>Listener<span class="tsd-signature-symbol">:</span> <a href="interfaces/global.html#addeventlistener" class="tsd-signature-type">addEventListener</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">addEventListener</span><span class="tsd-signature-symbol"> = window.addEventListener</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/router/index.ts#L7">finoer-invoke/src/router/index.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/router/index.ts#L7">src/router/index.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -361,7 +368,7 @@
 					<div class="tsd-signature tsd-kind-icon">original<wbr>Push<wbr>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">pushState</span><span class="tsd-signature-symbol"> = window.history.pushState</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/router/index.ts#L9">finoer-invoke/src/router/index.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/router/index.ts#L9">src/router/index.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -371,7 +378,7 @@
 					<div class="tsd-signature tsd-kind-icon">original<wbr>Remove<wbr>Event<wbr>Lister<span class="tsd-signature-symbol">:</span> <a href="interfaces/global.html#removeeventlistener" class="tsd-signature-type">removeEventListener</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">removeEventListener</span><span class="tsd-signature-symbol"> = window.removeEventListener</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/router/index.ts#L8">finoer-invoke/src/router/index.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/router/index.ts#L8">src/router/index.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -381,7 +388,7 @@
 					<div class="tsd-signature tsd-kind-icon">original<wbr>Replace<wbr>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">replaceState</span><span class="tsd-signature-symbol"> = window.history.replaceState</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/router/index.ts#L10">finoer-invoke/src/router/index.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/router/index.ts#L10">src/router/index.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -391,7 +398,7 @@
 					<div class="tsd-signature tsd-kind-icon">raw<wbr>Window<wbr>Clear<wbr>Interval<span class="tsd-signature-symbol">:</span> <a href="interfaces/global.html#clearinterval" class="tsd-signature-type">clearInterval</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">clearInterval</span><span class="tsd-signature-symbol"> = window.clearInterval</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/sandbox/patchAtMounting.ts#L2">finoer-invoke/src/sandbox/patchAtMounting.ts:2</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/sandbox/patchAtMounting.ts#L2">src/sandbox/patchAtMounting.ts:2</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -401,7 +408,7 @@
 					<div class="tsd-signature tsd-kind-icon">raw<wbr>Window<wbr>Interval<span class="tsd-signature-symbol">:</span> <a href="interfaces/global.html#setinterval" class="tsd-signature-type">setInterval</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">setInterval</span><span class="tsd-signature-symbol"> = window.setInterval</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/sandbox/patchAtMounting.ts#L1">finoer-invoke/src/sandbox/patchAtMounting.ts:1</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/sandbox/patchAtMounting.ts#L1">src/sandbox/patchAtMounting.ts:1</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -411,7 +418,7 @@
 					<div class="tsd-signature tsd-kind-icon">router<span class="tsd-signature-symbol">:</span> <a href="classes/router.html" class="tsd-signature-type">Router</a><span class="tsd-signature-symbol"> = new Router(invoke)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/index.ts#L10">finoer-invoke/src/index.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/index.ts#L10">src/index.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -421,7 +428,7 @@
 					<div class="tsd-signature tsd-kind-icon">routing<wbr>Events<wbr>Listening<wbr>To<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [&#x27;popstate&#x27;, &#x27;hashChange&#x27;]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/router/capturedListeners.ts#L2">finoer-invoke/src/router/capturedListeners.ts:2</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/router/capturedListeners.ts#L2">src/router/capturedListeners.ts:2</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -438,7 +445,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/router/capturedListeners.ts#L45">finoer-invoke/src/router/capturedListeners.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/router/capturedListeners.ts#L45">src/router/capturedListeners.ts:45</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -464,7 +471,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/loader/index.ts#L15">finoer-invoke/src/loader/index.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/loader/index.ts#L15">src/loader/index.ts:15</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -487,7 +494,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/utils/index.ts#L82">finoer-invoke/src/utils/index.ts:82</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/utils/index.ts#L82">src/utils/index.ts:82</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -501,6 +508,63 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="bootstrap" class="tsd-anchor"></a>
+					<h3>bootstrap</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">bootstrap<span class="tsd-signature-symbol">(</span>app<span class="tsd-signature-symbol">: </span><a href="interfaces/project.html" class="tsd-signature-type">Project</a>, sandbox<span class="tsd-signature-symbol">: </span><a href="classes/snapshotsandbox.html" class="tsd-signature-type">SnapshotSandbox</a>, loadFn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>baseDomain<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, assetsData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/project.html" class="tsd-signature-type">Project</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/project.html" class="tsd-signature-type">Project</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in src/invoke/lifecircle.ts:14</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>methods</dt>
+									<dd><p>{ life cycle-bootstrap }</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>app: <a href="interfaces/project.html" class="tsd-signature-type">Project</a></h5>
+								</li>
+								<li>
+									<h5>sandbox: <a href="classes/snapshotsandbox.html" class="tsd-signature-type">SnapshotSandbox</a></h5>
+								</li>
+								<li>
+									<h5>loadFn: <span class="tsd-signature-symbol">(</span>baseDomain<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, assetsData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/project.html" class="tsd-signature-type">Project</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>baseDomain<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, assetsData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/project.html" class="tsd-signature-type">Project</a><span class="tsd-signature-symbol">&gt;</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>baseDomain: <span class="tsd-signature-type">string</span></h5>
+														</li>
+														<li>
+															<h5>assetsData: <span class="tsd-signature-type">any</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/project.html" class="tsd-signature-type">Project</a><span class="tsd-signature-symbol">&gt;</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/project.html" class="tsd-signature-type">Project</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="callcaptureedeventlisteners" class="tsd-anchor"></a>
 					<h3>call<wbr>Captureed<wbr>Event<wbr>Listeners</h3>
 					<ul class="tsd-signatures tsd-kind-function">
@@ -510,7 +574,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/router/capturedListeners.ts#L13">finoer-invoke/src/router/capturedListeners.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/router/capturedListeners.ts#L13">src/router/capturedListeners.ts:13</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -527,7 +591,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/utils/index.ts#L87">finoer-invoke/src/utils/index.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/utils/index.ts#L87">src/utils/index.ts:87</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -550,7 +614,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/loader/index.ts#L60">finoer-invoke/src/loader/index.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/loader/index.ts#L73">src/loader/index.ts:73</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{ </span>styleTag<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLLinkElement</span><span class="tsd-signature-symbol">; </span>timestamp<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></h4>
@@ -575,7 +639,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/loader/index.ts#L73">finoer-invoke/src/loader/index.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/loader/index.ts#L86">src/loader/index.ts:86</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{ </span>scriptTag<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLScriptElement</span><span class="tsd-signature-symbol">; </span>timestamp<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></h4>
@@ -600,7 +664,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/router/capturedListeners.ts#L27">finoer-invoke/src/router/capturedListeners.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/router/capturedListeners.ts#L27">src/router/capturedListeners.ts:27</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -623,7 +687,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/router/capturedListeners.ts#L55">finoer-invoke/src/router/capturedListeners.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/router/capturedListeners.ts#L55">src/router/capturedListeners.ts:55</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -649,7 +713,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/utils/index.ts#L78">finoer-invoke/src/utils/index.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/utils/index.ts#L78">src/utils/index.ts:78</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -672,7 +736,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/utils/index.ts#L70">finoer-invoke/src/utils/index.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/utils/index.ts#L70">src/utils/index.ts:70</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -695,7 +759,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/utils/index.ts#L13">finoer-invoke/src/utils/index.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/utils/index.ts#L13">src/utils/index.ts:13</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -725,7 +789,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/utils/index.ts#L33">finoer-invoke/src/utils/index.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/utils/index.ts#L33">src/utils/index.ts:33</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -746,6 +810,29 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="getentryjs" class="tsd-anchor"></a>
+					<h3>get<wbr>Entry<wbr>Js</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Entry<wbr>Js<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/loader/index.ts#L62">src/loader/index.ts:62</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>url: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="getglobalcontext" class="tsd-anchor"></a>
 					<h3>get<wbr>Global<wbr>Context</h3>
 					<ul class="tsd-signatures tsd-kind-function">
@@ -755,7 +842,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/global/index.ts#L47">finoer-invoke/src/global/index.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/global/index.ts#L47">src/global/index.ts:47</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="classes/globalcontext.html" class="tsd-signature-type">GlobalContext</a></h4>
@@ -772,7 +859,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/applycation/store.ts#L11">finoer-invoke/src/applycation/store.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/applycation/store.ts#L11">src/applycation/store.ts:11</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -795,7 +882,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/context/init.ts#L12">finoer-invoke/src/context/init.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/context/init.ts#L12">src/context/init.ts:12</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -828,7 +915,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/sandbox/index.ts#L174">finoer-invoke/src/sandbox/index.ts:174</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/sandbox/index.ts#L174">src/sandbox/index.ts:174</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -863,7 +950,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/router/capturedListeners.ts#L41">finoer-invoke/src/router/capturedListeners.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/router/capturedListeners.ts#L41">src/router/capturedListeners.ts:41</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -889,7 +976,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/applycation/isInfino.ts#L3">finoer-invoke/src/applycation/isInfino.ts:3</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/applycation/isInfino.ts#L3">src/applycation/isInfino.ts:3</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -906,7 +993,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/utils/index.ts#L48">finoer-invoke/src/utils/index.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/utils/index.ts#L48">src/utils/index.ts:48</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -929,7 +1016,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/sandbox/index.ts#L169">finoer-invoke/src/sandbox/index.ts:169</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/sandbox/index.ts#L169">src/sandbox/index.ts:169</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -952,7 +1039,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/sandbox/snapshot.ts#L1">finoer-invoke/src/sandbox/snapshot.ts:1</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/sandbox/snapshot.ts#L1">src/sandbox/snapshot.ts:1</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -987,6 +1074,89 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="loadcss" class="tsd-anchor"></a>
+					<h3>load<wbr>Css</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">load<wbr>Css<span class="tsd-signature-symbol">(</span>cssList<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/loader/index.ts#L99">src/loader/index.ts:99</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>cssList: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="mount" class="tsd-anchor"></a>
+					<h3>mount</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">mount<span class="tsd-signature-symbol">(</span>app<span class="tsd-signature-symbol">: </span><a href="interfaces/project.html" class="tsd-signature-type">Project</a>, sandbox<span class="tsd-signature-symbol">: </span><a href="classes/snapshotsandbox.html" class="tsd-signature-type">SnapshotSandbox</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/project.html" class="tsd-signature-type">Project</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in src/invoke/lifecircle.ts:41</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>methods</dt>
+									<dd><p>{ life cycle-mount }</p>
+									</dd>
+									<dt>des</dt>
+									<dd><p>Create a running environment and inject routing</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>app: <a href="interfaces/project.html" class="tsd-signature-type">Project</a></h5>
+								</li>
+								<li>
+									<h5>sandbox: <a href="classes/snapshotsandbox.html" class="tsd-signature-type">SnapshotSandbox</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/project.html" class="tsd-signature-type">Project</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="mounted" class="tsd-anchor"></a>
+					<h3>mounted</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">mounted<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in src/invoke/lifecircle.ts:100</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>methods</dt>
+									<dd><p>The application is successfully mounted, and the sub-application is notified</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="patchinterval" class="tsd-anchor"></a>
 					<h3>patch<wbr>Interval</h3>
 					<ul class="tsd-signatures tsd-kind-function">
@@ -996,7 +1166,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/sandbox/patchAtMounting.ts#L6">finoer-invoke/src/sandbox/patchAtMounting.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/sandbox/patchAtMounting.ts#L6">src/sandbox/patchAtMounting.ts:6</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1019,7 +1189,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/applycation/register.ts#L7">finoer-invoke/src/applycation/register.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/applycation/register.ts#L7">src/applycation/register.ts:7</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1042,7 +1212,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/utils/index.ts#L63">finoer-invoke/src/utils/index.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/utils/index.ts#L63">src/utils/index.ts:63</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1065,7 +1235,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/router/capturedListeners.ts#L49">finoer-invoke/src/router/capturedListeners.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/router/capturedListeners.ts#L49">src/router/capturedListeners.ts:49</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1091,7 +1261,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/utils/index.ts#L57">finoer-invoke/src/utils/index.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/utils/index.ts#L57">src/utils/index.ts:57</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1124,7 +1294,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/applycation/store.ts#L4">finoer-invoke/src/applycation/store.ts:4</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/applycation/store.ts#L4">src/applycation/store.ts:4</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1150,7 +1320,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/loader/index.ts#L48">finoer-invoke/src/loader/index.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/loader/index.ts#L48">src/loader/index.ts:48</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1173,7 +1343,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/loader/index.ts#L25">finoer-invoke/src/loader/index.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/loader/index.ts#L25">src/loader/index.ts:25</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1186,6 +1356,44 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="unmount" class="tsd-anchor"></a>
+					<h3>unmount</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">unmount<span class="tsd-signature-symbol">(</span>apps<span class="tsd-signature-symbol">: </span><a href="interfaces/matchapptype.html" class="tsd-signature-type">MatchAppType</a><span class="tsd-signature-symbol">[]</span>, sandbox<span class="tsd-signature-symbol">: </span><a href="classes/snapshotsandbox.html" class="tsd-signature-type">SnapshotSandbox</a>, mode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in src/invoke/lifecircle.ts:67</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>methods</dt>
+									<dd><p>{ life cycle-unmount }</p>
+									</dd>
+									<dt>des</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>apps: <a href="interfaces/matchapptype.html" class="tsd-signature-type">MatchAppType</a><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li>
+									<h5>sandbox: <a href="classes/snapshotsandbox.html" class="tsd-signature-type">SnapshotSandbox</a></h5>
+								</li>
+								<li>
+									<h5>mode: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Object literals</h2>
@@ -1195,7 +1403,7 @@
 					<div class="tsd-signature tsd-kind-icon">capture<wbr>Event<wbr>Listeners<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/router/capturedListeners.ts#L6">finoer-invoke/src/router/capturedListeners.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/router/capturedListeners.ts#L6">src/router/capturedListeners.ts:6</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -1204,7 +1412,7 @@
 						<div class="tsd-signature tsd-kind-icon">hash<wbr>Change<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/router/capturedListeners.ts#L8">finoer-invoke/src/router/capturedListeners.ts:8</a></li>
+								<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/router/capturedListeners.ts#L8">src/router/capturedListeners.ts:8</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1214,7 +1422,37 @@
 						<div class="tsd-signature tsd-kind-icon">popstate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/2cfcde0/src/router/capturedListeners.ts#L7">finoer-invoke/src/router/capturedListeners.ts:7</a></li>
+								<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/router/capturedListeners.ts#L7">src/router/capturedListeners.ts:7</a></li>
+							</ul>
+						</aside>
+					</section>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal">
+					<a name="lifecirclefn" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> lifecircle<wbr>Fn</h3>
+					<div class="tsd-signature tsd-kind-icon">lifecircle<wbr>Fn<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/invoke/index.ts#L23">src/invoke/index.ts:23</a></li>
+						</ul>
+					</aside>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="lifecirclefn.bootstrap" class="tsd-anchor"></a>
+						<h3>bootstrap</h3>
+						<div class="tsd-signature tsd-kind-icon">bootstrap<span class="tsd-signature-symbol">:</span> <a href="globals.html#bootstrap" class="tsd-signature-type">bootstrap</a></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/invoke/index.ts#L23">src/invoke/index.ts:23</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="lifecirclefn.mount" class="tsd-anchor"></a>
+						<h3>mount</h3>
+						<div class="tsd-signature tsd-kind-icon">mount<span class="tsd-signature-symbol">:</span> <a href="globals.html#mount" class="tsd-signature-type">mount</a></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/finoer/finoer-invoke/blob/18708dd/src/invoke/index.ts#L23">src/invoke/index.ts:23</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1394,6 +1632,9 @@
 						<a href="globals.html#baseinfoloaded" class="tsd-kind-icon">base<wbr>Info<wbr>Loaded</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="globals.html#bootstrap" class="tsd-kind-icon">bootstrap</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="globals.html#callcaptureedeventlisteners" class="tsd-kind-icon">call<wbr>Captureed<wbr>Event<wbr>Listeners</a>
 					</li>
 					<li class=" tsd-kind-function">
@@ -1424,6 +1665,9 @@
 						<a href="globals.html#getappshouldbeunmount" class="tsd-kind-icon">get<wbr>App<wbr>Should<wbr>BeUnmount</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="globals.html#getentryjs" class="tsd-kind-icon">get<wbr>Entry<wbr>Js</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="globals.html#getglobalcontext" class="tsd-kind-icon">get<wbr>Global<wbr>Context</a>
 					</li>
 					<li class=" tsd-kind-function">
@@ -1451,6 +1695,15 @@
 						<a href="globals.html#iter" class="tsd-kind-icon">iter</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="globals.html#loadcss" class="tsd-kind-icon">load<wbr>Css</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#mount" class="tsd-kind-icon">mount</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#mounted" class="tsd-kind-icon">mounted</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="globals.html#patchinterval" class="tsd-kind-icon">patch<wbr>Interval</a>
 					</li>
 					<li class=" tsd-kind-function">
@@ -1474,8 +1727,14 @@
 					<li class=" tsd-kind-function">
 						<a href="globals.html#tagloadjs" class="tsd-kind-icon">tag<wbr>Load<wbr>Js</a>
 					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#unmount" class="tsd-kind-icon">unmount</a>
+					</li>
 					<li class=" tsd-kind-object-literal">
 						<a href="globals.html#captureeventlisteners" class="tsd-kind-icon">capture<wbr>Event<wbr>Listeners</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#lifecirclefn" class="tsd-kind-icon">lifecircle<wbr>Fn</a>
 					</li>
 				</ul>
 			</nav>
