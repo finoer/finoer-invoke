@@ -14,7 +14,7 @@ import { MOUNT, UNMOUNT } from "../utils/contants";
 export async function bootstrap(app: Project, sandbox: SnapshotSandbox, loadFn: (baseDomain: string, assetsData: any) => Promise<Project>) {
   let activeProject: Project['appInfo'];
 
-  const entryStatePath = app.domain + app.entry;
+  const entryStatePath = app.entry.indexOf('http') > -1 ? app.entry : app.domain + app.entry;
 
    // Get application js packaging information
    activeProject = await getEntryJs(entryStatePath);

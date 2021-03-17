@@ -33,7 +33,7 @@ export class GlobalContext {
   constructor() {
     this.activedApplication = Apps[0]
 
-    this.activeContext = Window
+    this.activeContext = window
   }
 
   // 设置运行环境
@@ -52,9 +52,6 @@ function getGlobalContext() {
   }
 
   global.globalContext = new GlobalContext()
-  // debugger
-  // console.log('database', Database)
-  // global.$data = new Database()
 
   return global.globalContext
 }

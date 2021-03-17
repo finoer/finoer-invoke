@@ -10,8 +10,8 @@ import { BOOTSTRAP, MOUNT, UNMOUNT } from "./contants";
  * @param { apps - 应用列表 }
  * @return { app - 需要被加载的应用 }
  */
-export function getAppShouldBeActive(apps: Array<Project>): MatchAppType {
-  let result: MatchAppType = { app: apps[0], index: 0 };
+export function getAppShouldBeActive(apps: Array<Project>): MatchAppType | undefined {
+  let result: MatchAppType | undefined
   apps.forEach((item, index) => {
     if (item.activeWhen(window.location) && item.status ) {
       item.status === UNMOUNT && (item.status = BOOTSTRAP);
@@ -46,7 +46,6 @@ export function getAppShouldBeUnmount(apps: Array<Project>): Array<MatchAppType>
 
 // 判断是否是一个对象
 export const isObject = (obj: unknown) => typeof(obj) === 'object' && obj !== null
-
 
 /**
  * @func 进入loading模式

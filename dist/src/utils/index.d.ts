@@ -5,7 +5,7 @@ import { GlobalType, MatchAppType } from "../types/context";
  * @param { apps - 应用列表 }
  * @return { app - 需要被加载的应用 }
  */
-export declare function getAppShouldBeActive(apps: Array<Project>): MatchAppType;
+export declare function getAppShouldBeActive(apps: Array<Project>): MatchAppType | undefined;
 /**
  * @function 获取当前应该被卸载的应用
  * @param global

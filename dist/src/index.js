@@ -23,156 +23,6 @@
       return Apps;
   }
 
-  // 判断是否是一个对象
-  const isObject = (obj) => typeof (obj) === 'object' && obj !== null;
-  function isKeywordInThis(key) {
-      const instance = new Database();
-      let keys = Object.keys(instance);
-      return keys.includes(key);
-  }
-
-  /**
-   * Provide data warehouse for fino framework
-   * @param { type }  - this is a backup
-   */
-  class Database {
-      constructor() {
-          // Namespace of module data
-          this.namespace = '';
-          // Database
-          this.data = {};
-          // Cache data key that has been set up proxy;
-          this.existingProxy = [];
-      }
-      /**
-       * Initialize the namespace of the currently activated project
-       * @param { string } - name namespace
-       */
-      init(spacename) {
-          if (!spacename) {
-              throw new Error('请传入命名空间');
-          }
-          // 重置上一个命名空间的状态
-          // this.reset()
-          this.namespace = spacename;
-      }
-      /**
-       * set up reactive data
-       * @param { object } - data 用户需要设置的数据
-       * @param { string? } - namespace 命名空间
-       */
-      set(data, namespace) {
-          if (namespace && isKeywordInThis(namespace)) {
-              console.error(`${namespace}是数据仓库的关键字，请更改命名空间`);
-              return;
-          }
-          if (!isObject(data)) {
-              console.error(`设置的数据必须是一个对象`);
-              return;
-          }
-          const currentSpace = namespace || this.namespace;
-          let initialData = this.data[currentSpace] || {};
-          // 设置数据
-          this.data[currentSpace] = Object.assign(initialData, data, {
-              _spacename: currentSpace
-          });
-          // 代理访问链
-          for (let key in data) {
-              this.proxyOfprototype(data, currentSpace, key);
-          }
-          // 代理内容
-          this.data[currentSpace] = this.proxyOfcontent(currentSpace);
-      }
-      /**
-       * Get the data of a module
-       * @param { string } - key 需要获取的数据的key值
-       * @param { string } - namespace 命名空间
-       */
-      get(key, namespace) {
-          // 如果key为空，返回所有数据
-          if (!key && namespace) {
-              return this.data[this.namespace];
-          }
-          // 如果不传第二个参数， 默认获取当前命名空间下面的数据
-          else if (key && !namespace && this.data[this.namespace] && this.data[this.namespace][key] !== undefined) {
-              return this.data[this.namespace][key];
-          }
-          // 如果穿了第二个参数， 那么获取相应命名空间下面的数据
-          else if (namespace && key && this.data[namespace]) {
-              return this.data[namespace][key];
-          }
-      }
-      /**
-       * Reset the data under the current namespace
-       */
-      clear() {
-          if (!this.data[this.namespace]) {
-              return;
-          }
-          const keys = Object.keys(this.data[this.namespace]);
-          keys.forEach(key => {
-              if (key === 'spacename') {
-                  return;
-              }
-              delete this[key];
-          });
-          this.data[this.namespace] = null;
-      }
-      /**
-       * Proxy access chain
-       * @param { object } - data 用户需要设置的数据
-       * @param { string } - namespace 命名空间
-       * @param { string } - key 数据的key
-       */
-      proxyOfprototype(data, namespace, key) {
-          if (key === '_spacename') {
-              return;
-          }
-          console.log(data);
-          const _namespace = namespace || this.namespace;
-          const sharePropertyDefinition = {
-              get: () => {
-                  return this.data[_namespace][key];
-              },
-              set: (newvalue) => {
-                  this.data[key] = newvalue;
-                  this.data[_namespace][key] = newvalue;
-              },
-              enumerable: true,
-              configurable: true,
-          };
-          Object.defineProperty(this, key, sharePropertyDefinition);
-      }
-      /**
-       * Proxy data content
-       * @param { string } - namespace 命名空间
-       */
-      proxyOfcontent(namespace) {
-          if (this.existingProxy.includes(namespace)) {
-              return this.data[namespace];
-          }
-          let proxy = new Proxy(this.data[namespace], {
-              get: (target, key, receiver) => {
-                  const res = Reflect.get(target, key, receiver);
-                  return res;
-              },
-              set: (target, key, value, receiver) => {
-                  const oldValue = target[key];
-                  if (target._spacename !== this.namespace && target._spacename !== 'global') {
-                      console.error('不允许修改其他数据仓库的数据');
-                      return oldValue;
-                  }
-                  const result = Reflect.set(target, key, value, receiver);
-                  return result;
-              }
-          });
-          this.existingProxy.push(namespace);
-          return proxy;
-      }
-  }
-
-  console.log('databnase改变了最终版8');
-
   /**
    * @class 全局单例
    */
@@ -187,7 +37,7 @@
           // 资源缓存
           this.contextSourceCache = {};
           this.activedApplication = Apps[0];
-          this.activeContext = Window;
+          this.activeContext = window;
       }
       // 设置运行环境
       setRuntimeContext(context) {
@@ -200,9 +50,6 @@
           return global.globalContext;
       }
       global.globalContext = new GlobalContext();
-      // debugger
-      // console.log('database', Database)
-      // global.$data = new Database()
       return global.globalContext;
   }
   const globalContext = getGlobalContext();
@@ -218,7 +65,7 @@
    * @return { app - 需要被加载的应用 }
    */
   function getAppShouldBeActive(apps) {
-      let result = { app: apps[0], index: 0 };
+      let result;
       apps.forEach((item, index) => {
           if (item.activeWhen(window.location) && item.status) {
               item.status === UNMOUNT && (item.status = BOOTSTRAP);
@@ -665,7 +512,7 @@
    */
   async function bootstrap(app, sandbox, loadFn) {
       let activeProject;
-      const entryStatePath = app.domain + app.entry;
+      const entryStatePath = app.entry.indexOf('http') > -1 ? app.entry : app.domain + app.entry;
       // Get application js packaging information
       activeProject = await getEntryJs(entryStatePath);
       // activate the sandbox
@@ -762,7 +609,6 @@
               item.status = BOOTSTRAP;
           });
           this.appList = apps;
-          this.performAppChnage(this.appList);
           return this.appList;
       }
       /**
@@ -773,6 +619,9 @@
       async performAppChnage(apps) {
           // Get the application that needs to be mounted
           const activeApp = getAppShouldBeActive(apps);
+          if (!activeApp) {
+              throw new Error('没有需要挂载的应用');
+          }
           this.app = activeApp.app;
           this.app.dynamicElements = this.app.dynamicElements || { js: [], css: [] };
           // uninstall apps that do not require activation
@@ -785,6 +634,7 @@
           if (unmountApps) {
               await unmount(unmountApps, this.sandbox, this.mode);
           }
+          this.$event.notify('beforeAppEnter');
           if (this.app.status === MOUNT) {
               globalContext.activedApplication = this.app;
           }
@@ -867,6 +717,7 @@
       }
       start() {
           setStore('root', 'root');
+          this.performAppChnage(this.appList);
       }
   }
 
@@ -955,17 +806,10 @@
       }
   }
 
-  const global = window;
-  const $data = global.$data = global.$data ? global.$data : new Database();
   const invoke = new Invoke();
   const router = new Router(invoke);
-  // initialize the data store of the current module
-  invoke.$event.subscribe('appEnter', () => {
-      global.$data && global.$data.init(invoke.app.name);
-  });
-  console.log('这里是代码最终版');
+  console.log('33');
 
-  exports.$data = $data;
   exports.invoke = invoke;
   exports.registerApps = registerApps;
   exports.router = router;

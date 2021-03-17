@@ -4,11 +4,10 @@ import { getStore, setStore } from "../applycation/store";
 import { getAppShouldBeActive, getAppShouldBeUnmount, registerEvents, removeChild } from "../utils";
 import { GlobalType, ContextType, MatchAppType } from '../types/context'
 import Events from "../events";
-import { tagLoadJs, tagLoadCss, getEntryJs } from "../loader";
+import { getEntryJs } from "../loader";
 import { globalContext } from "../global";
 import initRuntimeContext from "../context/init";
-import VueRuntimeContext from "../context/vue";
-import { BOOTSTRAP, MOUNTED, MOUNT, UNMOUNT } from "../utils/contants";
+import { BOOTSTRAP, MOUNT } from "../utils/contants";
 import SnapshotSandbox from "../sandbox/snapshot";
 import { patchInterval } from "../sandbox/patchAtMounting";
 import { bootstrap, mount, unmount } from './lifecircle'
@@ -64,8 +63,6 @@ class Invoke {
 
     this.appList = (apps as Project[])
 
-    this.performAppChnage(this.appList)
-
     return this.appList
   }
 
@@ -77,6 +74,11 @@ class Invoke {
   async performAppChnage(apps: Array<Project>) {
     // Get the application that needs to be mounted
     const activeApp = getAppShouldBeActive(apps);
+
+    if(!activeApp) {
+      throw new Error('没有需要挂载的应用');
+      return
+    }
 
     this.app = activeApp.app
 
@@ -94,6 +96,8 @@ class Invoke {
     if(unmountApps) {
       await unmount(unmountApps, this.sandbox, this.mode)
     }
+
+    this.$event.notify('beforeAppEnter')
 
 
     if(this.app.status === MOUNT) {
@@ -202,6 +206,7 @@ class Invoke {
 
   public start() {
     setStore('root', 'root')
+    this.performAppChnage(this.appList)
   }
 }
 
