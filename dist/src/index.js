@@ -4,6 +4,12 @@
   (global = global || self, factory(global.finoerInvoke = {}));
 }(this, (function (exports) { 'use strict';
 
+  let Apps = [];
+  function registerApps(app) {
+      Apps = invoke.init(app);
+      return Apps;
+  }
+
   const namespace = 'FINO';
   function setStore(key, value) {
       if (!window[namespace]) {
@@ -14,13 +20,6 @@
   function getStore(key) {
       const fino = window[namespace];
       return fino && fino[key] ? fino[key] : null;
-  }
-
-  let Apps = [];
-  function registerApps(app) {
-      setStore('root', 'root');
-      Apps = invoke.init(app);
-      return Apps;
   }
 
   /**
@@ -193,12 +192,13 @@
                   let s2 = createJs();
                   s2.scriptTag.onload = resolve;
                   s2.scriptTag.onerror = reject;
-                  s2.scriptTag.src = baseUrl + src + "?" + timestamp;
+                  s2.scriptTag.src = baseUrl + src;
                   document.head.appendChild(s2.scriptTag);
                   reject(err);
               }, 1000);
           };
-          scriptTag.src = baseUrl + src + "?" + timestamp;
+          // + "?" + timestamp
+          scriptTag.src = baseUrl + src;
           scriptTag.id = baseUrl + src;
           document.body.appendChild(scriptTag);
       });
@@ -207,7 +207,7 @@
       let { styleTag, timestamp } = createCss();
       return new Promise((resolve) => {
           styleTag.onload = () => resolve(null);
-          styleTag.href = baseUrl + link + "?" + timestamp;
+          styleTag.href = baseUrl + link;
           styleTag.rel = "stylesheet";
           styleTag.id = baseUrl + link;
           document.body.appendChild(styleTag);
@@ -683,6 +683,7 @@
        * @methods Get application js
        */
       async getModuleJs(baseDomain, assetsData) {
+          const entryStatePath = this.app.entry.indexOf('http') > -1 ? this.app.entry : this.app.domain + this.app.entry;
           // const assets = Object.keys(assetsData);
           for (let i = 0; i < assetsData.length; i++) {
               if (typeof (assetsData[i]) === 'string') {
@@ -706,6 +707,7 @@
                   continue;
               }
           }
+          this.app.dynamicElements.js.push(entryStatePath);
           return globalContext.activedApplication;
       }
       /**

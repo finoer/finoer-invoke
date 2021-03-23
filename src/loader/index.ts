@@ -33,13 +33,13 @@ export function tagLoadJs(src: string): Promise<any> {
         let s2 = createJs()
         s2.scriptTag.onload = resolve
         s2.scriptTag.onerror = reject
-        s2.scriptTag.src = baseUrl + src + "?" + timestamp
+        s2.scriptTag.src = baseUrl + src
         document.head.appendChild(s2.scriptTag)
         reject(err)
       }, 1000)
     }
-
-    scriptTag.src = baseUrl + src + "?" + timestamp
+    // + "?" + timestamp
+    scriptTag.src = baseUrl + src
     scriptTag.id = baseUrl + src
     document.body.appendChild(scriptTag)
   })
@@ -50,7 +50,7 @@ export function tagLoadCss(link: string): Promise<any> {
   return new Promise((resolve) => {
     styleTag.onload = () => resolve(null);
 
-    styleTag.href = baseUrl + link + "?" + timestamp
+    styleTag.href = baseUrl + link
     styleTag.rel = "stylesheet"
     styleTag.id = baseUrl + link
     document.body.appendChild(styleTag)

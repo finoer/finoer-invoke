@@ -99,7 +99,6 @@ class Invoke {
 
     this.$event.notify('beforeAppEnter')
 
-
     if(this.app.status === MOUNT) {
       globalContext.activedApplication = this.app
     }
@@ -147,7 +146,6 @@ class Invoke {
       // uninstall before app runtime context,
       if(runtime && runtime.destroy) {
         runtime.destroy()
-
       }
 
       // store the created runtime environment in the global
@@ -165,6 +163,7 @@ class Invoke {
    * @methods Get application js
    */
   async getModuleJs(baseDomain: string, assetsData: any): Promise<Project> {
+    const entryStatePath = this.app.entry.indexOf('http') > -1 ? this.app.entry : this.app.domain + this.app.entry;
     // const assets = Object.keys(assetsData);
     for(let i = 0; i < assetsData.length; i++) {
 
@@ -172,9 +171,7 @@ class Invoke {
         const entry = assetsData[i]
         const url = baseDomain + '/' + entry
 
-
         if(entry.indexOf('.css') > -1) {
-
           this.app.dynamicElements.css.indexOf(url) === -1  &&
             this.app.dynamicElements.css.push(url)
           continue
@@ -185,6 +182,7 @@ class Invoke {
           source.src = url
         }
 
+
         if(this.mode === 'safe') {
           this.app.dynamicElements.js.push(url)
         }
@@ -192,6 +190,9 @@ class Invoke {
         continue
       }
     }
+
+    this.app.dynamicElements.js.push(entryStatePath)
+
 
     return globalContext.activedApplication
   }
@@ -206,6 +207,7 @@ class Invoke {
 
   public start() {
     setStore('root', 'root')
+
     this.performAppChnage(this.appList)
   }
 }
