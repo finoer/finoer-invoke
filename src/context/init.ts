@@ -1,6 +1,7 @@
 import VueRuntimeContext from "./vue";
 import { ContextType } from "../types/context";
 import PhaserRuntimeContext from "./phaser";
+// import Vue3RuntimeContext from "./vue3";
 
 /**
  * @function { Initialize the runtime context }
@@ -10,19 +11,19 @@ import PhaserRuntimeContext from "./phaser";
  */
 
 async function initRuntimeContext(context: string, version: string): Promise<ContextType['context']> {
-  const runtimePool: any = {
-    vue: VueRuntimeContext,
-    phaser: PhaserRuntimeContext
-  }
+    const runtimePool: any = {
+        vue: VueRuntimeContext,
+        phaser: PhaserRuntimeContext,
+        // vue3: Vue3RuntimeContext
+    }
 
-  const runtime: ContextType['context'] = new runtimePool[context]();
+    const runtime: ContextType['context'] = new runtimePool[context]();
 
-  await runtime.getContextResource(version);
+    await runtime.getContextResource(version);
 
-  runtime.instance = runtime.createContext(version)
+    runtime.instance = runtime.createContext(version)
 
-
-  return runtime
+    return runtime
 }
 
 export default initRuntimeContext

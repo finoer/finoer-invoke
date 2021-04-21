@@ -22,3 +22,4 @@ export declare function removeChild(id: string): void;
 export declare function registerEvents(global: GlobalType): void;
 export declare function getAppMountTime(app: Project): string | boolean;
 export declare function firstUpperCase(str: string): string;
+export declare function preloadSource(baseDomain: string, assetsData: any): void;

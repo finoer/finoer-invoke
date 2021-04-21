@@ -1,16 +1,16 @@
 import BaseModuleContext from "./base";
 
-import { CreateElement } from "vue/types/umd";
+// import { CreateElement } from "vue/types/umd";
 import { globalContext } from "../global";
 
 interface Global extends Window {
-  vue?: Vue,
+  vue?: any,
   VueRouter?: any,
 }
 
 class VueRuntimeContext extends BaseModuleContext {
   // the instance of runtime context
-  public instance?: Vue
+  public instance?: any
 
   constructor() {
     super("vue")
@@ -56,10 +56,8 @@ class VueRuntimeContext extends BaseModuleContext {
     const vue = (window as any).vm = new (Vue as any)({
       el: rootDom,
       router,
-      render: (h: CreateElement) => h('div', { attrs: { id: 'fino-vue-root' } },
-        [
-          h('RouterView')
-        ]
+      render: (h: any) => h('div', { attrs: { id: 'fino-vue-root' } },
+        [h('routerView')]
       )
     })
 

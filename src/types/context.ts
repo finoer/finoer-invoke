@@ -11,9 +11,7 @@ export interface ContextType {
 export interface GlobalType extends Window {
   $event?: Events;
   globalContext?: GlobalContext;
-
 }
-
 
 export interface FinoType {
   vue?: Vue,

@@ -36,5 +36,6 @@ declare class Invoke {
      */
     isInFinoRuntime(): boolean;
     start(): void;
+    preload(): Promise<void>;
 }
 export default Invoke;

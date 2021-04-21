@@ -53,7 +53,7 @@ export function tagLoadCss(link: string): Promise<any> {
     styleTag.href = baseUrl + link
     styleTag.rel = "stylesheet"
     styleTag.id = baseUrl + link
-    document.body.appendChild(styleTag)
+    document.head.appendChild(styleTag)
 
     resolve(null)
   })
@@ -68,6 +68,20 @@ export function getEntryJs(url: string): Promise<any> {
       reject(e)
     })
   })
+}
+
+/**
+ * 预备加载问题
+ * @param source
+ * @param { type } (script || style)  https://developer.mozilla.org/zh-CN/docs/Web/HTML/Preloading_content
+ */
+export function createPreloadLink(source: string, type: string) {
+  let preloadLink = document.createElement("link");
+
+  preloadLink.href = source;
+  preloadLink.rel = "preload";
+  preloadLink.as = type;
+  document.head.appendChild(preloadLink);
 }
 
 function createCss() {
@@ -97,7 +111,7 @@ function createJs() {
 }
 
 export async function loadCss(cssList: string[]) {
-  for(let i = 0; i < cssList.length; i++) {
+  for (let i = 0; i < cssList.length; i++) {
     await tagLoadCss(cssList[i])
   }
 }

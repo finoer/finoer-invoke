@@ -1,5 +1,5 @@
 import BaseModuleContext from "./base";
-declare class VueRuntimeContext extends BaseModuleContext {
+declare class Vue3RuntimeContext extends BaseModuleContext {
     instance?: any;
     constructor();
     /**
@@ -7,17 +7,11 @@ declare class VueRuntimeContext extends BaseModuleContext {
      * @param version
      */
     getContextResource(version: string): Promise<any>;
-    /**
-     * @func {*} create vue runtime context
-     */
     createContext(version: string): any;
     /**
-     * @func { Injection router }
-     */
+    * @func { Injection router }
+    */
     injectionRouter(routes: Array<any>): void;
-    /**
-     * @func { Uninstall the runtime environment }
-     */
     destroy(): void;
 }
-export default VueRuntimeContext;
+export default Vue3RuntimeContext;

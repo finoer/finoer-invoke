@@ -19,8 +19,10 @@ abstract class BaseModuleContext {
   }
 
   // 获取运行环境沙箱
-  public getSandBoxJs(type: string, version: string) {
-    const url = `${this.baseUrl}/${type}/${version}/${type}.min.js`;
+  public getSandBoxJs(type: string, version: string, name?: string) {
+    const _name = (name && name + '.global.prod') || type + '.min'
+    const url = name === 'vue' ? "https://unpkg.com/vue@next" :
+      `${this.baseUrl}/${type}/${version}/${_name}.js`
     return tagLoadJs(url)
   }
 

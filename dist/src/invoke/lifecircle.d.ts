@@ -19,3 +19,4 @@ export declare function unmount(apps: MatchAppType[], sandbox: SnapshotSandbox, 
  * @methods The application is successfully mounted, and the sub-application is notified
  */
 export declare function mounted(): Promise<void>;
+export declare function bootstraping(app: Project): Promise<Project>;

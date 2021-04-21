@@ -1,6 +1,4 @@
-import Vue from 'vue';
 import { Project } from "../types/project";
-import { VueConstructor } from "vue/types/umd";
 import { AppInfoType } from '../types/project/appInfo';
 interface CacheType {
     [propsName: string]: boolean;
@@ -12,7 +10,7 @@ export declare class GlobalContext {
     activedApplication: Project;
     activeAppInfo: AppInfoType;
     contextSourceCache: CacheType;
-    activeContext: VueConstructor<Vue> | Window | any;
+    activeContext: Window | any;
     constructor();
     setRuntimeContext<RuntimeContextType>(context: RuntimeContextType): void;
 }
