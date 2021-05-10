@@ -133,7 +133,7 @@ class PhaserRuntimeContext extends BaseModuleContext {
                 instance.scene.remove(item.name);
             }
 
-            if (index === scenes.length - 1 && instance.scene.scenes.length > 0) {
+            if ((index === scenes.length - 1 && instance.scene.scenes.length > 0) || instance.scene.scenes.length === 0) {
                 instance.scene.add(item.name, item.scene, true);
             } else {
                 instance.scene.add(item.name, item.scene)

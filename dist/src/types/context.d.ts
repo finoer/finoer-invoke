@@ -11,8 +11,8 @@ export interface GlobalType extends Window {
     globalContext?: GlobalContext;
 }
 export interface FinoType {
-    vue?: Vue;
-    Vue?: Vue;
+    vue?: any;
+    Vue?: any;
     vueRouter?: any;
 }
 export interface MatchAppType {

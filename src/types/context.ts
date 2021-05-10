@@ -5,21 +5,21 @@ import PhaserRuntimeContext from "../context/phaser";
 import { Project } from "./project";
 
 export interface ContextType {
-  context: VueRuntimeContext | PhaserRuntimeContext
+    context: VueRuntimeContext | PhaserRuntimeContext
 }
 
 export interface GlobalType extends Window {
-  $event?: Events;
-  globalContext?: GlobalContext;
+    $event?: Events;
+    globalContext?: GlobalContext;
 }
 
 export interface FinoType {
-  vue?: Vue,
-  Vue?: Vue,
-  vueRouter?: any,
+    vue?: any,
+    Vue?: any,
+    vueRouter?: any,
 }
 
 export interface MatchAppType {
-  app: Project,
-  index: number
+    app: Project,
+    index: number
 }

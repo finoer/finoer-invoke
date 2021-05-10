@@ -1,7 +1,7 @@
 
 
 
-declare var vue: Vue
+declare var vue: any
 
 declare var vue3: any
 

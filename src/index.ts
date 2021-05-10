@@ -3,13 +3,9 @@ import { registerApps } from './applycation/register';
 import Invoke from './invoke/index';
 import Router from './router';
 import { GlobalType } from './types/context';
-alert(1)
-
 const global: GlobalType = window
 const invoke = new Invoke()
-const router = new Router(invoke)
-
-console.log('888');
+const router = new Router(invoke);
 
 (window as any).router = router
 

@@ -507,10 +507,11 @@
           // 停止到当前所有的场景
           const instance = this.instance;
           scenes.map((item, index) => {
+              debugger;
               if (instance.scene.getScene(item.name)) {
                   instance.scene.remove(item.name);
               }
-              if (index === scenes.length - 1 && instance.scene.scenes.length > 0) {
+              if ((index === scenes.length - 1 && instance.scene.scenes.length > 0) || instance.scene.scenes.length === 0) {
                   instance.scene.add(item.name, item.scene, true);
               }
               else {
@@ -4546,10 +4547,9 @@
       }
   }
 
-  alert(1);
   const invoke = new Invoke();
   const router = new Router(invoke);
-  console.log('888');
+  console.log('测试新的代码证111');
   window.router = router;
 
   exports.invoke = invoke;
